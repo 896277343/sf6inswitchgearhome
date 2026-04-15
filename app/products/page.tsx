@@ -472,7 +472,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                 <input type="hidden" name="from_company" value={siteConfig.brand.legalName} />
                 <input type="hidden" name="referer" value={`${siteConfig.site_domain}/products`} />
                 <input type="hidden" name="success_path" value="/inquiry/success" />
-                <input type="hidden" name="failure_path" value="/products#send-message" />
+                <input type="hidden" name="failure_path" value="/contact" />
                 {selectedProduct ? (
                   <>
                     <input

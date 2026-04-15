@@ -390,7 +390,7 @@ export default function ProductContent() {
                     <input type="hidden" name="from_company" value={siteConfig.brand.legalName} />
                     <input type="hidden" name="referer" value={`${siteConfig.site_domain}/products/sf6-gas-filling-cart`} />
                     <input type="hidden" name="success_path" value="/inquiry/success" />
-                    <input type="hidden" name="failure_path" value="/products/sf6-gas-filling-cart#inquiry" />
+                <input type="hidden" name="failure_path" value="/contact" />
                     <input type="hidden" name="product_name" value={product.name} />
                     <input type="hidden" name="product_slug" value="sf6-gas-filling-cart" />
                     <input type="hidden" name="product_model" value={product.model} />
