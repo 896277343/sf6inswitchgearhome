@@ -26,7 +26,7 @@ import {
 // Product data
 const product = {
   name: "SF6 Gas Filling Kit",
-  model: "SF6-FK-2000",
+  model: "SF6-FK",
   description: "Comprehensive SF6 gas filling system with precise pressure control, vacuum pump, and gas recovery capabilities. Ideal for GIS and circuit breaker maintenance.",
   shortDescription: "Complete SF6 gas filling kit with vacuum pump, pressure control, and recovery functions.",
   price: "Contact for Quote",

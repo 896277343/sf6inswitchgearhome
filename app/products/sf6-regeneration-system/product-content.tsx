@@ -26,7 +26,7 @@ import {
 // Product data
 const product = {
   name: "SF6 Regeneration System",
-  model: "SF6-RS-7000",
+  model: "SF6-RS",
   description: "Advanced SF6 gas regeneration system for purifying and reclaiming used SF6 gas. Restores SF6 to original purity levels for reuse, reducing environmental impact and operational costs.",
   shortDescription: "Advanced SF6 gas regeneration system for purifying and reclaiming used SF6 gas.",
   price: "Contact for Quote",

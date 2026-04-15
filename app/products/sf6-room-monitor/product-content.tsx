@@ -29,7 +29,7 @@ import {
 // Product data
 const product = {
   name: "SF6 Room Monitor",
-  model: "SF6-RM-5000",
+  model: "SF6-RM1013",
   description: "24/7 continuous monitoring system for SF6 gas leakage, oxygen concentration, and environmental conditions. Features real-time alerts and remote monitoring capabilities for maximum safety.",
   shortDescription: "Advanced SF6 room monitoring system with 24/7 detection, oxygen monitoring, and real-time alerts.",
   price: "Contact for Quote",

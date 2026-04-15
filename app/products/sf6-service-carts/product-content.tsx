@@ -26,7 +26,7 @@ import {
 // Product data
 const product = {
   name: "SF6 Service Carts",
-  model: "SF6-SC-6000",
+  model: "SF6-SC",
   description: "Comprehensive SF6 service cart with integrated vacuum pump, gas recovery, purification, and filling capabilities. Designed for complete SF6 gas management in power systems.",
   shortDescription: "Comprehensive SF6 service cart with vacuum pump, recovery, purification, and filling capabilities.",
   price: "Contact for Quote",

@@ -293,9 +293,10 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
       </Script>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16 lg:py-18">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.32),_transparent_30%),linear-gradient(135deg,#020617_0%,#0f172a_45%,#1d4ed8_100%)] text-white py-16 lg:py-20">
+        <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.06)_35%,transparent_70%)]" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb className="mb-8 text-white/80">
+          <Breadcrumb className="relative mb-8 text-white/80">
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink href="/" className="text-white/80 hover:text-white">Home</BreadcrumbLink>
@@ -307,82 +308,27 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
             </BreadcrumbList>
           </Breadcrumb>
           
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">SF6 Gas Equipment Products</h1>
-            <p className="text-lg sm:text-xl mb-6 opacity-90">
-              High-quality SF6 gas equipment solutions for industrial applications. Our products are designed to meet the highest standards of performance, reliability, and safety.
+          <div className="relative mx-auto max-w-4xl text-center">
+            <div className="mb-5 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-medium uppercase tracking-[0.18em] text-blue-100 backdrop-blur-sm">
+              SF6 Product Portfolio
+            </div>
+            <h1 className="mb-5 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              SF6 Gas Equipment Products
+            </h1>
+            <p className="mx-auto mb-8 max-w-3xl text-lg leading-8 text-blue-50/90 sm:text-xl">
+              Explore dependable SF6 detection, monitoring, handling, recovery, and regeneration equipment designed for utilities, OEMs, and field service teams.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild className="bg-white text-blue-800 hover:bg-blue-50 text-lg px-8 py-6">
+              <Button asChild className="bg-white text-slate-950 hover:bg-blue-50 text-lg px-8 py-6 shadow-lg shadow-blue-950/20">
                 <Link href="#send-message">
                   Request a Quote
                 </Link>
               </Button>
-              <Button asChild className="bg-transparent border border-white hover:bg-white/10 text-lg px-8 py-6">
+              <Button asChild className="bg-transparent border border-white/70 hover:bg-white/10 text-lg px-8 py-6">
                 <Link href="#send-message">
                   Contact Sales
                 </Link>
               </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Product Features Section */}
-      <section className="py-12 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_1.4fr] lg:items-start">
-            <div className="rounded-3xl bg-gradient-to-br from-slate-950 via-blue-950 to-blue-800 p-8 text-white shadow-xl lg:sticky lg:top-24">
-              <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-sm font-medium text-blue-100">
-                Why Choose Us
-              </div>
-              <h2 className="mb-4 text-3xl font-bold leading-tight">
-                Why Choose Our SF6 Gas Equipment
-              </h2>
-              <p className="text-base leading-7 text-blue-100/90">
-                Our equipment is built for utilities, service teams, and industrial operators that need dependable SF6 performance in real working conditions.
-              </p>
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
-                  <div className="text-2xl font-bold">25+</div>
-                  <div className="mt-1 text-sm text-blue-100/80">Years of SF6 experience</div>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
-                  <div className="text-2xl font-bold">24/7</div>
-                  <div className="mt-1 text-sm text-blue-100/80">Support for critical operations</div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="mb-8 max-w-3xl">
-                <p className="text-lg leading-7 text-slate-600">
-                  From leak detection and room monitoring to gas recovery and regeneration, every solution is designed to reduce downtime, improve safety, and support long-term lifecycle management.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <FeatureCard 
-                  icon={<Shield size={28} />}
-                  title="SF6 Safety Compliance"
-                  description="Engineered to support safe operation in substations and service environments with dependable monitoring and handling workflows."
-                />
-                <FeatureCard 
-                  icon={<Zap size={28} />}
-                  title="SF6 Precision Performance"
-                  description="Accurate measurement, stable control, and repeatable system performance for demanding inspection and gas management tasks."
-                />
-                <FeatureCard 
-                  icon={<RefreshCw size={28} />}
-                  title="SF6 Recovery Efficiency"
-                  description="Designed to minimize gas loss and help teams recover, purify, and reuse SF6 more effectively across the service cycle."
-                />
-                <FeatureCard 
-                  icon={<Clock size={28} />}
-                  title="SF6 Long-Term Reliability"
-                  description="Durable construction and practical maintenance design help extend service life in heavy-duty field applications."
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -413,6 +359,70 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                 priority={index < 2}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Product Features Section */}
+      <section className="py-16 bg-[radial-gradient(circle_at_top,_rgba(30,64,175,0.18),_transparent_32%),linear-gradient(180deg,#eff6ff_0%,#f8fafc_40%,#ffffff_100%)]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-stretch">
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-950 via-slate-900 to-blue-900 p-8 text-white shadow-[0_24px_80px_rgba(15,23,42,0.28)] lg:min-h-[560px]">
+              <div className="absolute -right-16 top-10 h-48 w-48 rounded-full bg-blue-400/20 blur-3xl" />
+              <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-cyan-300/10 blur-3xl" />
+              <div className="relative">
+                <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-sm font-medium uppercase tracking-[0.18em] text-blue-100">
+                  Why Choose Us
+                </div>
+                <h2 className="mb-4 text-3xl font-bold leading-tight sm:text-[2.1rem]">
+                  Why Teams Choose Our SF6 Equipment
+                </h2>
+                <p className="max-w-lg text-base leading-7 text-blue-100/90">
+                  Built for substations, OEMs, and service teams that need reliable SF6 detection, handling, recovery, and regeneration in daily operations.
+                </p>
+              </div>
+              <div className="relative mt-8 grid gap-5 sm:grid-cols-2">
+                <div className="rounded-3xl border border-white/10 bg-white/8 p-5 backdrop-blur-sm">
+                  <div className="text-3xl font-bold">25+</div>
+                  <div className="mt-2 text-sm uppercase tracking-[0.14em] text-blue-100/70">Years in SF6 solutions</div>
+                  <p className="mt-3 text-sm leading-6 text-blue-100/80">
+                    Experience across monitoring, service, recovery, and gas lifecycle support for high-voltage applications.
+                  </p>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-white/8 p-5 backdrop-blur-sm">
+                  <div className="text-3xl font-bold">24/7</div>
+                  <div className="mt-2 text-sm uppercase tracking-[0.14em] text-blue-100/70">Support for critical tasks</div>
+                  <p className="mt-3 text-sm leading-6 text-blue-100/80">
+                    Practical response for urgent service scenarios where uptime, safety, and fast gas handling matter most.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="mx-auto grid max-w-[42rem] grid-cols-1 gap-5 md:grid-cols-2">
+                <FeatureCard 
+                  icon={<Shield size={28} />}
+                  title="Built for Safer Operations"
+                  description="Supports safer inspection, handling, and maintenance workflows in substations and industrial service environments."
+                />
+                <FeatureCard 
+                  icon={<Zap size={28} />}
+                  title="Stable and Accurate Performance"
+                  description="Delivers dependable measurement, control, and repeatable performance for demanding SF6 testing and gas management tasks."
+                />
+                <FeatureCard 
+                  icon={<RefreshCw size={28} />}
+                  title="Higher Recovery Efficiency"
+                  description="Helps reduce gas loss while improving recovery, purification, and reuse efficiency across the SF6 service lifecycle."
+                />
+                <FeatureCard 
+                  icon={<Clock size={28} />}
+                  title="Field-Ready Reliability"
+                  description="Durable construction and maintenance-friendly design support long service life in real-world field applications."
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -574,8 +584,8 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
 // Feature Card Component
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg">
-      <div className="mb-4 inline-flex rounded-2xl bg-blue-50 p-3 text-blue-800">{icon}</div>
+    <div className="rounded-[1.75rem] border border-slate-200/80 bg-white/90 p-6 shadow-[0_14px_40px_rgba(15,23,42,0.06)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_20px_50px_rgba(30,64,175,0.14)]">
+      <div className="mb-5 inline-flex rounded-2xl bg-gradient-to-br from-blue-50 to-sky-100 p-3 text-blue-800 shadow-sm">{icon}</div>
       <h3 className="mb-3 text-xl font-semibold text-slate-900">{title}</h3>
       <p className="leading-7 text-slate-600">{description}</p>
     </div>

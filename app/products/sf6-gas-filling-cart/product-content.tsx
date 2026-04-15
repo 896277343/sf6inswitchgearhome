@@ -26,7 +26,7 @@ import {
 // Product data
 const product = {
   name: "SF6 Gas Filling Cart",
-  model: "SF6-FC-5000",
+  model: "SF6-FC",
   description: "Mobile SF6 gas filling cart with integrated vacuum pump, gas recovery system, and precise filling capabilities. Designed for efficient SF6 gas handling in power substations.",
   shortDescription: "Mobile SF6 gas filling cart with vacuum pump, recovery system, and precise filling capabilities.",
   price: "Contact for Quote",

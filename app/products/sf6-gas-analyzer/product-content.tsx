@@ -26,7 +26,7 @@ import {
 // Product data
 const product = {
   name: "SF6 Gas Analyzer",
-  model: "SF6-GA-8000",
+  model: "SF6-GA",
   description: "Advanced SF6 gas analyzer for comprehensive analysis of SF6 gas quality, including moisture, purity, and decomposition products. Features high precision and user-friendly interface.",
   shortDescription: "Advanced SF6 gas analyzer for moisture, purity, and decomposition product analysis.",
   price: "Contact for Quote",

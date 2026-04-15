@@ -26,7 +26,7 @@ import {
 // Product data
 const product = {
   name: "SF6 Gas Fittings",
-  model: "SF6-FT-9000",
+  model: "SF6-FT",
   description: "High-quality SF6 gas fittings and accessories for safe and reliable SF6 gas handling. Includes valves, connectors, hoses, and adapters designed for SF6 applications.",
   shortDescription: "High-quality SF6 gas fittings and accessories for safe and reliable SF6 gas handling.",
   price: "Contact for Quote",

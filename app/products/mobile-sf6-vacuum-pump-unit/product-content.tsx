@@ -26,7 +26,7 @@ import {
 // Product data
 const product = {
   name: "Mobile SF6 Vacuum Pump Unit",
-  model: "SF6-VP-4000",
+  model: "SF6-VP",
   description: "High-performance mobile vacuum pump unit designed for SF6 gas evacuation and dehydration. Features powerful vacuum capacity and portable design for field operations.",
   shortDescription: "Mobile SF6 vacuum pump unit with high capacity and portable design for field maintenance.",
   price: "Contact for Quote",
