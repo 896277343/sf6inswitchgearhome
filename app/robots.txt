@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.sf6inswitchgear.com/sitemap.xml
+Sitemap: https://sf6inswitchgear.com/sitemap.xml
 
 # Disallow specific paths
 Disallow: /admin/

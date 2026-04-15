@@ -25,11 +25,11 @@ type SiteConfig = {
 export const siteConfig: SiteConfig = {
   site_name: "SF6 in Switchgear",
   site_description: "SF6 Gas Solution - Full Lifecycle of SF6 Gas Solution",
-  site_domain: "https://www.sf6inswitchgear.com",
+  site_domain: "https://sf6inswitchgear.com",
   brand: {
     legalName: "SF6 in Switchgear",
     logoPath: "/logo.svg",
-    logoUrl: "https://www.sf6inswitchgear.com/logo.svg",
+    logoUrl: "https://sf6inswitchgear.com/logo.svg",
     socialLinks: [],
   },
   contact: {
