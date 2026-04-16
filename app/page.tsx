@@ -16,6 +16,8 @@ import regenerationSystemImage from "@/public/pics/products/SF6-Regeneration-Sys
 // Icons
 import { ChevronRight, MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react";
 
+export const revalidate = 0;
+
 type ProductHighlight = {
   title: string;
   description: string;
