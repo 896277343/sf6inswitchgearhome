@@ -1,7 +1,7 @@
 import React from "react";
 import "./globals.css";
 
-import { Inter as FontSans } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
@@ -9,14 +9,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { ResizeObserverErrorHandler } from "@/components/utils/resize-observer-error-handler";
 
 import { siteConfig } from "@/site.config";
-import { cn } from "@/lib/utils";
 
 import type { Metadata } from "next";
-
-const font = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -64,8 +58,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn("min-h-screen font-sans antialiased", font.variable)}>
+      <body className="min-h-screen font-sans antialiased">
         <ResizeObserverErrorHandler />
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="K5eePP1M0bZ+lznUa9I76Q"
+          strategy="lazyOnload"
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -36,9 +36,9 @@ const product = {
   warranty: "2 Years",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
-    { src: "/pics/products/sf6-gas-filling-kit-1.jpg", alt: "SF6 Gas Filling Kit Main Unit" },
-    { src: "/pics/products/sf6-gas-filling-kit-2.jpg", alt: "SF6 Gas Filling Kit Components" },
-    { src: "/pics/products/sf6-gas-filling-kit-3.jpg", alt: "SF6 Gas Filling Kit in Operation" },
+    { src: "/pics/products/sf6-gas-filling-kit-1.webp", alt: "SF6 Gas Filling Kit Main Unit" },
+    { src: "/pics/products/sf6-gas-filling-kit-2.webp", alt: "SF6 Gas Filling Kit Components" },
+    { src: "/pics/products/sf6-gas-filling-kit-3.webp", alt: "SF6 Gas Filling Kit in Operation" },
   ],
   features: [
     "Precise pressure control system",

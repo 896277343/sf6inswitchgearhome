@@ -6,12 +6,12 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import type { StaticImageData } from "next/image";
 import { siteConfig } from "@/site.config";
-import leakDetectorImage from "@/public/pics/products/SF6-Leak-Detector-p.jpg";
-import roomMonitorImage from "@/public/pics/products/sf6-room-monitor-p.jpg";
-import gasAnalyzerImage from "@/public/pics/products/SF6-Gas-Analyzer-p.jpg";
-import gasFillingCartImage from "@/public/pics/products/SF6-Gas-Filling-Cart-p.jpg";
-import serviceCartsImage from "@/public/pics/products/SF6-Service-Carts-p.jpg";
-import regenerationSystemImage from "@/public/pics/products/SF6-Regeneration-System-p.jpg";
+import leakDetectorImage from "@/public/pics/products/SF6-Leak-Detector-p.webp";
+import roomMonitorImage from "@/public/pics/products/sf6-room-monitor-p.webp";
+import gasAnalyzerImage from "@/public/pics/products/SF6-Gas-Analyzer-p.webp";
+import gasFillingCartImage from "@/public/pics/products/SF6-Gas-Filling-Cart-p.webp";
+import serviceCartsImage from "@/public/pics/products/SF6-Service-Carts-p.webp";
+import regenerationSystemImage from "@/public/pics/products/SF6-Regeneration-System-p.webp";
 
 // Icons
 import { ChevronRight, MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react";
@@ -77,6 +77,23 @@ const featuredProducts: ProductHighlight[] = [
   },
 ];
 
+const homepageProducts = featuredProducts.slice(0, 3);
+
+const homepageProjects = [
+  {
+    title: "SF6 Gas handling for Underground Substation",
+    description:
+      "Safety monitoring and gas handling for confined underground substations with high-voltage equipment.",
+    image: "/pics/projects/underground-substation-h.webp",
+  },
+  {
+    title: "SF6 use for Gas Insulated Switchgear Manufacturers",
+    description:
+      "Reuse and handling solutions for SF6-intensive testing and manufacturing workflows.",
+    image: "/pics/projects/gis-manufacturers-h.webp",
+  },
+];
+
 export const metadata: Metadata = {
   title: `SF6 Gas Equipment Manufacturer | ${siteConfig.site_name}`,
   description: "With 25 years of experience in sulfur hexafluoride gas solutions, we provide high-quality SF6 gas equipment and comprehensive lifecycle management.",
@@ -111,150 +128,49 @@ export default function Home() {
       <Script id="structured-data" type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": siteConfig.brand.legalName,
-          "url": siteConfig.site_domain,
-          "logo": siteConfig.brand.logoUrl,
-          "description": "SF6 Gas Solution - Full Lifecycle of SF6 Gas Solution",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": siteConfig.contact.address,
-            "addressCountry": "China"
-          },
-          "contactPoint": [
+          "@graph": [
             {
-              "@type": "ContactPoint",
-              "telephone": siteConfig.contact.phone,
-              "contactType": "customer service"
+              "@type": "Organization",
+              "name": siteConfig.brand.legalName,
+              "url": siteConfig.site_domain,
+              "logo": siteConfig.brand.logoUrl,
+              "description": siteConfig.site_description,
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": siteConfig.contact.address,
+                "addressCountry": "China"
+              },
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "telephone": siteConfig.contact.phone,
+                  "contactType": "customer service"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "email": siteConfig.contact.email,
+                  "contactType": "customer service"
+                }
+              ],
+              "sameAs": siteConfig.brand.socialLinks
             },
             {
-              "@type": "ContactPoint",
-              "email": siteConfig.contact.email,
-              "contactType": "customer service"
+              "@type": "WebSite",
+              "name": siteConfig.site_name,
+              "url": siteConfig.site_domain
             }
-          ],
-          "sameAs": [
-            ...siteConfig.brand.socialLinks
-          ],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "SF6 Gas Equipment",
-            "itemListElement": [
-              {
-                "@type": "Product",
-                "name": "SF6 Leak Detector",
-                "description": "Portable infrared SF6 leak detector with ppm precision and a built-in air pump for reliable field inspection.",
-                "url": `${siteConfig.site_domain}/products/sf6-leak-detector`,
-                "brand": {
-                  "@type": "Organization",
-                    "name": siteConfig.brand.legalName
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceCurrency": "USD"
-                },
-                "productID": "SF6-LEAK-001",
-                "category": "SF6 Gas Detection Equipment"
-              },
-              {
-                "@type": "Product",
-                "name": "SF6 Room Monitor",
-                "description": "Continuous SF6 room monitoring with oxygen, temperature, and humidity detection for safer equipment rooms.",
-                "url": `${siteConfig.site_domain}/products/sf6-room-monitor`,
-                "brand": {
-                  "@type": "Organization",
-                    "name": siteConfig.brand.legalName
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceCurrency": "USD"
-                },
-                "productID": "SF6-MONITOR-001",
-                "category": "SF6 Gas Monitoring Equipment"
-              },
-              {
-                "@type": "Product",
-                "name": "SF6 Gas Analyzer",
-                "description": "Advanced analyzer for SF6 purity, moisture, and decomposition product testing.",
-                "url": `${siteConfig.site_domain}/products/sf6-gas-analyzer`,
-                "brand": {
-                  "@type": "Organization",
-                    "name": siteConfig.brand.legalName
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceCurrency": "USD"
-                },
-                "productID": "SF6-ANALYSIS-001",
-                "category": "SF6 Gas Analysis Equipment"
-              },
-              {
-                "@type": "Product",
-                "name": "SF6 Gas Filling Cart",
-                "description": "Integrated SF6 filling and recovery cart for evacuation, charging, and maintenance service work.",
-                "url": `${siteConfig.site_domain}/products/sf6-gas-filling-cart`,
-                "brand": {
-                  "@type": "Organization",
-                    "name": siteConfig.brand.legalName
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceCurrency": "USD"
-                },
-                "productID": "SF6-FILL-001",
-                "category": "SF6 Gas Handling Equipment"
-              },
-              {
-                "@type": "Product",
-                "name": "SF6 Service Carts",
-                "description": "Comprehensive SF6 service carts for recovery, purification, vacuuming, and refilling.",
-                "url": `${siteConfig.site_domain}/products/sf6-service-carts`,
-                "brand": {
-                  "@type": "Organization",
-                    "name": siteConfig.brand.legalName
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceCurrency": "USD"
-                },
-                "productID": "SF6-HANDLING-001",
-                "category": "SF6 Gas Handling Equipment"
-              },
-              {
-                "@type": "Product",
-                "name": "SF6 Regeneration System",
-                "description": "SF6 regeneration equipment that reclaims and purifies used gas to meet reuse requirements.",
-                "url": `${siteConfig.site_domain}/products/sf6-regeneration-system`,
-                "brand": {
-                  "@type": "Organization",
-                    "name": siteConfig.brand.legalName
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "availability": "https://schema.org/InStock",
-                  "priceCurrency": "USD"
-                },
-                "productID": "SF6-REGEN-001",
-                "category": "SF6 Gas Regeneration Equipment"
-              }
-            ]
-          }
+          ]
         })}
       </Script>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-900 to-blue-700 py-14 text-white sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between">
-            <div className="lg:w-1/2 mb-10 lg:mb-0">
-              <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div className="lg:w-1/2">
+              <h1 className="mb-4 text-3xl font-bold text-balance sm:mb-6 sm:text-5xl">
                 SF6 Gas Equipment Manufacturer
               </h1>
-              <p className="text-xl mb-8">
+              <p className="mb-6 max-w-2xl text-base leading-7 text-blue-50 sm:mb-8 sm:text-xl">
                 With 25 years of experience in sulfur hexafluoride gas solutions
               </p>
               <div className="flex flex-wrap gap-4">
@@ -265,11 +181,25 @@ export default function Home() {
                   <Link href="/about">Learn more</Link>
                 </Button>
               </div>
+              <ul className="mt-5 grid grid-cols-1 gap-2 text-sm text-blue-50 sm:hidden">
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={16} className="shrink-0" />
+                  <span>Leak detection and room monitoring</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={16} className="shrink-0" />
+                  <span>Recovery, purification, and refilling systems</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={16} className="shrink-0" />
+                  <span>25 years of SF6 lifecycle experience</span>
+                </li>
+              </ul>
             </div>
-            <div className="lg:w-1/2">
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Full Lifecycle of SF6 Gas Solution</h3>
-                <ul className="space-y-3">
+            <div className="hidden lg:block lg:w-1/2">
+              <div className="rounded-lg bg-white/10 p-5 shadow-sm sm:p-6">
+                <h2 className="mb-3 text-lg font-semibold sm:mb-4 sm:text-xl">Full Lifecycle of SF6 Gas Solution</h2>
+                <ul className="space-y-2.5 sm:space-y-3">
                   <li className="flex items-center gap-2">
                     <CheckCircle size={20} />
                     <span>SF6 Sensor</span>
@@ -302,7 +232,7 @@ export default function Home() {
       </section>
 
       {/* Company Info Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="defer-section bg-gray-50 py-14 sm:py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-sm text-center">
@@ -326,7 +256,7 @@ export default function Home() {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-20">
+      <section id="products" className="defer-section py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Products</h2>
@@ -334,8 +264,8 @@ export default function Home() {
               Comprehensive SF6 gas equipment solutions for various applications
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product) => (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {homepageProducts.map((product) => (
               <ProductCard
                 key={product.href}
                 title={product.title}
@@ -346,11 +276,19 @@ export default function Home() {
               />
             ))}
           </div>
+          <div className="mt-8 flex justify-center">
+            <Button asChild variant="outline" className="min-w-44">
+              <Link href="/products">
+                View all products
+                <ChevronRight size={16} className="ml-2" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-50">
+      <section id="projects" className="defer-section bg-gray-50 py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Projects</h2>
@@ -358,33 +296,29 @@ export default function Home() {
               Successful SF6 gas solutions for various industries and applications
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <ProjectCard 
-              title="SF6 Gas handling for Underground Substation"
-              description="SF6 gas is increasingly used in confined Spaces. Underground substations use a lot of high-voltage equipment. SF6 Gas safety solutions."
-              image="/pics/projects/underground-substation-h.jpg"
-            />
-            <ProjectCard 
-              title="SF6 use for Gas Insulated Switchgear Manufacturers"
-              description="A large amount of SF6 gas is needed to test the equipment during the R&D and manufacturing process. We provide solutions for reusing SF6 gas for experiments."
-              image="/pics/projects/gis-manufacturers-h.jpg"
-            />
-            <ProjectCard 
-              title="Ultra-high voltage SF6 Handling equipment"
-              description="We have rich experience in field service 750KV and 1000KV substation working experience, including Gas Insulated Lines."
-              image="/pics/projects/ultra-high-voltage-h.jpg"
-            />
-            <ProjectCard 
-              title="SF6 Gas Handling and Regeneration base"
-              description="SF6 handling base has a large recycling & regeneration & vacuum equipment. Efficient regeneration of SF6 and Achieving whole-life system management of SF6 gas."
-              image="/pics/projects/regeneration-base-h.jpg"
-            />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {homepageProjects.map((project) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+              />
+            ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Button asChild variant="outline" className="min-w-44">
+              <Link href="/projects">
+                View all projects
+                <ChevronRight size={16} className="ml-2" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20">
+      <section id="about" className="defer-section py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">About Us</h2>
@@ -392,154 +326,88 @@ export default function Home() {
               With 25 years of experience in SF6 gas equipment manufacturing, we are experts in sulfur hexafluoride gas solutions. Our commitment to quality and innovation has made us a trusted partner for businesses worldwide.
             </p>
           </div>
-          {/* Factory Gallery Carousel */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-semibold mb-6 text-center">Factory Strength</h3>
-            <div className="relative overflow-hidden">
-              <div className="flex gap-4 animate-scroll">
-                {[1, 2, 3, 4, 1, 2, 3, 4].map((num, index) => (
-                  <div key={index} className="flex-shrink-0 w-72 h-48 bg-gray-100 rounded-lg overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                      src={`/pics/company/company-${num}-h.jpg`}
-                      alt={`Factory ${num}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
+          <div className="rounded-lg bg-gray-50 p-6 sm:p-8">
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="rounded-lg bg-white p-5 shadow-sm">
+                <h3 className="mb-2 text-lg font-semibold">Manufacturing Focus</h3>
+                <p className="text-sm leading-6 text-gray-600 sm:text-base">
+                  Dedicated to SF6 leak detection, monitoring, handling, purification, and lifecycle support for power-industry applications.
+                </p>
+              </div>
+              <div className="rounded-lg bg-white p-5 shadow-sm">
+                <h3 className="mb-2 text-lg font-semibold">Global Service</h3>
+                <p className="text-sm leading-6 text-gray-600 sm:text-base">
+                  Supporting utilities, OEMs, and engineering teams with equipment selection, delivery, and technical coordination.
+                </p>
+              </div>
+              <div className="rounded-lg bg-white p-5 shadow-sm">
+                <h3 className="mb-2 text-lg font-semibold">Quality Assurance</h3>
+                <p className="text-sm leading-6 text-gray-600 sm:text-base">
+                  Built around reliable performance, stable supply, and practical solutions for demanding substation workflows.
+                </p>
+              </div>
+              <div className="rounded-lg bg-white p-5 shadow-sm">
+                <h3 className="mb-2 text-lg font-semibold">Sustainability</h3>
+                <p className="text-sm leading-6 text-gray-600 sm:text-base">
+                  Focused on safer SF6 management and more efficient recovery and reuse across the gas lifecycle.
+                </p>
               </div>
             </div>
-          </div>
-
-          <div className="bg-gray-50 p-8 rounded-lg">
-            <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
-            <p className="text-gray-600 mb-6">
-              To provide high-quality SF6 gas equipment and solutions that help our customers operate safely, efficiently, and sustainably. We are dedicated to reducing the environmental impact of SF6 gas through advanced recycling and regeneration technologies.
-            </p>
-            <h3 className="text-2xl font-semibold mb-4">Our Values</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex items-start gap-3">
-                <CheckCircle size={24} className="text-blue-800 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold mb-1">Quality</h4>
-                  <p className="text-gray-600">We deliver products that meet the highest industry standards.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle size={24} className="text-blue-800 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold mb-1">Innovation</h4>
-                  <p className="text-gray-600">We continuously develop new technologies to improve SF6 gas management.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle size={24} className="text-blue-800 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold mb-1">Sustainability</h4>
-                  <p className="text-gray-600">We are committed to reducing the environmental impact of SF6 gas.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle size={24} className="text-blue-800 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold mb-1">Customer Service</h4>
-                  <p className="text-gray-600">We provide exceptional support to our customers worldwide.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Partners Carousel */}
-          <div className="mt-12">
-            <h3 className="text-2xl font-semibold mb-6 text-center">Our Partners</h3>
-            <div className="relative overflow-hidden">
-              <div className="flex gap-4 animate-scroll">
-                {[1, 2, 3, 4, 1, 2, 3, 4].map((num, index) => (
-                  <div key={index} className="flex-shrink-0 w-72 h-48 bg-gray-100 rounded-lg overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                      src={`/pics/partners/partner-${num}-h.jpg`}
-                      alt={`Partner ${num}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+            <div className="mt-8 flex justify-center">
+              <Button asChild variant="outline" className="min-w-44">
+                <Link href="/about">
+                  Learn more about us
+                  <ChevronRight size={16} className="ml-2" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-blue-800 text-white">
+      <section id="contact" className="defer-section bg-blue-800 py-16 text-white sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-12">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold mb-6">Get in touch</h2>
-              <p className="mb-8">
-                Contact us for all your SF6 gas solution needs. Our experts are ready to help you find the right equipment and services for your specific requirements.
+          <div className="mx-auto max-w-4xl rounded-2xl bg-white/10 p-6 shadow-sm sm:p-8">
+            <div className="text-center">
+              <h2 className="mb-4 text-3xl font-bold">Get in touch</h2>
+              <p className="mx-auto mb-8 max-w-2xl text-blue-50">
+                Contact us for SF6 leak detection, monitoring, recovery, purification, and gas handling solutions.
               </p>
-              <div className="space-y-4">
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-lg bg-white/8 p-4">
                 <div className="flex items-center gap-3">
-                  <MapPin size={24} />
-                  <span>{siteConfig.contact.address}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone size={24} />
+                  <Phone size={20} />
                   <span>{siteConfig.contact.phone}</span>
                 </div>
+              </div>
+              <div className="rounded-lg bg-white/8 p-4">
                 <div className="flex items-center gap-3">
-                  <Mail size={24} />
+                  <Mail size={20} />
                   <span>{siteConfig.contact.email}</span>
                 </div>
+              </div>
+              <div className="rounded-lg bg-white/8 p-4 sm:col-span-2">
                 <div className="flex items-center gap-3">
-                  <Clock size={24} />
+                  <MapPin size={20} />
+                  <span>{siteConfig.contact.address}</span>
+                </div>
+              </div>
+              <div className="rounded-lg bg-white/8 p-4 sm:col-span-2">
+                <div className="flex items-center gap-3">
+                  <Clock size={20} />
                   <span>{siteConfig.contact.hoursLong}</span>
                 </div>
               </div>
             </div>
-            <div className="lg:w-1/2">
-              <div className="bg-white p-8 rounded-lg text-gray-800">
-                <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block mb-2 font-medium">Name</label>
-                      <input 
-                        type="text" 
-                        className="w-full px-4 py-2 border rounded-lg"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block mb-2 font-medium">Email</label>
-                      <input 
-                        type="email" 
-                        className="w-full px-4 py-2 border rounded-lg"
-                        placeholder="Your email"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block mb-2 font-medium">Subject</label>
-                    <input 
-                      type="text" 
-                      className="w-full px-4 py-2 border rounded-lg"
-                      placeholder="Subject"
-                    />
-                  </div>
-                  <div>
-                    <label className="block mb-2 font-medium">Message</label>
-                    <textarea 
-                      className="w-full px-4 py-2 border rounded-lg h-32"
-                      placeholder="Your message"
-                    ></textarea>
-                  </div>
-                  <Button className="w-full bg-blue-800 hover:bg-blue-700 text-white">
-                    Send Message
-                  </Button>
-                </form>
-              </div>
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Button asChild className="bg-white text-blue-800 hover:bg-blue-50">
+                <Link href="/contact">Open contact page</Link>
+              </Button>
+              <Button asChild variant="outline" className="border-white bg-transparent text-white hover:bg-white/10 hover:text-white">
+                <Link href="/products">Browse products</Link>
+              </Button>
             </div>
           </div>
         </div>

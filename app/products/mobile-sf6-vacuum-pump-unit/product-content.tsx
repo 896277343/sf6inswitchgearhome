@@ -36,9 +36,9 @@ const product = {
   warranty: "2 Years",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
-    { src: "/pics/products/mobile-sf6-vacuum-pump-unit-1.jpg", alt: "Mobile SF6 Vacuum Pump Unit Main View" },
-    { src: "/pics/products/mobile-sf6-vacuum-pump-unit-2.jpg", alt: "Mobile SF6 Vacuum Pump Unit Control Panel" },
-    { src: "/pics/products/mobile-sf6-vacuum-pump-unit-3.jpg", alt: "Mobile SF6 Vacuum Pump Unit in Operation" },
+    { src: "/pics/products/mobile-sf6-vacuum-pump-unit-1.webp", alt: "Mobile SF6 Vacuum Pump Unit Main View" },
+    { src: "/pics/products/mobile-sf6-vacuum-pump-unit-2.webp", alt: "Mobile SF6 Vacuum Pump Unit Control Panel" },
+    { src: "/pics/products/mobile-sf6-vacuum-pump-unit-3.webp", alt: "Mobile SF6 Vacuum Pump Unit in Operation" },
   ],
   features: [
     "High vacuum capacity (40 m³/h)",

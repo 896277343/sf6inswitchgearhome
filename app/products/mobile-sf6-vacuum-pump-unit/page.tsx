@@ -12,7 +12,7 @@ export const metadata = createProductMetadata({
   titleSuffix: "SF6 Vacuum Pump Equipment",
   openGraphTitle: "Mobile SF6 Vacuum Pump Unit - Field Maintenance Equipment",
   twitterTitle: "Mobile SF6 Vacuum Pump Unit | SF6 Equipment",
-  imagePath: "/pics/products/mobile-sf6-vacuum-pump-unit-p.jpg",
+  imagePath: "/pics/products/mobile-sf6-vacuum-pump-unit-p.webp",
   keywords: [
     "mobile SF6 vacuum pump unit",
     "SF6 vacuum pump",

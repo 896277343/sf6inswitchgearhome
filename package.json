@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "images:webp": "node scripts/convert-jpg-to-webp.mjs && node scripts/rewrite-image-refs.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },

@@ -39,9 +39,9 @@ const product = {
   warranty: "3 Years",
   certification: ["CE", "ISO 9001", "IEC 60480", "ATEX"],
   images: [
-    { src: "/pics/products/sf6-room-monitor-1.jpg", alt: "SF6 Room Monitor Main Unit" },
-    { src: "/pics/products/sf6-room-monitor-2.jpg", alt: "SF6 Room Monitor Display" },
-    { src: "/pics/products/sf6-room-monitor-3.jpg", alt: "SF6 Room Monitor Sensors" },
+    { src: "/pics/products/sf6-room-monitor-1.webp", alt: "SF6 Room Monitor Main Unit" },
+    { src: "/pics/products/sf6-room-monitor-2.webp", alt: "SF6 Room Monitor Display" },
+    { src: "/pics/products/sf6-room-monitor-3.webp", alt: "SF6 Room Monitor Sensors" },
   ],
   features: [
     "24/7 continuous monitoring",

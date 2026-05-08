@@ -37,10 +37,10 @@ export const metadata: Metadata = {
 };
 
 const featuredProducts = [
-  { name: "SF6 Leak Detector", slug: "sf6-leak-detector", image: "/pics/products/sf6-leak-detector.jpg" },
-  { name: "SF6 Room Monitor", slug: "sf6-room-monitor", image: "/pics/products/sf6-room-monitor.jpg" },
-  { name: "SF6 Gas Analyzer", slug: "sf6-gas-analyzer", image: "/pics/products/sf6-analyzer.jpg" },
-  { name: "SF6 Gas Filling Cart", slug: "sf6-gas-filling-cart", image: "/pics/products/sf6-gas-filling-cart.jpg" },
+  { name: "SF6 Leak Detector", slug: "sf6-leak-detector", image: "/pics/products/SF6-Leak-Detector.webp" },
+  { name: "SF6 Room Monitor", slug: "sf6-room-monitor", image: "/pics/products/sf6-room-monitor.webp" },
+  { name: "SF6 Gas Analyzer", slug: "sf6-gas-analyzer", image: "/pics/products/sf6-analyzer.webp" },
+  { name: "SF6 Gas Filling Cart", slug: "sf6-gas-filling-cart", image: "/pics/products/sf6-gas-filling-cart.webp" },
 ];
 
 export default function ProjectsPage() {
@@ -128,25 +128,25 @@ export default function ProjectsPage() {
               id="underground-substation"
               title="SF6 Gas handling for Underground Substation"
               description="SF6 gas is increasingly used in confined Spaces. Underground substations use a lot of high-voltage equipment. SF6 Gas safety solutions."
-              image="/pics/projects/underground-substation-h.jpg"
+              image="/pics/projects/underground-substation-h.webp"
             />
             <ProjectCard 
               id="gis-manufacturers"
               title="SF6 use for Gas Insulated Switchgear Manufacturers"
               description="A large amount of SF6 gas is needed to test the equipment during the R&D and manufacturing process. We provide solutions for reusing SF6 gas for experiments."
-              image="/pics/projects/gis-manufacturers-h.jpg"
+              image="/pics/projects/gis-manufacturers-h.webp"
             />
             <ProjectCard 
               id="ultra-high-voltage"
               title="Ultra-high voltage SF6 Handling equipment"
               description="We have rich experience in field service 750KV and 1000KV substation working experience, including Gas Insulated Lines."
-              image="/pics/projects/ultra-high-voltage-h.jpg"
+              image="/pics/projects/ultra-high-voltage-h.webp"
             />
             <ProjectCard 
               id="regeneration-base"
               title="SF6 Gas Handling and Regeneration base"
               description="SF6 handling base has a large recycling & regeneration & vacuum equipment. Efficient regeneration of SF6 and Achieving whole-life system management of SF6 gas."
-              image="/pics/projects/regeneration-base-h.jpg"
+              image="/pics/projects/regeneration-base-h.webp"
             />
           </div>
         </div>

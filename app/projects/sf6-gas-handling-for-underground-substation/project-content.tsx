@@ -35,9 +35,9 @@ const project = {
   shortDescription: "Complete SF6 gas handling solutions for underground substations with advanced monitoring and safety systems.",
   videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // 示例视频链接
   images: [
-    { src: "/pics/products/sf6-room-monitor-1.jpg", alt: "Underground Substation SF6 Monitoring" },
-    { src: "/pics/products/sf6-room-monitor-2.jpg", alt: "SF6 Gas Handling Equipment" },
-    { src: "/pics/products/sf6-leak-detector-1.jpg", alt: "SF6 Leak Detection System" },
+    { src: "/pics/products/sf6-room-monitor-1.webp", alt: "Underground Substation SF6 Monitoring" },
+    { src: "/pics/products/sf6-room-monitor-2.webp", alt: "SF6 Gas Handling Equipment" },
+    { src: "/pics/products/SF6-Leak-Detector-1.webp", alt: "SF6 Leak Detection System" },
   ],
   features: [
     "24/7 SF6 gas monitoring",

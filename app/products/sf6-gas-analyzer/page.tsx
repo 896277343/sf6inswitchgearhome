@@ -12,7 +12,7 @@ export const metadata = createProductMetadata({
   titleSuffix: "SF6 Gas Analysis Equipment",
   openGraphTitle: "SF6 Gas Analyzer - Moisture and Purity Analysis",
   twitterTitle: "SF6 Gas Analyzer | SF6 Testing Equipment",
-  imagePath: "/pics/products/SF6-Gas-Analyzer-p.jpg",
+  imagePath: "/pics/products/SF6-Gas-Analyzer-p.webp",
   keywords: [
     "SF6 gas analyzer",
     "SF6 purity analyzer",

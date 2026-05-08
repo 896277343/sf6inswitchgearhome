@@ -12,7 +12,7 @@ export const metadata = createProductMetadata({
   titleSuffix: "SF6 Gas Filling Equipment",
   openGraphTitle: "SF6 Gas Filling Cart - Precision Gas Filling System",
   twitterTitle: "SF6 Gas Filling Cart | SF6 Equipment",
-  imagePath: "/pics/products/SF6-Gas-Filling-Cart-p.jpg",
+  imagePath: "/pics/products/SF6-Gas-Filling-Cart-p.webp",
   keywords: [
     "SF6 gas filling cart",
     "SF6 filling equipment",

@@ -36,9 +36,9 @@ const product = {
   warranty: "2 Years",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
-    { src: "/pics/products/sf6-leak-detector-1.jpg", alt: "SF6 Leak Detector Front View" },
-    { src: "/pics/products/sf6-leak-detector-2.jpg", alt: "SF6 Leak Detector Side View" },
-    { src: "/pics/products/sf6-leak-detector-3.jpg", alt: "SF6 Leak Detector Display" },
+    { src: "/pics/products/SF6-Leak-Detector-1.webp", alt: "SF6 Leak Detector Front View" },
+    { src: "/pics/products/SF6-Leak-Detector-2.webp", alt: "SF6 Leak Detector Side View" },
+    { src: "/pics/products/SF6-Leak-Detector-3.webp", alt: "SF6 Leak Detector Display" },
   ],
   features: [
     "Infrared principle for accurate detection",

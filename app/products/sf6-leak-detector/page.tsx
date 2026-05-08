@@ -17,7 +17,7 @@ export const metadata = createProductMetadata({
   titleSuffix: "SF6 Gas Leak Detection Equipment",
   openGraphTitle: `${product.name} - Professional SF6 Leak Detection`,
   twitterTitle: `${product.name} | SF6 Leak Detection`,
-  imagePath: "/pics/products/SF6-Leak-Detector-p.jpg",
+  imagePath: "/pics/products/SF6-Leak-Detector-p.webp",
   keywords: [
     "SF6 leak detector",
     "SF6 gas detection",

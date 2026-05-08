@@ -12,7 +12,7 @@ export const metadata = createProductMetadata({
   titleSuffix: "SF6 Gas Fittings and Accessories",
   openGraphTitle: "SF6 Gas Fittings - Leak-Proof Handling Accessories",
   twitterTitle: "SF6 Gas Fittings | SF6 Accessories",
-  imagePath: "/pics/products/SF6-Gas-Fittings-p.jpg",
+  imagePath: "/pics/products/SF6-Gas-Fittings-p.webp",
   keywords: [
     "SF6 gas fittings",
     "SF6 accessories",

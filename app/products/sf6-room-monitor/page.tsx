@@ -17,7 +17,7 @@ export const metadata = createProductMetadata({
   titleSuffix: "SF6 Gas Room Monitoring System",
   openGraphTitle: `${product.name} - 24/7 SF6 Room Monitoring`,
   twitterTitle: `${product.name} | SF6 Room Monitoring`,
-  imagePath: "/pics/products/sf6-room-monitor-p.jpg",
+  imagePath: "/pics/products/sf6-room-monitor-p.webp",
   keywords: [
     "SF6 room monitor",
     "SF6 gas monitoring",

@@ -36,9 +36,9 @@ const product = {
   warranty: "2 Years",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
-    { src: "/pics/products/sf6-gas-analyzer-1.jpg", alt: "SF6 Gas Analyzer Main Unit" },
-    { src: "/pics/products/sf6-gas-analyzer-2.jpg", alt: "SF6 Gas Analyzer Display" },
-    { src: "/pics/products/sf6-gas-analyzer-3.jpg", alt: "SF6 Gas Analyzer in Operation" },
+    { src: "/pics/products/sf6-gas-analyzer-1.webp", alt: "SF6 Gas Analyzer Main Unit" },
+    { src: "/pics/products/sf6-gas-analyzer-2.webp", alt: "SF6 Gas Analyzer Display" },
+    { src: "/pics/products/sf6-gas-analyzer-3.webp", alt: "SF6 Gas Analyzer in Operation" },
   ],
   features: [
     "Comprehensive SF6 gas analysis",

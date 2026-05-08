@@ -1,14 +1,14 @@
 import type { StaticImageData } from "next/image";
 
-import leakDetectorImage from "@/public/pics/products/SF6-Leak-Detector.jpg";
-import roomMonitorImage from "@/public/pics/products/sf6-room-monitor.jpg";
-import gasAnalyzerImage from "@/public/pics/products/sf6-analyzer.jpg";
-import gasFillingCartImage from "@/public/pics/products/sf6-gas-filling-cart.jpg";
-import gasFillingKitImage from "@/public/pics/products/sf6-gas-filling-kit.jpg";
-import gasFittingsImage from "@/public/pics/products/sf6-gas-fittings.jpg";
-import regenerationSystemImage from "@/public/pics/products/sf6-regeneration-system.jpg";
-import serviceCartsImage from "@/public/pics/products/sf6-service-carts.jpg";
-import vacuumPumpUnitImage from "@/public/pics/products/mobile-sf6-vacuum-pump-unit.jpg";
+import leakDetectorImage from "@/public/pics/products/SF6-Leak-Detector.webp";
+import roomMonitorImage from "@/public/pics/products/sf6-room-monitor.webp";
+import gasAnalyzerImage from "@/public/pics/products/sf6-analyzer.webp";
+import gasFillingCartImage from "@/public/pics/products/sf6-gas-filling-cart.webp";
+import gasFillingKitImage from "@/public/pics/products/sf6-gas-filling-kit.webp";
+import gasFittingsImage from "@/public/pics/products/sf6-gas-fittings.webp";
+import regenerationSystemImage from "@/public/pics/products/sf6-regeneration-system.webp";
+import serviceCartsImage from "@/public/pics/products/sf6-service-carts.webp";
+import vacuumPumpUnitImage from "@/public/pics/products/mobile-sf6-vacuum-pump-unit.webp";
 
 export type RelatedProductItem = {
   name: string;

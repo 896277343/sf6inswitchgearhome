@@ -36,9 +36,9 @@ const product = {
   warranty: "2 Years",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
-    { src: "/pics/products/sf6-gas-filling-cart-1.jpg", alt: "SF6 Gas Filling Cart Main View" },
-    { src: "/pics/products/sf6-gas-filling-cart-2.jpg", alt: "SF6 Gas Filling Cart Control Panel" },
-    { src: "/pics/products/sf6-gas-filling-cart-3.jpg", alt: "SF6 Gas Filling Cart in Operation" },
+    { src: "/pics/products/sf6-gas-filling-cart-1.webp", alt: "SF6 Gas Filling Cart Main View" },
+    { src: "/pics/products/sf6-gas-filling-cart-2.webp", alt: "SF6 Gas Filling Cart Control Panel" },
+    { src: "/pics/products/sf6-gas-filling-cart-3.webp", alt: "SF6 Gas Filling Cart in Operation" },
   ],
   features: [
     "Mobile design with sturdy wheels",

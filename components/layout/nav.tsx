@@ -16,12 +16,12 @@ interface NavProps {
 export function Nav({ className, children, id }: NavProps) {
   return (
     <nav
-      className={cn("sticky z-50 top-0 bg-background", "border-b", className)}
+      className={cn("z-50 bg-background md:sticky md:top-0", "border-b", className)}
       id={id}
     >
       <div
         id="nav-container"
-        className="max-w-5xl mx-auto py-4 px-6 sm:px-8 flex justify-between items-center"
+        className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-8 sm:py-4"
       >
         <Link
           className="hover:opacity-75 transition-all flex gap-4 items-center"
@@ -35,7 +35,7 @@ export function Nav({ className, children, id }: NavProps) {
             width={42}
             height={26.44}
           />
-          <h2 className="text-sm">{siteConfig.site_name}</h2>
+          <h2 className="text-sm leading-none">{siteConfig.site_name}</h2>
         </Link>
         {children}
         <div className="flex items-center gap-2">

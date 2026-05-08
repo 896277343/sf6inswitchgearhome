@@ -12,7 +12,7 @@ export const metadata = createProductMetadata({
   titleSuffix: "SF6 Gas Regeneration Equipment",
   openGraphTitle: "SF6 Regeneration System - Gas Purification Solution",
   twitterTitle: "SF6 Regeneration System | SF6 Equipment",
-  imagePath: "/pics/products/SF6-Regeneration-System-p.jpg",
+  imagePath: "/pics/products/SF6-Regeneration-System-p.webp",
   keywords: [
     "SF6 regeneration system",
     "SF6 gas purification",

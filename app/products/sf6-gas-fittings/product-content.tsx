@@ -36,9 +36,9 @@ const product = {
   warranty: "1 Year",
   certification: ["CE", "ISO 9001", "DIN", "ANSI"],
   images: [
-    { src: "/pics/products/sf6-gas-fittings-1.jpg", alt: "SF6 Gas Fittings Collection" },
-    { src: "/pics/products/sf6-gas-fittings-2.jpg", alt: "SF6 Gas Valves" },
-    { src: "/pics/products/sf6-gas-fittings-3.jpg", alt: "SF6 Gas Hoses and Connectors" },
+    { src: "/pics/products/SF6-Gas-Fittings-1.webp", alt: "SF6 Gas Fittings Collection" },
+    { src: "/pics/products/SF6-Gas-Fittings-2.webp", alt: "SF6 Gas Valves" },
+    { src: "/pics/products/SF6-Gas-Fittings-3.webp", alt: "SF6 Gas Hoses and Connectors" },
   ],
   features: [
     "High-quality stainless steel construction",

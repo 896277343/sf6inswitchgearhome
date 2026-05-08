@@ -6,15 +6,15 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import type { StaticImageData } from "next/image";
 
-import leakDetectorImage from "@/public/pics/products/SF6-Leak-Detector-p.jpg";
-import roomMonitorImage from "@/public/pics/products/sf6-room-monitor-p.jpg";
-import gasFillingKitImage from "@/public/pics/products/SF6-Gas-Filling-kit-p.jpg";
-import vacuumPumpUnitImage from "@/public/pics/products/mobile-sf6-vacuum-pump-unit-p.jpg";
-import gasFillingCartImage from "@/public/pics/products/SF6-Gas-Filling-Cart-p.jpg";
-import serviceCartsImage from "@/public/pics/products/SF6-Service-Carts-p.jpg";
-import regenerationSystemImage from "@/public/pics/products/SF6-Regeneration-System-p.jpg";
-import gasAnalyzerImage from "@/public/pics/products/SF6-Gas-Analyzer-p.jpg";
-import gasFittingsImage from "@/public/pics/products/SF6-Gas-Fittings-p.jpg";
+import leakDetectorImage from "@/public/pics/products/SF6-Leak-Detector-p.webp";
+import roomMonitorImage from "@/public/pics/products/sf6-room-monitor-p.webp";
+import gasFillingKitImage from "@/public/pics/products/SF6-Gas-Filling-kit-p.webp";
+import vacuumPumpUnitImage from "@/public/pics/products/mobile-sf6-vacuum-pump-unit-p.webp";
+import gasFillingCartImage from "@/public/pics/products/SF6-Gas-Filling-Cart-p.webp";
+import serviceCartsImage from "@/public/pics/products/SF6-Service-Carts-p.webp";
+import regenerationSystemImage from "@/public/pics/products/SF6-Regeneration-System-p.webp";
+import gasAnalyzerImage from "@/public/pics/products/SF6-Gas-Analyzer-p.webp";
+import gasFittingsImage from "@/public/pics/products/SF6-Gas-Fittings-p.webp";
 
 // Icons
 import { ChevronRight, CheckCircle, ArrowRight, Shield, Zap, RefreshCw, BarChart3, Globe, Clock, Phone, Mail } from "lucide-react";

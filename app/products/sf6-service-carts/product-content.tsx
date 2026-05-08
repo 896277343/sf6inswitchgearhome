@@ -36,9 +36,9 @@ const product = {
   warranty: "2 Years",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
-    { src: "/pics/products/sf6-service-carts-1.jpg", alt: "SF6 Service Carts Main View" },
-    { src: "/pics/products/sf6-service-carts-2.jpg", alt: "SF6 Service Carts Control Panel" },
-    { src: "/pics/products/sf6-service-carts-3.jpg", alt: "SF6 Service Carts in Operation" },
+    { src: "/pics/products/sf6-service-carts-1.webp", alt: "SF6 Service Carts Main View" },
+    { src: "/pics/products/sf6-service-carts-2.webp", alt: "SF6 Service Carts Control Panel" },
+    { src: "/pics/products/sf6-service-carts-3.webp", alt: "SF6 Service Carts in Operation" },
   ],
   features: [
     "Complete SF6 gas management solution",

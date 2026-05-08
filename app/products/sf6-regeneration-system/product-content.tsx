@@ -36,9 +36,9 @@ const product = {
   warranty: "3 Years",
   certification: ["CE", "ISO 9001", "IEC 60480", "RoHS"],
   images: [
-    { src: "/pics/products/sf6-regeneration-system-1.jpg", alt: "SF6 Regeneration System Main Unit" },
-    { src: "/pics/products/sf6-regeneration-system-2.jpg", alt: "SF6 Regeneration System Control Panel" },
-    { src: "/pics/products/sf6-regeneration-system-3.jpg", alt: "SF6 Regeneration System in Operation" },
+    { src: "/pics/products/sf6-regeneration-system-1.webp", alt: "SF6 Regeneration System Main Unit" },
+    { src: "/pics/products/sf6-regeneration-system-2.webp", alt: "SF6 Regeneration System Control Panel" },
+    { src: "/pics/products/sf6-regeneration-system-3.webp", alt: "SF6 Regeneration System in Operation" },
   ],
   features: [
     "High purification efficiency (99.9%)",
