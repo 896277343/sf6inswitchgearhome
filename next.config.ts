@@ -7,12 +7,15 @@ const imageHostnames = Array.from(
   new Set(
     [wordpressHostname, parsedWordpressHostname]
       .filter((hostname): hostname is string => Boolean(hostname))
-      .flatMap((hostname) => {
+      .reduce<string[]>((hostnames, hostname) => {
         const normalizedHostname = hostname.replace(/^https?:\/\//, "");
-        return normalizedHostname.startsWith("www.")
-          ? [normalizedHostname, normalizedHostname.replace(/^www\./, "")]
-          : [normalizedHostname, `www.${normalizedHostname}`];
-      })
+        if (normalizedHostname.startsWith("www.")) {
+          hostnames.push(normalizedHostname, normalizedHostname.replace(/^www\./, ""));
+        } else {
+          hostnames.push(normalizedHostname, `www.${normalizedHostname}`);
+        }
+        return hostnames;
+      }, [])
   )
 );
 
