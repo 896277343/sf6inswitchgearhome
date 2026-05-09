@@ -5,14 +5,7 @@ import { cn } from "@/lib/utils";
 import Logo from "@/public/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-
-const MobileNav = dynamic(
-  () => import("@/components/nav/mobile-nav").then((mod) => mod.MobileNav),
-  {
-    ssr: false,
-  }
-);
+import { MobileNavShell } from "@/components/nav/mobile-nav-shell";
 
 interface NavProps {
   className?: string;
@@ -57,7 +50,7 @@ export function Nav({ className, children, id }: NavProps) {
           <Button asChild size="lg" className="hidden sm:flex bg-blue-800 text-white hover:bg-blue-700">
             <Link href="#contact">Get in touch</Link>
           </Button>
-          <MobileNav />
+          <MobileNavShell />
         </div>
       </div>
     </nav>
