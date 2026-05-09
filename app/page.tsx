@@ -14,7 +14,7 @@ import serviceCartsImage from "@/public/pics/products/SF6-Service-Carts-p.webp";
 import regenerationSystemImage from "@/public/pics/products/SF6-Regeneration-System-p.webp";
 
 // Icons
-import { ChevronRight, MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react";
+import { ChevronRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export const revalidate = 0;
 
@@ -183,15 +183,15 @@ export default function Home() {
               </div>
               <ul className="mt-5 grid grid-cols-1 gap-2 text-sm text-blue-50 sm:hidden">
                 <li className="flex items-center gap-2">
-                  <CheckCircle size={16} className="shrink-0" />
+                  <span aria-hidden="true" className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-white/80" />
                   <span>Leak detection and room monitoring</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle size={16} className="shrink-0" />
+                  <span aria-hidden="true" className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-white/80" />
                   <span>Recovery, purification, and refilling systems</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle size={16} className="shrink-0" />
+                  <span aria-hidden="true" className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-white/80" />
                   <span>25 years of SF6 lifecycle experience</span>
                 </li>
               </ul>
@@ -201,27 +201,27 @@ export default function Home() {
                 <h2 className="mb-3 text-lg font-semibold sm:mb-4 sm:text-xl">Full Lifecycle of SF6 Gas Solution</h2>
                 <ul className="space-y-2.5 sm:space-y-3">
                   <li className="flex items-center gap-2">
-                    <CheckCircle size={20} />
+                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-white/85" />
                     <span>SF6 Sensor</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle size={20} />
+                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-white/85" />
                     <span>SF6 Regeneration</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle size={20} />
+                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-white/85" />
                     <span>SF6 Gas Analyzer</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle size={20} />
+                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-white/85" />
                     <span>SF6 Gas Detector</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle size={20} />
+                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-white/85" />
                     <span>SF6 Gas Handling</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle size={20} />
+                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-white/85" />
                     <span>SF6 Gas Management</span>
                   </li>
                 </ul>

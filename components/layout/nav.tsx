@@ -1,11 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { MobileNav } from "@/components/nav/mobile-nav";
 import { mainMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
 import Logo from "@/public/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const MobileNav = dynamic(
+  () => import("@/components/nav/mobile-nav").then((mod) => mod.MobileNav),
+  {
+    ssr: false,
+  }
+);
 
 interface NavProps {
   className?: string;
@@ -31,7 +38,6 @@ export function Nav({ className, children, id }: NavProps) {
             src={Logo}
             alt={`${siteConfig.site_name} Logo`}
             loading="eager"
-            className="dark:invert"
             width={42}
             height={26.44}
           />

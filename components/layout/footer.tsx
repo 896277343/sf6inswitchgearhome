@@ -1,5 +1,4 @@
 import { Section, Container } from "@/components/craft";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { mainMenu, contentMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 import Logo from "@/public/logo.svg";
@@ -17,7 +16,6 @@ export function Footer() {
               <Image
                 src={Logo}
                 alt="Logo"
-                className="dark:invert"
                 width={42}
                 height={26.44}
               />
@@ -54,8 +52,7 @@ export function Footer() {
             ))}
           </div>
         </Container>
-        <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <ThemeToggle />
+        <Container className="border-t not-prose flex flex-col gap-6 md:flex-row md:items-center md:justify-end md:gap-2">
           <p className="text-muted-foreground">
             &copy; {siteConfig.footer.copyrightName}. All rights reserved.{" "}
             {siteConfig.footer.copyrightYears}.

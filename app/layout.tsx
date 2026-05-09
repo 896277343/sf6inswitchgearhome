@@ -1,12 +1,8 @@
 import React from "react";
 import "./globals.css";
 
-import Script from "next/script";
-import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
-import { Analytics } from "@vercel/analytics/react";
-import { ResizeObserverErrorHandler } from "@/components/utils/resize-observer-error-handler";
 
 import { siteConfig } from "@/site.config";
 
@@ -64,23 +60,9 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <ResizeObserverErrorHandler />
-        <Script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="K5eePP1M0bZ+lznUa9I76Q"
-          strategy="lazyOnload"
-        />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Nav />
-          <main id="main-content">{children}</main>
-          <Footer />
-        </ThemeProvider>
-        <Analytics />
+        <Nav />
+        <main id="main-content">{children}</main>
+        <Footer />
       </body>
     </html>
   );
