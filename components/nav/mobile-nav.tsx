@@ -1,104 +1,52 @@
-"use client";
-
-// React and Next Imports
-import * as React from "react";
-import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/navigation";
-
-// Utility Imports
+import Link from "next/link";
 import { Menu, ArrowRightSquare } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-// Component Imports
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetTitle,
-  SheetHeader,
-} from "@/components/ui/sheet";
-import { Separator } from "@/components/ui/separator";
 
 import { mainMenu, contentMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 
 export function MobileNav() {
-  const [open, setOpen] = React.useState(false);
-
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="w-11 border px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-        >
-          <Menu />
-          <span className="sr-only">Toggle Menu</span>
-        </Button>
-      </SheetTrigger>
-      <SheetContent side="left" className="pr-0">
-        <SheetHeader>
-          <SheetTitle className="text-left">
-            <MobileLink
-              href="/"
-              className="flex items-center"
-              onOpenChange={setOpen}
-            >
-              <ArrowRightSquare className="mr-2 h-4 w-4" />
-              <span>{siteConfig.site_name}</span>
-            </MobileLink>
-          </SheetTitle>
-        </SheetHeader>
-        <div className="my-4 h-[calc(100vh-8rem)] overflow-y-auto pb-10 pl-6">
-          <div className="flex flex-col space-y-3">
-            <h3 className="text-small mt-6">Menu</h3>
-            <Separator />
-            {Object.entries(mainMenu).map(([key, href]) => (
-              <MobileLink key={key} href={href} onOpenChange={setOpen}>
-                {key.charAt(0).toUpperCase() + key.slice(1)}
-              </MobileLink>
-            ))}
-            <h3 className="text-small pt-6">Blog Menu</h3>
-            <Separator />
-            {Object.entries(contentMenu).map(([key, href]) => (
-              <MobileLink key={key} href={href} onOpenChange={setOpen}>
-                {key.charAt(0).toUpperCase() + key.slice(1)}
-              </MobileLink>
-            ))}
+    <details className="relative md:hidden">
+      <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-md border bg-white text-slate-900 marker:content-none">
+        <Menu className="h-5 w-5" />
+        <span className="sr-only">Toggle Menu</span>
+      </summary>
+      <div className="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(20rem,calc(100vw-2rem))] rounded-lg border bg-white p-5 text-slate-900 shadow-xl">
+        <Link href="/" className="flex items-center text-sm font-medium">
+          <ArrowRightSquare className="mr-2 h-4 w-4" />
+          <span>{siteConfig.site_name}</span>
+        </Link>
+        <div className="mt-5 space-y-5">
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Menu</h3>
+            <div className="mt-3 space-y-1 border-t pt-3">
+              {Object.entries(mainMenu).map(([key, href]) => (
+                <Link
+                  key={key}
+                  href={href}
+                  className="block rounded-md px-2 py-2.5 text-base text-slate-900 hover:bg-slate-50"
+                >
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Blog Menu</h3>
+            <div className="mt-3 space-y-1 border-t pt-3">
+              {Object.entries(contentMenu).map(([key, href]) => (
+                <Link
+                  key={key}
+                  href={href}
+                  className="block rounded-md px-2 py-2.5 text-base text-slate-900 hover:bg-slate-50"
+                >
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </SheetContent>
-    </Sheet>
-  );
-}
-
-interface MobileLinkProps extends LinkProps {
-  onOpenChange?: (open: boolean) => void;
-  children: React.ReactNode;
-  className?: string;
-}
-
-function MobileLink({
-  href,
-  onOpenChange,
-  className,
-  children,
-  ...props
-}: MobileLinkProps) {
-  const router = useRouter();
-  return (
-    <Link
-      href={href}
-      onClick={() => {
-        router.push(href.toString());
-        onOpenChange?.(false);
-      }}
-      className={cn("block min-h-11 py-2 text-lg", className)}
-      {...props}
-    >
-      {children}
-    </Link>
+      </div>
+    </details>
   );
 }
