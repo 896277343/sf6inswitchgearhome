@@ -173,11 +173,11 @@ export default function Home() {
               <p className="mb-6 max-w-2xl text-base leading-7 text-blue-50 sm:mb-8 sm:text-xl">
                 With 25 years of experience in sulfur hexafluoride gas solutions
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button className="bg-white text-blue-800 hover:bg-blue-50">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+                <Button size="lg" className="w-full bg-white text-blue-800 hover:bg-blue-50 sm:w-auto">
                   <Link href="/contact">Get in touch</Link>
                 </Button>
-                <Button className="bg-transparent border border-white hover:bg-white/10">
+                <Button size="lg" className="w-full border border-white bg-transparent hover:bg-white/10 sm:w-auto">
                   <Link href="/about">Learn more</Link>
                 </Button>
               </div>
@@ -277,7 +277,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-8 flex justify-center">
-            <Button asChild variant="outline" className="min-w-44">
+            <Button asChild size="lg" variant="outline" className="min-w-44">
               <Link href="/products">
                 View all products
                 <ChevronRight size={16} className="ml-2" />
@@ -307,7 +307,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-8 flex justify-center">
-            <Button asChild variant="outline" className="min-w-44">
+            <Button asChild size="lg" variant="outline" className="min-w-44">
               <Link href="/projects">
                 View all projects
                 <ChevronRight size={16} className="ml-2" />
@@ -354,7 +354,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-8 flex justify-center">
-              <Button asChild variant="outline" className="min-w-44">
+              <Button asChild size="lg" variant="outline" className="min-w-44">
                 <Link href="/about">
                   Learn more about us
                   <ChevronRight size={16} className="ml-2" />
@@ -402,10 +402,10 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <Button asChild className="bg-white text-blue-800 hover:bg-blue-50">
+              <Button asChild size="lg" className="bg-white text-blue-800 hover:bg-blue-50">
                 <Link href="/contact">Open contact page</Link>
               </Button>
-              <Button asChild variant="outline" className="border-white bg-transparent text-white hover:bg-white/10 hover:text-white">
+              <Button asChild size="lg" variant="outline" className="border-white bg-transparent text-white hover:bg-white/10 hover:text-white">
                 <Link href="/products">Browse products</Link>
               </Button>
             </div>

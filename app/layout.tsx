@@ -47,7 +47,6 @@ export const metadata: Metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -59,6 +58,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body className="min-h-screen font-sans antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-medium focus:text-slate-900 focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <ResizeObserverErrorHandler />
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
@@ -72,7 +77,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
-          {children}
+          <main id="main-content">{children}</main>
           <Footer />
         </ThemeProvider>
         <Analytics />

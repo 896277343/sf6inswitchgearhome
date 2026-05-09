@@ -48,7 +48,7 @@ export function Nav({ className, children, id }: NavProps) {
               </Button>
             ))}
           </div>
-          <Button asChild className="hidden sm:flex bg-blue-800 hover:bg-blue-700 text-white">
+          <Button asChild size="lg" className="hidden sm:flex bg-blue-800 text-white hover:bg-blue-700">
             <Link href="#contact">Get in touch</Link>
           </Button>
           <MobileNav />
