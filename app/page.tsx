@@ -178,7 +178,7 @@ export default function Home() {
                   <Link href="/contact">Get in touch</Link>
                 </Button>
                 <Button asChild size="lg" className="w-full border border-white bg-transparent hover:bg-white/10 sm:w-auto">
-                  <Link href="/about">Learn more</Link>
+                  <Link href="/about">About our SF6 solutions</Link>
                 </Button>
               </div>
               <ul className="mt-5 grid grid-cols-1 gap-2 text-sm text-blue-50 sm:hidden">
