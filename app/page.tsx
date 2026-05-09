@@ -174,10 +174,10 @@ export default function Home() {
                 With 25 years of experience in sulfur hexafluoride gas solutions
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                <Button size="lg" className="w-full bg-white text-blue-800 hover:bg-blue-50 sm:w-auto">
+                <Button asChild size="lg" className="w-full bg-white text-blue-800 hover:bg-blue-50 sm:w-auto">
                   <Link href="/contact">Get in touch</Link>
                 </Button>
-                <Button size="lg" className="w-full border border-white bg-transparent hover:bg-white/10 sm:w-auto">
+                <Button asChild size="lg" className="w-full border border-white bg-transparent hover:bg-white/10 sm:w-auto">
                   <Link href="/about">Learn more</Link>
                 </Button>
               </div>
@@ -234,21 +234,22 @@ export default function Home() {
       {/* Company Info Section */}
       <section className="defer-section bg-gray-50 py-14 sm:py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="sr-only">Company highlights</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <h3 className="text-3xl font-bold text-blue-800 mb-2">300,000+</h3>
+              <p className="mb-2 text-3xl font-bold text-blue-800">300,000+</p>
               <p className="text-gray-600">Square meters industrial park</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <h3 className="text-3xl font-bold text-blue-800 mb-2">500+</h3>
+              <p className="mb-2 text-3xl font-bold text-blue-800">500+</p>
               <p className="text-gray-600">Employees</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <h3 className="text-3xl font-bold text-blue-800 mb-2">4 tons</h3>
+              <p className="mb-2 text-3xl font-bold text-blue-800">4 tons</p>
               <p className="text-gray-600">Reuse of SF6 gas per year</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <h3 className="text-3xl font-bold text-blue-800 mb-2">99.7+%</h3>
+              <p className="mb-2 text-3xl font-bold text-blue-800">99.7+%</p>
               <p className="text-gray-600">Recycling rate</p>
             </div>
           </div>
