@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   title: `Inquiry Status | ${siteConfig.site_name}`,
   description:
     "View the status of your SF6 product inquiry submission and continue browsing our product catalog.",
+  alternates: {
+    canonical: `${siteConfig.site_domain}/inquiry/success`,
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default async function InquirySuccessPage({

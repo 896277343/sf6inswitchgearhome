@@ -95,16 +95,16 @@ const homepageProjects = [
 ];
 
 export const metadata: Metadata = {
-  title: `SF6 Gas Equipment Manufacturer | ${siteConfig.site_name}`,
-  description: "With 25 years of experience in sulfur hexafluoride gas solutions, we provide high-quality SF6 gas equipment and comprehensive lifecycle management.",
+  title: `SF6 Gas Equipment Manufacturer in China | ${siteConfig.site_name}`,
+  description: "SF6 gas equipment manufacturer for leak detectors, room monitors, gas analyzers, filling carts, service carts, and regeneration systems for substations and switchgear projects.",
   keywords: ["SF6 gas equipment", "SF6 gas manufacturer", "SF6 gas solutions", "SF6 leak detector", "SF6 room monitor", "SF6 analysis", "SF6 filling cart", "SF6 handling", "SF6 regeneration"],
   alternates: {
     canonical: siteConfig.site_domain,
   },
   openGraph: {
     type: "website",
-    title: `SF6 Gas Equipment Manufacturer | ${siteConfig.site_name}`,
-    description: "With 25 years of experience in sulfur hexafluoride gas solutions, we provide high-quality SF6 gas equipment and comprehensive lifecycle management.",
+    title: `SF6 Gas Equipment Manufacturer in China | ${siteConfig.site_name}`,
+    description: "SF6 gas equipment manufacturer for leak detectors, room monitors, gas analyzers, filling carts, service carts, and regeneration systems.",
     images: [{
       url: "/opengraph-image.jpeg",
       width: 1200,
@@ -114,8 +114,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `SF6 Gas Equipment Manufacturer | ${siteConfig.site_name}`,
-    description: "With 25 years of experience in sulfur hexafluoride gas solutions, we provide high-quality SF6 gas equipment and comprehensive lifecycle management.",
+    title: `SF6 Gas Equipment Manufacturer in China | ${siteConfig.site_name}`,
+    description: "SF6 gas equipment manufacturer for detection, monitoring, handling, and regeneration systems.",
     images: ["/twitter-image.jpeg"],
   },
 };

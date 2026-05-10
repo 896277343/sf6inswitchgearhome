@@ -7,8 +7,10 @@ import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbP
 import { cn } from "@/lib/utils";
 
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { siteConfig } from "@/site.config";
 
 export async function generateStaticParams() {
   return await getAllPostSlugs();
@@ -49,6 +51,7 @@ export default async function Page({
   const author = post._embedded?.author?.[0];
   const featuredMedia = post._embedded?.["wp:featuredmedia"]?.[0];
   const category = post._embedded?.["wp:term"]?.[0]?.[0];
+  const canonicalUrl = `${siteConfig.site_domain}/posts/${post.slug}`;
   const date = new Date(post.date).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
@@ -58,6 +61,36 @@ export default async function Page({
   return (
     <Section>
       <Container>
+        <Script id={`post-schema-${post.id}`} type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": stripHtml(post.title.rendered),
+            "description": stripHtml(post.excerpt.rendered),
+            "datePublished": post.date,
+            "dateModified": post.modified,
+            "mainEntityOfPage": canonicalUrl,
+            "url": canonicalUrl,
+            "author": author?.name
+              ? {
+                  "@type": "Person",
+                  "name": author.name,
+                }
+              : undefined,
+            "publisher": {
+              "@type": "Organization",
+              "name": siteConfig.brand.legalName,
+              "logo": {
+                "@type": "ImageObject",
+                "url": siteConfig.brand.logoUrl,
+              },
+            },
+            "image": featuredMedia?.source_url
+              ? [featuredMedia.source_url]
+              : [`${siteConfig.site_domain}/opengraph-image.jpeg`],
+            "articleSection": category?.name,
+          })}
+        </Script>
         <Breadcrumb className="mb-4">
           <BreadcrumbList>
             <BreadcrumbItem>

@@ -43,16 +43,38 @@ const featuredProducts = [
   { name: "SF6 Gas Filling Cart", slug: "sf6-gas-filling-cart", image: "/pics/products/sf6-gas-filling-cart.webp" },
 ];
 
-export default function ProjectsPage() {
-  const structuredProjects = [
-    {
-      name: "SF6 Gas handling for Underground Substation",
-      description:
-        "SF6 gas is increasingly used in confined Spaces. Underground substations use a lot of high-voltage equipment. SF6 Gas safety solutions.",
-      url: `${siteConfig.site_domain}/projects/sf6-gas-handling-for-underground-substation`,
-    },
-  ];
+const structuredProjects = [
+  {
+    name: "SF6 Gas Handling for Underground Substation",
+    description:
+      "SF6 gas safety, leakage detection, and room monitoring solutions for confined underground substation environments.",
+    url: `${siteConfig.site_domain}/projects/sf6-gas-handling-for-underground-substation`,
+    image: `${siteConfig.site_domain}/pics/projects/underground-substation-h.webp`,
+  },
+  {
+    name: "SF6 Solutions for Gas Insulated Switchgear Manufacturers",
+    description:
+      "SF6 reuse, handling, and recovery solutions that support testing and manufacturing workflows for GIS equipment producers.",
+    url: `${siteConfig.site_domain}/projects/sf6-use-for-gas-insulated-switchgear-manufacturers`,
+    image: `${siteConfig.site_domain}/pics/projects/gis-manufacturers-h.webp`,
+  },
+  {
+    name: "Ultra-High Voltage SF6 Handling Equipment Project",
+    description:
+      "Field-proven SF6 handling solutions for 750kV and 1000kV substations, including demanding ultra-high-voltage applications.",
+    url: `${siteConfig.site_domain}/projects/ultra-high-voltage-sf6-handling-equipment`,
+    image: `${siteConfig.site_domain}/pics/projects/ultra-high-voltage-h.webp`,
+  },
+  {
+    name: "SF6 Gas Handling and Regeneration Base",
+    description:
+      "Large-scale SF6 recovery, regeneration, and vacuum equipment deployment for full lifecycle gas management operations.",
+    url: `${siteConfig.site_domain}/projects/sf6-gas-handling-and-regeneration-base`,
+    image: `${siteConfig.site_domain}/pics/projects/regeneration-base-h.webp`,
+  },
+] as const;
 
+export default function ProjectsPage() {
   return (
     <div className="min-h-screen">
       {/* Structured Data */}
@@ -89,7 +111,8 @@ export default function ProjectsPage() {
                 "@type": "Project",
                 "name": project.name,
                 "description": project.description,
-                "url": project.url
+                "url": project.url,
+                "image": project.image
               }
             }))
           }
@@ -234,9 +257,9 @@ const ProjectCard = ({
   // Map project IDs to their respective paths
   const projectPaths: Record<string, string> = {
     "underground-substation": "/projects/sf6-gas-handling-for-underground-substation",
-    "gis-manufacturers": "#gis-manufacturers",
-    "ultra-high-voltage": "#ultra-high-voltage",
-    "regeneration-base": "#regeneration-base"
+    "gis-manufacturers": "/projects/sf6-use-for-gas-insulated-switchgear-manufacturers",
+    "ultra-high-voltage": "/projects/ultra-high-voltage-sf6-handling-equipment",
+    "regeneration-base": "/projects/sf6-gas-handling-and-regeneration-base"
   };
 
   const href = projectPaths[id] || "#";

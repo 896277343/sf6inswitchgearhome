@@ -24,21 +24,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/products/sf6-service-carts",
     "/projects",
     "/projects/sf6-gas-handling-for-underground-substation",
+    "/projects/sf6-use-for-gas-insulated-switchgear-manufacturers",
+    "/projects/ultra-high-voltage-sf6-handling-equipment",
+    "/projects/sf6-gas-handling-and-regeneration-base",
     "/posts",
   ] as const;
 
   const staticLastModifiedMap: Partial<Record<(typeof staticPaths)[number], string>> = {
-    "/": "2026-04-10",
-    "/about": "2026-04-10",
-    "/contact": "2026-04-10",
-    "/products": "2026-04-10",
-    "/projects": "2026-04-10",
-    "/posts": "2026-04-10",
+    "/": "2026-05-10",
+    "/about": "2026-05-10",
+    "/contact": "2026-05-10",
+    "/products": "2026-05-10",
+    "/products/mobile-sf6-vacuum-pump-unit": "2026-05-10",
+    "/products/sf6-gas-analyzer": "2026-05-10",
+    "/products/sf6-gas-filling-cart": "2026-05-10",
+    "/products/sf6-gas-filling-kit": "2026-05-10",
+    "/products/sf6-gas-fittings": "2026-05-10",
+    "/products/sf6-leak-detector": "2026-05-10",
+    "/products/sf6-regeneration-system": "2026-05-10",
+    "/products/sf6-room-monitor": "2026-05-10",
+    "/products/sf6-service-carts": "2026-05-10",
+    "/projects": "2026-05-10",
+    "/projects/sf6-gas-handling-for-underground-substation": "2026-05-10",
+    "/projects/sf6-use-for-gas-insulated-switchgear-manufacturers": "2026-05-10",
+    "/projects/ultra-high-voltage-sf6-handling-equipment": "2026-05-10",
+    "/projects/sf6-gas-handling-and-regeneration-base": "2026-05-10",
+    "/posts": "2026-05-10",
   };
 
   const staticUrls: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: `${siteConfig.site_domain}${path === "/" ? "" : path}`,
-    lastModified: new Date(staticLastModifiedMap[path] ?? "2026-04-10"),
+    lastModified: new Date(staticLastModifiedMap[path] ?? "2026-05-10"),
     changeFrequency:
       path === "/"
         ? "monthly"

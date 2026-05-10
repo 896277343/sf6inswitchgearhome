@@ -22,15 +22,15 @@ export function createProductMetadata(
   const pageUrl = `${siteConfig.site_domain}/products/${input.slug}`;
 
   return {
-    title: `${input.name} | ${input.titleSuffix} | ${siteConfig.site_name}`,
+    title: `${input.name} Manufacturer & Supplier | ${input.titleSuffix} | ${siteConfig.site_name}`,
     description: input.description,
     keywords: [...input.keywords, input.model, siteConfig.brand.legalName],
     alternates: {
       canonical: pageUrl,
     },
     openGraph: {
-      title: input.openGraphTitle,
-      description: input.description,
+      title: `${input.openGraphTitle} | ${siteConfig.site_name}`,
+      description: input.shortDescription,
       type: "website",
       url: pageUrl,
       images: [
@@ -44,7 +44,7 @@ export function createProductMetadata(
     },
     twitter: {
       card: "summary_large_image",
-      title: input.twitterTitle,
+      title: `${input.twitterTitle} | ${siteConfig.site_name}`,
       description: input.shortDescription,
       images: [imageUrl],
     },

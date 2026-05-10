@@ -17,9 +17,6 @@ export const metadata: Metadata = {
   keywords: ["SF6 gas", "SF6 equipment", "SF6 leak detector", "SF6 gas analyzer", "SF6 gas handling", "SF6 regeneration", "SF6 gas management"],
   authors: [{ name: siteConfig.brand.legalName }],
   metadataBase: new URL(siteConfig.site_domain),
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     title: siteConfig.site_name,

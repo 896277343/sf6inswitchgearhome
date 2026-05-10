@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { siteConfig } from "@/site.config";
+import { buildProductSchema } from "../product-schema";
+import { createProductFaqs, ProductFaqSection } from "../product-faq";
+import { ProductBuyerGuide } from "../product-buyer-guide";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -83,61 +86,16 @@ export default function ProductContent() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const activeImage = product.images[activeImageIndex];
   const inquiryMessage = `I'm interested in ${product.name} (${product.model}). Please send me product details, pricing, and delivery information.`;
+  const faqItems = createProductFaqs(product);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Structured Data for SEO */}
       <Script id="product-schema" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": product.name,
-          "image": product.images.map(img => `${siteConfig.site_domain}${img.src}`),
-          "description": product.description,
-          "sku": product.model,
-          "brand": {
-            "@type": "Brand",
-            "name": siteConfig.brand.legalName
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "name": siteConfig.brand.legalName
-          },
-          "offers": {
-            "@type": "Offer",
-            "url": `${siteConfig.site_domain}/products/sf6-gas-fittings`,
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "seller": {
-              "@type": "Organization",
-              "name": siteConfig.brand.legalName
-            }
-          },
-          "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": siteConfig.site_domain
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Products",
-                "item": `${siteConfig.site_domain}/products`
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": product.name,
-                "item": `${siteConfig.site_domain}/products/sf6-gas-fittings`
-              }
-            ]
-          }
-        })}
+        {JSON.stringify(buildProductSchema({
+          slug: "sf6-gas-fittings",
+          ...product,
+        }))}
       </Script>
 
       {/* Breadcrumb Navigation */}
@@ -291,6 +249,12 @@ export default function ProductContent() {
           </div>
         </div>
       </section>
+
+      <ProductBuyerGuide
+        name={product.name}
+        model={product.model}
+        applications={product.applications}
+      />
 
       {/* Product Details Tabs */}
       <section className="py-12 bg-gray-50">
@@ -465,6 +429,8 @@ export default function ProductContent() {
         </div>
       </section>
 
+      <ProductFaqSection productName={product.name} faqItems={faqItems} />
+
       {/* Related Products */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -492,7 +458,7 @@ export default function ProductContent() {
                         {related.name}
                       </h3>
                       <div className="mt-2 flex items-center text-sm text-blue-600">
-                        <span>View Details</span>
+                        <span>View Product Details</span>
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </div>
                     </div>
