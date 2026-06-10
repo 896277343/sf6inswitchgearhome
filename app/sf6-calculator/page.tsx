@@ -8,12 +8,13 @@ import { siteConfig } from "@/site.config";
 import { Sf6CalculatorClient } from "./sf6-calculator-client";
 
 export const metadata: Metadata = {
-  title: `SF6 Calculator | Recovery Time, Density, Humidity and Leak Rate`,
+  title: `SF6 Calculator | Recovery, Vacuum, Density, Humidity and Leak Rate`,
   description:
-    "Use our SF6 calculator for recovery time estimates, residual gas quantity, SF6 density, humidity conversion, leak rate and common unit conversions.",
+    "Use our SF6 calculator for recovery time, vacuum pump-down time, residual gas quantity, SF6 density, humidity conversion, leak rate and common unit conversions.",
   keywords: [
     "SF6 calculator",
     "SF6 recovery time calculator",
+    "SF6 vacuum pump down calculator",
     "SF6 density calculator",
     "SF6 humidity conversion",
     "SF6 leak rate calculator",
@@ -24,9 +25,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "SF6 Calculator | Recovery, Density, Humidity and Leak Rate",
+    title: "SF6 Calculator | Recovery, Vacuum, Density, Humidity and Leak Rate",
     description:
-      "Calculate SF6 recovery guide values, density, humidity conversion, leak rate and unit conversions for gas handling workflows.",
+      "Calculate SF6 recovery, vacuum pump-down, density, humidity conversion, leak rate and unit conversions for gas handling workflows.",
     images: [{
       url: "/opengraph-image.jpeg",
       width: 1200,
@@ -36,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SF6 Calculator | Recovery, Density, Humidity and Leak Rate",
+    title: "SF6 Calculator | Recovery, Vacuum, Density, Humidity and Leak Rate",
     description:
-      "Calculate SF6 recovery guide values, density, humidity conversion, leak rate and unit conversions for gas handling workflows.",
+      "Calculate SF6 recovery, vacuum pump-down, density, humidity conversion, leak rate and unit conversions for gas handling workflows.",
     images: ["/twitter-image.jpeg"],
   },
 };
@@ -54,7 +55,7 @@ export default function Sf6CalculatorPage() {
           "applicationCategory": "EngineeringApplication",
           "operatingSystem": "Web",
           "url": `${siteConfig.site_domain}/sf6-calculator`,
-          "description": "Engineering guide calculator for SF6 recovery, density, humidity, leak rate and unit conversion.",
+          "description": "Engineering guide calculator for SF6 recovery, vacuum pump-down, density, humidity, leak rate and unit conversion.",
           "publisher": {
             "@type": "Organization",
             "name": siteConfig.brand.legalName,
@@ -74,7 +75,7 @@ export default function Sf6CalculatorPage() {
               SF6 Calculator
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-blue-50 sm:text-xl">
-              Estimate SF6 recovery time, residual gas quantity, density, humidity conversion,
+              Estimate SF6 recovery time, vacuum pump-down time, residual gas quantity, density, humidity conversion,
               leak rate and common gas handling units from one practical tool page.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -93,6 +94,7 @@ export default function Sf6CalculatorPage() {
         <div className="mx-auto grid max-w-6xl gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             "Recovery time and residual gas guide values",
+            "Vacuum pump-down time estimation",
             "SF6 density and mass estimation",
             "Dew point, ppmv and ppmw conversion",
             "Leak rate and mass flow estimation",

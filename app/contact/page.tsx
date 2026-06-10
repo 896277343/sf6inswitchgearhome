@@ -35,7 +35,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ message?: string }>;
+}) {
+  const initialMessage = (await searchParams)?.message ?? "";
+
   return (
     <div className="min-h-screen">
       {/* Structured Data */}
@@ -212,6 +218,7 @@ export default function ContactPage() {
                       name="content"
                       className="w-full px-4 py-2 border rounded-lg h-32"
                       placeholder="Your message"
+                      defaultValue={initialMessage}
                       required
                     ></textarea>
                   </div>
