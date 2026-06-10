@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { siteConfig } from "@/site.config";
 
 const INQUIRY_ENDPOINT = "https://inquiry.sf6sf6.com/updata_ppc.php";
+const SITE_ORIGIN = siteConfig.site_domain.replace(/\/$/, "");
 
 function firstValue(value: FormDataEntryValue | null): string {
   return typeof value === "string" ? value : "";
@@ -53,7 +55,7 @@ export async function POST(request: NextRequest) {
       throw new Error(`Inquiry request failed with status ${response.status}`);
     }
 
-    const redirectUrl = new URL(successPath, request.url);
+    const redirectUrl = new URL(successPath, SITE_ORIGIN);
     redirectUrl.searchParams.set("status", "success");
 
     if (productName) {
@@ -67,7 +69,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Inquiry submission failed:", error);
 
-    const redirectUrl = new URL(failurePath, request.url);
+    const redirectUrl = new URL(failurePath, SITE_ORIGIN);
     redirectUrl.searchParams.set("status", "error");
 
     if (productName) {

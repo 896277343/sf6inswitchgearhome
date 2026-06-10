@@ -378,13 +378,15 @@ export default function ProjectContent() {
                   </h3>
                   <form 
                     method="POST" 
-                    action="//inquiry.sf6sf6.com/updata_ppc.php"
+                    action="/api/inquiry"
                     className="space-y-4"
                     suppressHydrationWarning
                   >
                     <input type="hidden" name="from_company" value={siteConfig.brand.legalName} />
                     <input type="hidden" name="referer" value={`${siteConfig.site_domain}/projects/sf6-gas-handling-for-underground-substation`} />
                     <input type="hidden" name="product_name" value={project.name} />
+                    <input type="hidden" name="success_path" value="/inquiry/success" />
+                    <input type="hidden" name="failure_path" value="/contact" />
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
