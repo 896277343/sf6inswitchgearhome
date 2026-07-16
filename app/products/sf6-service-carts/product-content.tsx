@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from "react";
 import { siteConfig } from "@/site.config";
@@ -36,7 +36,7 @@ const product = {
   availability: "In Stock",
   minOrder: "1 Unit",
   deliveryTime: "10-20 Days",
-  warranty: "2 Years",
+  warranty: "1 Year",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
     { src: "/pics/products/sf6-service-carts-1.webp", alt: "SF6 Service Carts Main View" },
@@ -45,7 +45,7 @@ const product = {
   ],
   features: [
     "Complete SF6 gas management solution",
-    "High capacity vacuum pump (40 m³/h)",
+    "High capacity vacuum pump (40 m3/h)",
     "SF6 gas recovery and purification",
     "Precise filling and pressure control",
     "Digital touchscreen control",
@@ -55,14 +55,14 @@ const product = {
   ],
   specifications: [
     { label: "Recovery Rate", value: "30 L/min" },
-    { label: "Vacuum Pump Capacity", value: "40 m³/h" },
-    { label: "Ultimate Vacuum", value: "≤10 Pa" },
+    { label: "Vacuum Pump Capacity", value: "40 m3/h" },
+    { label: "Ultimate Vacuum", value: "<=10 Pa" },
     { label: "Filling Flow Rate", value: "0-60 L/min" },
     { label: "Purification Efficiency", value: "99.9%" },
     { label: "Power Supply", value: "AC 380V/50Hz" },
     { label: "Motor Power", value: "5 kW" },
     { label: "Weight", value: "450 kg" },
-    { label: "Dimensions", value: "1800 × 900 × 1300 mm" },
+    { label: "Dimensions", value: "1800 x 900 x 1300 mm" },
     { label: "Cylinder Capacity", value: "100L" },
     { label: "Hose Length", value: "10 m" },
     { label: "Control System", value: "PLC with touchscreen display" },
@@ -458,7 +458,7 @@ export default function ProductContent() {
                         {related.name}
                       </h3>
                       <div className="mt-2 flex items-center text-sm text-blue-600">
-                        <span>View Product Details</span>
+                        <span>Explore {related.name}</span>
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </div>
                     </div>
@@ -496,3 +496,5 @@ export default function ProductContent() {
     </div>
   );
 }
+
+

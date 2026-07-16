@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from "react";
 import { siteConfig } from "@/site.config";
@@ -36,7 +36,7 @@ const product = {
   availability: "In Stock",
   minOrder: "1 Unit",
   deliveryTime: "7-15 Days",
-  warranty: "2 Years",
+  warranty: "1 Year",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
     { src: "/pics/products/SF6-Leak-Detector-1.webp", alt: "SF6 Leak Detector Front View" },
@@ -57,16 +57,16 @@ const product = {
     { label: "Detection Principle", value: "Infrared (NDIR)" },
     { label: "Detection Range", value: "0-1000 ppm" },
     { label: "Resolution", value: "0.1 ppm" },
-    { label: "Accuracy", value: "±2% FS" },
+    { label: "Accuracy", value: "+/-2% FS" },
     { label: "Response Time", value: "< 10 seconds" },
     { label: "Sampling Method", value: "Built-in pump" },
     { label: "Flow Rate", value: "0.5 L/min" },
     { label: "Display", value: "4.3 inch LCD touchscreen" },
     { label: "Battery Life", value: "8 hours continuous" },
     { label: "Weight", value: "2.5 kg" },
-    { label: "Dimensions", value: "280 × 180 × 120 mm" },
-    { label: "Operating Temp", value: "-10°C to +50°C" },
-    { label: "Storage Temp", value: "-20°C to +60°C" },
+    { label: "Dimensions", value: "280 x 180 x 120 mm" },
+    { label: "Operating Temp", value: "-10 C to +50 C" },
+    { label: "Storage Temp", value: "-20 C to +60 C" },
     { label: "Humidity", value: "0-95% RH (non-condensing)" },
   ],
   applications: [
@@ -460,7 +460,7 @@ export default function ProductContent() {
                         {related.name}
                       </h3>
                       <div className="mt-2 flex items-center text-sm text-blue-600">
-                        <span>View Product Details</span>
+                        <span>Explore {related.name}</span>
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </div>
                     </div>
@@ -498,3 +498,5 @@ export default function ProductContent() {
     </div>
   );
 }
+
+

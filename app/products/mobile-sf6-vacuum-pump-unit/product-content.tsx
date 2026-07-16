@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from "react";
 import { siteConfig } from "@/site.config";
@@ -36,7 +36,7 @@ const product = {
   availability: "In Stock",
   minOrder: "1 Unit",
   deliveryTime: "10-20 Days",
-  warranty: "2 Years",
+  warranty: "1 Year",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
     { src: "/pics/products/mobile-sf6-vacuum-pump-unit-1.webp", alt: "Mobile SF6 Vacuum Pump Unit Main View" },
@@ -44,8 +44,8 @@ const product = {
     { src: "/pics/products/mobile-sf6-vacuum-pump-unit-3.webp", alt: "Mobile SF6 Vacuum Pump Unit in Operation" },
   ],
   features: [
-    "High vacuum capacity (40 m³/h)",
-    "Ultimate vacuum ≤10 Pa",
+    "High vacuum capacity (40 m3/h)",
+    "Ultimate vacuum <=10 Pa",
     "Mobile design with wheels",
     "Digital vacuum gauge",
     "Automatic temperature control",
@@ -54,14 +54,14 @@ const product = {
     "Overload protection"
   ],
   specifications: [
-    { label: "Pump Capacity", value: "40 m³/h" },
-    { label: "Ultimate Vacuum", value: "≤10 Pa" },
+    { label: "Pump Capacity", value: "40 m3/h" },
+    { label: "Ultimate Vacuum", value: "<=10 Pa" },
     { label: "Power Supply", value: "AC 380V/50Hz" },
     { label: "Motor Power", value: "4 kW" },
     { label: "Weight", value: "250 kg" },
-    { label: "Dimensions", value: "1200 × 800 × 1000 mm" },
-    { label: "Noise Level", value: "≤75 dB(A)" },
-    { label: "Operating Temperature", value: "-10°C to +50°C" },
+    { label: "Dimensions", value: "1200 x 800 x 1000 mm" },
+    { label: "Noise Level", value: "<=75 dB(A)" },
+    { label: "Operating Temperature", value: "-10 C to +50 C" },
     { label: "Cooling System", value: "Air-cooled" },
     { label: "Oil Capacity", value: "5 L" },
     { label: "Hose Connections", value: "DN16, DN20" },
@@ -457,7 +457,7 @@ export default function ProductContent() {
                         {related.name}
                       </h3>
                       <div className="mt-2 flex items-center text-sm text-blue-600">
-                        <span>View Product Details</span>
+                        <span>Explore {related.name}</span>
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </div>
                     </div>
@@ -495,3 +495,5 @@ export default function ProductContent() {
     </div>
   );
 }
+
+

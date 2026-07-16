@@ -117,7 +117,7 @@ export function ProjectPageContent({ project }: { project: ProjectCaseStudy }) {
                     className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-5 py-4 text-slate-900 shadow-sm transition-colors hover:border-blue-200 hover:text-blue-800"
                   >
                     <span className="font-medium">{product.name}</span>
-                    <span className="text-sm">View product</span>
+                    <span className="text-sm">View {product.name}</span>
                   </Link>
                 ))}
               </div>

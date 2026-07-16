@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { contentType, contentId } = requestBody;
+    const { contentType, contentId, contentSlug, contentPath } = requestBody;
 
     if (!contentType) {
       return NextResponse.json(
@@ -46,8 +46,13 @@ export async function POST(request: NextRequest) {
         if (contentId) {
           revalidateTag(`post-${contentId}`, { expire: 0 });
         }
+        if (contentSlug) {
+          revalidateTag(`post-slug-${contentSlug}`, { expire: 0 });
+          revalidatePath(`/posts/${contentSlug}`);
+        }
         // Clear all post pages when any post changes
         revalidateTag("posts-page-1", { expire: 0 });
+        revalidatePath("/posts");
       } else if (contentType === "category") {
         revalidateTag("categories", { expire: 0 });
         if (contentId) {
@@ -66,6 +71,10 @@ export async function POST(request: NextRequest) {
           revalidateTag(`posts-author-${contentId}`, { expire: 0 });
           revalidateTag(`author-${contentId}`, { expire: 0 });
         }
+      }
+
+      if (contentPath) {
+        revalidatePath(contentPath);
       }
 
       // Also revalidate the entire layout for safety

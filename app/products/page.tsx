@@ -634,7 +634,7 @@ const ProductCard = ({
               className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent px-5 py-4 text-white">
-              <span className="text-sm font-medium tracking-wide">View product</span>
+              <span className="text-sm font-medium tracking-wide">View {title}</span>
               <ChevronRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </div>
           </div>

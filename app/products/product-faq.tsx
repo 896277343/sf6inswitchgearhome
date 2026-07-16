@@ -21,29 +21,29 @@ export function createProductFaqs(product: ProductFaqProduct): ProductFaqItem[] 
     {
       question: `What is ${product.name} used for?`,
       answer: applications
-        ? `${product.name} is typically used in ${applications} and other SF6 gas maintenance or monitoring workflows.`
-        : `${product.name} is designed for SF6 gas handling, monitoring, testing, or maintenance applications.`,
+        ? `${product.name} is commonly used for ${applications}. It supports SF6 gas work in switchgear, GIS, substations, and related high-voltage maintenance environments.`
+        : `${product.name} supports SF6 gas handling, monitoring, testing, or maintenance work in power equipment applications.`,
     },
     {
-      question: `What is the model number for this ${product.name}?`,
-      answer: `The model number for this product is ${product.model}.`,
+      question: `Which model is listed for ${product.name}?`,
+      answer: `The listed model is ${product.model}. If your project needs a different flow rate, sensor range, voltage, or configuration, we can confirm the available options before quotation.`,
     },
     {
-      question: `What is the minimum order quantity for ${product.name}?`,
+      question: `Can I order one unit of ${product.name}?`,
       answer: product.minOrder
-        ? `The typical minimum order quantity is ${product.minOrder}.`
-        : "Please contact us for current minimum order quantity details.",
+        ? `Yes. The typical minimum order quantity is ${product.minOrder}. For project orders, spare parts, or customized configurations, please confirm the quantity with our team.`
+        : "Please contact us for current minimum order quantity and project order details.",
     },
     {
-      question: `How long is the delivery time for ${product.name}?`,
+      question: `How long does ${product.name} usually take to deliver?`,
       answer: product.deliveryTime
-        ? `The usual delivery time is ${product.deliveryTime}, depending on configuration and order volume.`
-        : "Delivery time depends on configuration and order quantity. Please contact us for the current production lead time.",
+        ? `The usual delivery time is ${product.deliveryTime}. Final lead time depends on stock status, configuration, testing requirements, and order volume.`
+        : "Delivery time depends on stock status, configuration, testing requirements, and order quantity. Please contact us for the current lead time.",
     },
     {
-      question: `Does ${product.name} include warranty support?`,
+      question: `What is the warranty period for ${product.name}?`,
       answer: product.warranty
-        ? `Yes. This product is offered with a typical warranty period of ${product.warranty}.`
+        ? `${product.name} is supplied with a standard warranty period of ${product.warranty}. Warranty support covers qualifying product quality issues under normal use conditions.`
         : "Please contact us to confirm the current warranty terms for this product.",
     },
   ];

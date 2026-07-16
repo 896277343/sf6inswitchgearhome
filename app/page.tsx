@@ -77,7 +77,7 @@ const featuredProducts: ProductHighlight[] = [
   },
 ];
 
-const homepageProducts = featuredProducts.slice(0, 3);
+const homepageProducts = featuredProducts;
 
 const homepageProjects = [
   {
@@ -85,12 +85,41 @@ const homepageProjects = [
     description:
       "Safety monitoring and gas handling for confined underground substations with high-voltage equipment.",
     image: "/pics/projects/underground-substation-h.webp",
+    href: "/projects/sf6-gas-handling-for-underground-substation",
   },
   {
     title: "SF6 use for Gas Insulated Switchgear Manufacturers",
     description:
       "Reuse and handling solutions for SF6-intensive testing and manufacturing workflows.",
     image: "/pics/projects/gis-manufacturers-h.webp",
+    href: "/projects/sf6-use-for-gas-insulated-switchgear-manufacturers",
+  },
+];
+
+const homepageResources = [
+  {
+    title: "SF6 Calculator for recovery and vacuum workflows",
+    description:
+      "Use the SF6 calculator to estimate recovery time, pump-down time, density, leak rate, and gas handling conversions.",
+    href: "/sf6-calculator",
+  },
+  {
+    title: "Browse SF6 gas equipment categories",
+    description:
+      "Explore leak detectors, room monitors, analyzers, filling carts, service carts, fittings, and regeneration systems.",
+    href: "/products",
+  },
+  {
+    title: "Review SF6 project references",
+    description:
+      "See underground substation, GIS manufacturer, and ultra-high-voltage project examples with linked equipment pages.",
+    href: "/projects",
+  },
+  {
+    title: "Learn about our SF6 manufacturing capability",
+    description:
+      "Read about our factory background, lifecycle experience, and support approach for utilities and switchgear teams.",
+    href: "/about",
   },
 ];
 
@@ -262,7 +291,8 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Products</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Comprehensive SF6 gas equipment solutions for various applications
+              Explore core SF6 gas equipment categories for leak detection, safety monitoring, testing,
+              filling, handling, and regeneration workflows.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -280,7 +310,7 @@ export default function Home() {
           <div className="mt-8 flex justify-center">
             <Button asChild size="lg" variant="outline" className="min-w-44">
               <Link href="/products">
-                View all products
+                Browse SF6 gas equipment
                 <ChevronRight size={16} className="ml-2" />
               </Link>
             </Button>
@@ -294,7 +324,8 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Projects</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Successful SF6 gas solutions for various industries and applications
+              Review project references that show how our SF6 handling, monitoring, and service equipment is used
+              in underground substations, GIS manufacturing, and other high-voltage applications.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -304,16 +335,46 @@ export default function Home() {
                 title={project.title}
                 description={project.description}
                 image={project.image}
+                href={project.href}
               />
             ))}
           </div>
           <div className="mt-8 flex justify-center">
             <Button asChild size="lg" variant="outline" className="min-w-44">
               <Link href="/projects">
-                View all projects
+                Explore SF6 project references
                 <ChevronRight size={16} className="ml-2" />
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="defer-section border-y bg-white py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Popular SF6 resources</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Start with the pages buyers, maintenance teams, and engineering users usually need first when
+              evaluating SF6 gas handling equipment.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {homepageResources.map((resource) => (
+              <Link
+                key={resource.href}
+                href={resource.href}
+                className="group block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              >
+                <h3 className="mb-3 text-xl font-semibold text-slate-900 transition-colors group-hover:text-blue-800">
+                  {resource.title}
+                </h3>
+                <p className="mb-4 text-sm leading-6 text-slate-600">{resource.description}</p>
+                <div className="flex items-center gap-2 text-sm font-semibold text-blue-800">
+                  Open resource <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -357,7 +418,7 @@ export default function Home() {
             <div className="mt-8 flex justify-center">
               <Button asChild size="lg" variant="outline" className="min-w-44">
                 <Link href="/about">
-                  Learn more about us
+                  See our SF6 company profile
                   <ChevronRight size={16} className="ml-2" />
                 </Link>
               </Button>
@@ -453,14 +514,24 @@ const ProductCard = ({
       </h3>
       <p className="mb-5 text-sm leading-6 text-slate-600">{description}</p>
       <div className="flex items-center gap-2 text-sm font-semibold text-blue-800">
-        View product <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
+        Explore {title} <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
       </div>
     </Link>
   );
 };
 
 // Project Card Component
-const ProjectCard = ({ title, description, image }: { title: string; description: string; image?: string }) => {
+const ProjectCard = ({
+  title,
+  description,
+  image,
+  href,
+}: {
+  title: string;
+  description: string;
+  image?: string;
+  href: string;
+}) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
       {image && (
@@ -476,8 +547,8 @@ const ProjectCard = ({ title, description, image }: { title: string; description
       )}
       <h3 className="text-xl font-semibold mb-3 text-blue-800">{title}</h3>
       <p className="text-gray-600 mb-4">{description}</p>
-      <Link href="/projects" className="text-blue-800 font-medium flex items-center gap-2">
-        View details <ChevronRight size={16} />
+      <Link href={href} className="text-blue-800 font-medium flex items-center gap-2">
+        Read this SF6 project <ChevronRight size={16} />
       </Link>
     </div>
   );

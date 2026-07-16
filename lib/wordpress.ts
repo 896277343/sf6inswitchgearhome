@@ -222,12 +222,37 @@ export async function getPostById(id: number): Promise<Post> {
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | undefined> {
-  const posts = await wordpressFetchGraceful<Post[]>(
+  const posts = await wordpressFetch<Post[]>(
     "/wp-json/wp/v2/posts",
-    [],
-    { slug, _embed: true }
+    { slug, _embed: true },
+    ["wordpress", "posts", `post-slug-${slug}`]
   );
-  return posts[0];
+
+  if (posts[0]) {
+    return posts[0];
+  }
+
+  const decodedSlug = safeDecodeURIComponent(slug);
+
+  if (decodedSlug && decodedSlug !== slug) {
+    const decodedPosts = await wordpressFetch<Post[]>(
+      "/wp-json/wp/v2/posts",
+      { slug: decodedSlug, _embed: true },
+      ["wordpress", "posts", `post-slug-${decodedSlug}`]
+    );
+
+    return decodedPosts[0];
+  }
+
+  return undefined;
+}
+
+function safeDecodeURIComponent(value: string): string | undefined {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return undefined;
+  }
 }
 
 export async function getAllCategories(): Promise<Category[]> {

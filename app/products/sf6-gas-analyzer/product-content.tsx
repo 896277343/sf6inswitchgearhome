@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from "react";
 import { siteConfig } from "@/site.config";
@@ -36,7 +36,7 @@ const product = {
   availability: "In Stock",
   minOrder: "1 Unit",
   deliveryTime: "7-15 Days",
-  warranty: "2 Years",
+  warranty: "1 Year",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
     { src: "/pics/products/sf6-gas-analyzer-1.webp", alt: "SF6 Gas Analyzer Main Unit" },
@@ -55,16 +55,16 @@ const product = {
   ],
   specifications: [
     { label: "Moisture Range", value: "0-1000 ppm" },
-    { label: "Moisture Accuracy", value: "±2 ppm" },
+    { label: "Moisture Accuracy", value: "+/-2 ppm" },
     { label: "Purity Range", value: "0-100%" },
-    { label: "Purity Accuracy", value: "±0.1%" },
+    { label: "Purity Accuracy", value: "+/-0.1%" },
     { label: "Decomposition Products", value: "SO2, HF, CO, CF4" },
     { label: "Response Time", value: "< 3 minutes" },
     { label: "Display", value: "7 inch touchscreen" },
     { label: "Battery Life", value: "8 hours continuous" },
     { label: "Weight", value: "5 kg" },
-    { label: "Dimensions", value: "300 × 200 × 150 mm" },
-    { label: "Operating Temperature", value: "-10°C to +50°C" },
+    { label: "Dimensions", value: "300 x 200 x 150 mm" },
+    { label: "Operating Temperature", value: "-10 C to +50 C" },
     { label: "Data Storage", value: "10,000 measurements" },
   ],
   applications: [
@@ -458,7 +458,7 @@ export default function ProductContent() {
                         {related.name}
                       </h3>
                       <div className="mt-2 flex items-center text-sm text-blue-600">
-                        <span>View Product Details</span>
+                        <span>Explore {related.name}</span>
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </div>
                     </div>
@@ -496,3 +496,5 @@ export default function ProductContent() {
     </div>
   );
 }
+
+

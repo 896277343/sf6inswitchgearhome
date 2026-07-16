@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from "react";
 import { siteConfig } from "@/site.config";
@@ -39,7 +39,7 @@ const product = {
   availability: "In Stock",
   minOrder: "1 Unit",
   deliveryTime: "10-20 Days",
-  warranty: "3 Years",
+  warranty: "1 Year",
   certification: ["CE", "ISO 9001", "IEC 60480", "ATEX"],
   images: [
     { src: "/pics/products/sf6-room-monitor-1.webp", alt: "SF6 Room Monitor Main Unit" },
@@ -60,8 +60,8 @@ const product = {
     { label: "SF6 Detection Range", value: "0-1000 ppm" },
     { label: "SF6 Resolution", value: "1 ppm" },
     { label: "Oxygen Range", value: "0-30% VOL" },
-    { label: "Oxygen Accuracy", value: "±0.7% VOL" },
-    { label: "Temperature Range", value: "-20°C to +60°C" },
+    { label: "Oxygen Accuracy", value: "+/-0.7% VOL" },
+    { label: "Temperature Range", value: "-20 C to +60 C" },
     { label: "Humidity Range", value: "0-100% RH" },
     { label: "Display", value: "7 inch touchscreen LCD" },
     { label: "Data Logging", value: "Built-in 2GB storage" },
@@ -93,22 +93,9 @@ const relatedProductPool: RelatedProductItem[] = [
   { name: "Mobile SF6 Vacuum Pump Unit", slug: "mobile-sf6-vacuum-pump-unit", image: relatedProductImages["mobile-sf6-vacuum-pump-unit"] },
 ];
 
-function getRandomRelatedProducts(currentSlug: string, count: number) {
-  const candidates = relatedProductPool.filter((item) => item.slug !== currentSlug);
-
-  for (let i = candidates.length - 1; i > 0; i -= 1) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
-    [candidates[i], candidates[randomIndex]] = [candidates[randomIndex], candidates[i]];
-  }
-
-  return candidates.slice(0, count);
-}
-
 export default function ProductContent() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [relatedProducts, setRelatedProducts] = useState(() =>
-    getRandomRelatedProducts("sf6-room-monitor", 3)
-  );
+  const relatedProducts = relatedProductPool.slice(0, 3);
   const activeImage = product.images[activeImageIndex];
   const inquiryMessage = `I'm interested in ${product.name} (${product.model}). Please send me product details, pricing, and delivery information.`;
   const faqItems = createProductFaqs(product);
@@ -484,7 +471,7 @@ export default function ProductContent() {
                         {related.name}
                       </h3>
                       <div className="mt-2 flex items-center text-sm text-blue-600">
-                        <span>View Product Details</span>
+                        <span>Explore {related.name}</span>
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </div>
                     </div>
@@ -522,3 +509,5 @@ export default function ProductContent() {
     </div>
   );
 }
+
+

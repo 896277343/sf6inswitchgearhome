@@ -1,4 +1,4 @@
-import { getPostBySlug, getAllPostSlugs } from "@/lib/wordpress";
+import { getPostBySlug } from "@/lib/wordpress";
 import { generateContentMetadata, stripHtml } from "@/lib/metadata";
 
 import { Section, Container, Article, Prose } from "@/components/craft";
@@ -12,9 +12,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { siteConfig } from "@/site.config";
 
-export async function generateStaticParams() {
-  return await getAllPostSlugs();
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

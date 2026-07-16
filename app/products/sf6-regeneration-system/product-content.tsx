@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from "react";
 import { siteConfig } from "@/site.config";
@@ -36,7 +36,7 @@ const product = {
   availability: "In Stock",
   minOrder: "1 Unit",
   deliveryTime: "15-25 Days",
-  warranty: "3 Years",
+  warranty: "1 Year",
   certification: ["CE", "ISO 9001", "IEC 60480", "RoHS"],
   images: [
     { src: "/pics/products/sf6-regeneration-system-1.webp", alt: "SF6 Regeneration System Main Unit" },
@@ -57,12 +57,12 @@ const product = {
     { label: "Processing Capacity", value: "50 kg/day" },
     { label: "Purification Efficiency", value: "99.9%" },
     { label: "Moisture Removal", value: "< 10 ppm" },
-    { label: "Particulate Filtration", value: "< 0.1 μm" },
+    { label: "Particulate Filtration", value: "< 0.1 渭m" },
     { label: "Operating Pressure", value: "0-10 bar" },
     { label: "Power Supply", value: "AC 380V/50Hz" },
     { label: "Power Consumption", value: "15 kW" },
     { label: "Weight", value: "800 kg" },
-    { label: "Dimensions", value: "2000 × 1200 × 1800 mm" },
+    { label: "Dimensions", value: "2000 x 1200 x 1800 mm" },
     { label: "Control System", value: "PLC with touchscreen" },
     { label: "Safety Features", value: "Overpressure, overtemp, leak detection" },
     { label: "Compliance", value: "IEC 60480, EPA, EU F-Gas" },
@@ -457,7 +457,7 @@ export default function ProductContent() {
                         {related.name}
                       </h3>
                       <div className="mt-2 flex items-center text-sm text-blue-600">
-                        <span>View Product Details</span>
+                        <span>Explore {related.name}</span>
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </div>
                     </div>
@@ -495,3 +495,5 @@ export default function ProductContent() {
     </div>
   );
 }
+
+

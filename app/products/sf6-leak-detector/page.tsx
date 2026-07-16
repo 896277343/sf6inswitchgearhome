@@ -3,7 +3,7 @@ import ProductContent from "./product-content";
 
 const product = {
   name: "SF6 Leak Detector",
-  model: "SF6-LD-3000",
+  model: "SF6-PGAS32",
   description: "High-precision infrared SF6 leak detection system with built-in air pump, ppm-level accuracy, and 10-year sensor lifespan. Ideal for power substations and industrial applications.",
   shortDescription: "Professional SF6 gas leak detector with infrared principle, ppm precision, and 10-year sensor life.",
 };

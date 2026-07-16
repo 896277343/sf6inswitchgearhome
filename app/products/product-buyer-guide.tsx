@@ -12,6 +12,7 @@ export function ProductBuyerGuide({
   applications,
 }: ProductBuyerGuideProps) {
   const highlightedApplications = applications.slice(0, 3).join(", ");
+  const primaryApplication = applications[0] ?? "SF6 gas maintenance";
 
   return (
     <section className="border-y bg-slate-50 py-10">
@@ -22,12 +23,13 @@ export function ProductBuyerGuide({
               What Is {name} Used For?
             </h2>
             <p className="mb-4 text-base leading-7 text-slate-600">
-              {name} ({model}) is designed for buyers who need dependable SF6 equipment for inspection,
-              monitoring, maintenance, filling, recovery, or gas quality control workflows.
+              {name} ({model}) is selected for {primaryApplication.toLowerCase()} and related SF6 gas
+              work where stable performance, clear specifications, and practical field support matter.
             </p>
             <p className="text-base leading-7 text-slate-600">
-              This model is commonly selected for {highlightedApplications}. It helps engineering teams
-              compare the right SF6 product before requesting a quotation or technical discussion.
+              Typical applications include {highlightedApplications}. Use the specifications, applications,
+              and FAQ on this page to compare whether this model fits your switchgear, GIS, or substation
+              maintenance workflow before requesting a quotation or technical discussion.
             </p>
           </div>
 
@@ -39,13 +41,13 @@ export function ProductBuyerGuide({
               <li>Review the specifications and applications below to confirm fit.</li>
               <li>Use the inquiry form for pricing, lead time, and configuration details.</li>
               <li>
-                Compare with other options in our{" "}
+                Compare with related equipment in our{" "}
                 <Link href="/products" className="font-medium text-blue-700 hover:underline">
-                  SF6 product catalog
+                  SF6 gas equipment catalog
                 </Link>{" "}
                 or contact us through the{" "}
                 <Link href="/contact" className="font-medium text-blue-700 hover:underline">
-                  contact page
+                  SF6 equipment inquiry page
                 </Link>.
               </li>
             </ul>

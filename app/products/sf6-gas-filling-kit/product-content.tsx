@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from "react";
 import { siteConfig } from "@/site.config";
@@ -36,7 +36,7 @@ const product = {
   availability: "In Stock",
   minOrder: "1 Unit",
   deliveryTime: "10-20 Days",
-  warranty: "2 Years",
+  warranty: "1 Year",
   certification: ["CE", "ISO 9001", "IEC 60480"],
   images: [
     { src: "/pics/products/sf6-gas-filling-kit-1.webp", alt: "SF6 Gas Filling Kit Main Unit" },
@@ -55,15 +55,15 @@ const product = {
   ],
   specifications: [
     { label: "Filling Flow Rate", value: "0-50 L/min" },
-    { label: "Vacuum Pump Capacity", value: "20 m³/h" },
-    { label: "Ultimate Vacuum", value: "≤10 Pa" },
+    { label: "Vacuum Pump Capacity", value: "20 m3/h" },
+    { label: "Ultimate Vacuum", value: "<=10 Pa" },
     { label: "Pressure Range", value: "0-10 bar" },
-    { label: "Pressure Accuracy", value: "±0.1 bar" },
-    { label: "Temperature Range", value: "-10°C to +50°C" },
+    { label: "Pressure Accuracy", value: "+/-0.1 bar" },
+    { label: "Temperature Range", value: "-10 C to +50 C" },
     { label: "Display", value: "Digital LCD" },
     { label: "Power Supply", value: "AC 220V/50Hz or DC 24V" },
     { label: "Weight", value: "45 kg" },
-    { label: "Dimensions", value: "800 × 600 × 400 mm" },
+    { label: "Dimensions", value: "800 x 600 x 400 mm" },
     { label: "Hose Length", value: "5 m" },
     { label: "Storage Capacity", value: "20L SF6 cylinder" },
   ],
@@ -457,7 +457,7 @@ export default function ProductContent() {
                         {related.name}
                       </h3>
                       <div className="mt-2 flex items-center text-sm text-blue-600">
-                        <span>View Product Details</span>
+                        <span>Explore {related.name}</span>
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </div>
                     </div>
@@ -495,3 +495,5 @@ export default function ProductContent() {
     </div>
   );
 }
+
+
