@@ -49,13 +49,8 @@ The build server compiles the `.next-local` standalone output and the Tencent
 server only runs it:
 
 ```bash
-APP_DIR="$HOME/sf6inswitchgearhome" \
-DEPLOY_HOST="root@43.135.134.204" \
-REMOTE_ROOT="/www/wwwroot/sf6inswitchgear-runtime" \
-REMOTE_ENV="/opt/sf6inswitchgear.env" \
-PM2_APP="sf6inswitchgear" \
-APP_PORT="3000" \
-bash scripts/build-and-deploy.sh
+cd ~/sf6inswitchgearhome
+bash deploy-production.sh
 ```
 
 Without SSH keys, `scp` and `ssh` prompt for the server password during each
@@ -72,7 +67,8 @@ English uses unprefixed URLs. Other languages retain stable English slugs:
 /fr/products/sf6-gas-analyzer
 ```
 
-Direct `/en/...` requests redirect permanently to the unprefixed equivalent.
+The unprefixed English URL is canonical. Internal rewrites keep `/` and other
+unprefixed paths on the English route behind the HTTPS reverse proxy.
 
 After changing visible TSX copy, refresh the source catalog before building:
 
