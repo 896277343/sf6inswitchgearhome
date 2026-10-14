@@ -54,7 +54,7 @@ DEPLOY_HOST="root@43.135.134.204" \
 REMOTE_ROOT="/www/wwwroot/sf6inswitchgear-runtime" \
 REMOTE_ENV="/opt/sf6inswitchgear.env" \
 PM2_APP="sf6inswitchgear" \
-APP_PORT="3001" \
+APP_PORT="3000" \
 bash scripts/build-and-deploy.sh
 ```
 
