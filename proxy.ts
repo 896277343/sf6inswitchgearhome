@@ -22,14 +22,17 @@ export function proxy(request: NextRequest) {
   }
 
   const firstSegment = pathname.split("/")[1];
-  if (firstSegment === defaultLocale) {
-    const url = request.nextUrl.clone();
-    url.pathname = pathname.replace(`/${defaultLocale}`, "") || "/";
-    return NextResponse.redirect(url, 308);
-  }
   if (!isLocale(firstSegment)) {
     const url = request.nextUrl.clone();
     url.pathname = `/${defaultLocale}${pathname === "/" ? "" : pathname}`;
+
+    // Behind a TLS-terminating reverse proxy, Next can see an internal
+    // localhost URL combined with the public HTTPS protocol. Rewriting that
+    // URL would make the standalone server try TLS against its plain HTTP
+    // listener and fail with EPROTO. Keep localhost rewrites internal HTTP.
+    if (url.hostname === "localhost" || url.hostname === "127.0.0.1") {
+      url.protocol = "http:";
+    }
     return NextResponse.rewrite(url);
   }
 
