@@ -28,9 +28,11 @@ NODE_MAJOR="$(node -p 'Number(process.versions.node.split(".")[0])')"
 cd "$APP_DIR"
 [[ -f package-lock.json ]] || die "缺少 package-lock.json"
 [[ -f .env.production || -f .env.local ]] || die "缺少 .env.production 或 .env.local"
+GIT_BRANCH="${GIT_BRANCH:-$(git branch --show-current)}"
+[[ -n "$GIT_BRANCH" ]] || GIT_BRANCH="main"
 
-echo "1/7 拉取 GitHub 最新代码"
-git pull --ff-only origin main
+echo "1/7 拉取 GitHub 最新代码（$GIT_BRANCH）"
+git pull --ff-only origin "$GIT_BRANCH"
 
 echo "2/7 安装锁定版本依赖"
 npm ci --no-audit --no-fund
