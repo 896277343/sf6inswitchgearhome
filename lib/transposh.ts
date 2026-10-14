@@ -25,34 +25,41 @@ export async function translateStrings(
     return { results: strings, translated: false };
   }
 
-  const response = await fetch(`${apiBase}/wp-json/transposh/v1/translate`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Transposh-Key": apiSecret,
-    },
-    body: JSON.stringify({
-      source_language: defaultLocale,
-      language: locale,
-      strings,
-    }),
-    cache: "force-cache",
-    next: {
-      revalidate: 86400,
-      tags: [`transposh-${locale}`],
-    },
-  });
+  try {
+    const response = await fetch(`${apiBase}/wp-json/transposh/v1/translate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Transposh-Key": apiSecret,
+      },
+      body: JSON.stringify({
+        source_language: defaultLocale,
+        language: locale,
+        strings,
+      }),
+      cache: "force-cache",
+      next: {
+        revalidate: 86400,
+        tags: [`transposh-${locale}`],
+      },
+      signal: AbortSignal.timeout(30000),
+    });
 
-  if (!response.ok) {
-    console.warn(`Transposh translation failed with HTTP ${response.status}`);
+    if (!response.ok) {
+      console.warn(`Transposh translation failed with HTTP ${response.status}`);
+      return { results: strings, translated: false };
+    }
+    const payload = (await response.json()) as TranslationResponse;
+    if (!Array.isArray(payload.results) || payload.results.length !== strings.length) {
+      console.warn("Transposh returned an invalid translation batch");
+      return { results: strings, translated: false };
+    }
+    return { results: payload.results, translated: true };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    console.warn(`Transposh translation request failed: ${message}`);
     return { results: strings, translated: false };
   }
-  const payload = (await response.json()) as TranslationResponse;
-  if (!Array.isArray(payload.results) || payload.results.length !== strings.length) {
-    console.warn("Transposh returned an invalid translation batch");
-    return { results: strings, translated: false };
-  }
-  return { results: payload.results, translated: true };
 }
 
 export async function translatePost(post: Post, locale: Locale): Promise<Post> {
