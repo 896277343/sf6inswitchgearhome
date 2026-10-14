@@ -22,6 +22,7 @@ command -v pm2 >/dev/null || die "腾讯服务器没有安装 PM2"
 command -v curl >/dev/null || die "腾讯服务器没有安装 curl"
 [[ -f "$ARCHIVE" ]] || die "发布包不存在：$ARCHIVE"
 [[ -f "$ENV_FILE" ]] || die "运行环境文件不存在：$ENV_FILE"
+chmod 600 "$ENV_FILE"
 
 NODE_MAJOR="$(node -p 'Number(process.versions.node.split(".")[0])')"
 (( NODE_MAJOR >= 22 )) || die "腾讯服务器需要 Node.js 22，当前版本：$(node -v)"
