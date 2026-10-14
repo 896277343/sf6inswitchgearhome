@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import { Section, Container, Prose } from "@/components/craft";
 import BackButton from "@/components/back";
 

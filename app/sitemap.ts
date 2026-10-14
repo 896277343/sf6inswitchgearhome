@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { getAllPages, getAllPostsForSitemap } from "@/lib/wordpress";
-import { siteConfig } from "@/site.config";
+import { languageAlternates, localizedUrl, publishedLocales } from "@/lib/i18n/metadata";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [posts, pages] = await Promise.all([
@@ -54,8 +54,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/posts": "2026-05-10",
   };
 
-  const staticUrls: MetadataRoute.Sitemap = staticPaths.map((path) => ({
-    url: `${siteConfig.site_domain}${path === "/" ? "" : path}`,
+  const activeLocales = publishedLocales();
+  const staticUrls: MetadataRoute.Sitemap = staticPaths.flatMap((path) => activeLocales.map((locale) => ({
+    url: localizedUrl(path, locale),
     lastModified: new Date(staticLastModifiedMap[path] ?? "2026-05-10"),
     changeFrequency:
       path === "/"
@@ -71,21 +72,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           : path.startsWith("/products/")
             ? 0.8
             : 0.7,
-  }));
+    alternates: { languages: languageAlternates(path) },
+  })));
 
-  const postUrls: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${siteConfig.site_domain}/posts/${post.slug}`,
+  const postUrls: MetadataRoute.Sitemap = posts.flatMap((post) => activeLocales.map((locale) => ({
+    url: localizedUrl(`/posts/${post.slug}`, locale),
     lastModified: new Date(post.modified),
     changeFrequency: "weekly",
     priority: 0.5,
-  }));
+    alternates: { languages: languageAlternates(`/posts/${post.slug}`) },
+  })));
 
-  const pageUrls: MetadataRoute.Sitemap = pages.map((page) => ({
-    url: `${siteConfig.site_domain}/pages/${page.slug}`,
+  const pageUrls: MetadataRoute.Sitemap = pages.flatMap((page) => activeLocales.map((locale) => ({
+    url: localizedUrl(`/pages/${page.slug}`, locale),
     lastModified: new Date(page.modified || page.date),
     changeFrequency: "monthly",
     priority: 0.6,
-  }));
+    alternates: { languages: languageAlternates(`/pages/${page.slug}`) },
+  })));
 
   return [...staticUrls, ...postUrls, ...pageUrls];
 }

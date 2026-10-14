@@ -1,11 +1,15 @@
+"use client";
+
 import { Section, Container } from "@/components/craft";
 import { mainMenu, contentMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 import Logo from "@/public/logo.svg";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/i18n/link";
+import { useI18n } from "@/components/i18n/provider";
 
 export function Footer() {
+  const { t } = useI18n();
   return (
     <footer>
       <Section>
@@ -28,33 +32,33 @@ export function Footer() {
             </div>
           </div>
           <div className="flex flex-col gap-2 text-sm">
-            <h2 className="font-medium text-base">Website</h2>
+            <h2 className="font-medium text-base">{t("footer.website")}</h2>
             {Object.entries(mainMenu).map(([key, href]) => (
               <Link
                 className="hover:underline underline-offset-4"
                 key={href}
                 href={href}
               >
-                {key.charAt(0).toUpperCase() + key.slice(1)}
+                {t(`nav.${key}` as Parameters<typeof t>[0])}
               </Link>
             ))}
           </div>
           <div className="flex flex-col gap-2 text-sm">
-            <h2 className="font-medium text-base">Blog</h2>
+            <h2 className="font-medium text-base">{t("footer.blog")}</h2>
             {Object.entries(contentMenu).map(([key, href]) => (
               <Link
                 className="hover:underline underline-offset-4"
                 key={href}
                 href={href}
               >
-                {key.charAt(0).toUpperCase() + key.slice(1)}
+                {t(`nav.${key}` as Parameters<typeof t>[0])}
               </Link>
             ))}
           </div>
         </Container>
         <Container className="border-t not-prose flex flex-col gap-6 md:flex-row md:items-center md:justify-end md:gap-2">
           <p className="text-muted-foreground">
-            &copy; {siteConfig.footer.copyrightName}. All rights reserved.{" "}
+            &copy; {siteConfig.footer.copyrightName}. {t("footer.rights")}{" "}
             {siteConfig.footer.copyrightYears}.
           </p>
         </Container>

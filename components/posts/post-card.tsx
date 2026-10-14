@@ -1,15 +1,20 @@
+"use client";
+
+import { T } from "@/components/i18n/text";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 
 import { Post } from "@/lib/wordpress.d";
 import { cn } from "@/lib/utils";
 import { truncateHtml } from "@/lib/metadata";
+import { useI18n } from "@/components/i18n/provider";
 
 export function PostCard({ post }: { post: Post }) {
+  const { locale, href: localizedHref } = useI18n();
   // Use embedded data instead of separate API calls
   const media = post._embedded?.["wp:featuredmedia"]?.[0] ?? null;
   const category = post._embedded?.["wp:term"]?.[0]?.[0] ?? null;
-  const date = new Date(post.date).toLocaleDateString("en-US", {
+  const date = new Date(post.date).toLocaleDateString(locale, {
     month: "long",
     day: "numeric",
     year: "numeric",
@@ -17,7 +22,7 @@ export function PostCard({ post }: { post: Post }) {
 
   return (
     <Link
-      href={`/posts/${post.slug}`}
+      href={localizedHref(`/posts/${post.slug}`)}
       className={cn(
         "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
         "hover:bg-accent/75 transition-all"
@@ -35,7 +40,7 @@ export function PostCard({ post }: { post: Post }) {
             />
           ) : (
             <div className="flex items-center justify-center w-full h-full text-muted-foreground">
-              No image available
+              <T id="be9d50fc276737e8" />
             </div>
           )}
         </div>

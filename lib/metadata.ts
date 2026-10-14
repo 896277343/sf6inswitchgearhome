@@ -1,11 +1,14 @@
 import { siteConfig } from "@/site.config";
 import type { Metadata } from "next";
+import type { Locale } from "@/lib/i18n/config";
+import { withLocalizedMetadata } from "@/lib/i18n/metadata";
 
 interface ContentMetadataOptions {
   title: string;
   description: string;
   slug: string;
   basePath: "posts" | "pages";
+  locale?: Locale;
 }
 
 export function generateContentMetadata({
@@ -13,13 +16,14 @@ export function generateContentMetadata({
   description,
   slug,
   basePath,
+  locale = "en",
 }: ContentMetadataOptions): Metadata {
   const ogUrl = new URL(`${siteConfig.site_domain}/api/og`);
   ogUrl.searchParams.append("title", title);
   ogUrl.searchParams.append("description", description);
   const canonicalUrl = `${siteConfig.site_domain}/${basePath}/${slug}`;
 
-  return {
+  return withLocalizedMetadata({
     title,
     description,
     keywords: ["SF6 gas", "SF6 equipment", "SF6 technology", "SF6 best practices", ...title.split(/\s+/).filter(word => word.length > 3)],
@@ -46,7 +50,7 @@ export function generateContentMetadata({
       description,
       images: [ogUrl.toString()],
     },
-  };
+  }, locale, `/${basePath}/${slug}`);
 }
 
 export function stripHtml(html: string): string {

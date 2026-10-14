@@ -1,5 +1,6 @@
 "use client";
 
+import { T } from "@/components/i18n/text";
 import { useRouter } from "next/navigation";
 import {
   Select,
@@ -57,7 +58,7 @@ export function FilterPosts({
           {hasTags ? <SelectValue placeholder="All Tags" /> : "No tags found"}
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Tags</SelectItem>
+          <SelectItem value="all"><T id="2b488c3920ee725e" /></SelectItem>
           {tags.map((tag) => (
             <SelectItem key={tag.id} value={tag.id.toString()}>
               {tag.name}
@@ -78,7 +79,7 @@ export function FilterPosts({
           )}
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Categories</SelectItem>
+          <SelectItem value="all"><T id="fe3b58f14752cb5d" /></SelectItem>
           {categories.map((category) => (
             <SelectItem key={category.id} value={category.id.toString()}>
               {category.name}
@@ -99,7 +100,7 @@ export function FilterPosts({
           )}
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Authors</SelectItem>
+          <SelectItem value="all"><T id="c1e5313e7acee4ce" /></SelectItem>
           {authors.map((author) => (
             <SelectItem key={author.id} value={author.id.toString()}>
               {author.name}
@@ -109,7 +110,7 @@ export function FilterPosts({
       </Select>
 
       <Button variant="outline" onClick={handleResetFilters}>
-        Reset Filters
+        <T id="660f3d76f4f2802d" />
       </Button>
     </div>
   );

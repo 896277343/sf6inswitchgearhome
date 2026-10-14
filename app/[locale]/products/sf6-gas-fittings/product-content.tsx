@@ -1,0 +1,497 @@
+'use client';
+
+
+import { T, TV } from "@/components/i18n/text";
+import { useState } from "react";
+import { siteConfig } from "@/site.config";
+import { buildProductSchema } from "../product-schema";
+import { createProductFaqs, ProductFaqSection } from "../product-faq";
+import { ProductBuyerGuide } from "../product-buyer-guide";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { relatedProductImages } from "../related-product-images";
+import Script from "next/script";
+import Link from "@/components/i18n/link";
+import { 
+  CheckCircle, 
+  Phone, 
+  Mail, 
+  MessageSquare, 
+  FileText,
+  ArrowRight,
+  Shield,
+  Zap,
+  Award,
+  Clock
+} from "lucide-react";
+
+// Product data
+const product = {
+  name: "SF6 Gas Fittings",
+  model: "SF6-FT",
+  description: "High-quality SF6 gas fittings and accessories for safe and reliable SF6 gas handling. Includes valves, connectors, hoses, and adapters designed for SF6 applications.",
+  shortDescription: "High-quality SF6 gas fittings and accessories for safe and reliable SF6 gas handling.",
+  price: "Contact for Quote",
+  availability: "In Stock",
+  minOrder: "1 Unit",
+  deliveryTime: "3-7 Days",
+  warranty: "1 Year",
+  certification: ["CE", "ISO 9001", "DIN", "ANSI"],
+  images: [
+    { src: "/pics/products/SF6-Gas-Fittings-1.webp", alt: "SF6 Gas Fittings Collection" },
+    { src: "/pics/products/SF6-Gas-Fittings-2.webp", alt: "SF6 Gas Valves" },
+    { src: "/pics/products/SF6-Gas-Fittings-3.webp", alt: "SF6 Gas Hoses and Connectors" },
+  ],
+  features: [
+    "High-quality stainless steel construction",
+    "Leak-proof design",
+    "Corrosion resistant",
+    "Wide range of sizes and types",
+    "Compliant with international standards",
+    "Easy to install and maintain",
+    "Long service life",
+    "Compatible with all SF6 equipment"
+  ],
+  specifications: [
+    { label: "Material", value: "Stainless Steel 316L" },
+    { label: "Pressure Rating", value: "Up to 160 bar" },
+    { label: "Temperature Range", value: "-40°C to +120°C" },
+    { label: "Connection Types", value: "NPT, BSP, ISO, DIN" },
+    { label: "Sizes", value: "1/4 to 2" },
+    { label: "Seal Material", value: "PTFE, Viton" },
+    { label: "Testing", value: "100% leak tested" },
+    { label: "Certifications", value: "CE, ISO 9001" },
+    { label: "Packaging", value: "Protective packaging" },
+    { label: "Warranty", value: "1 Year" },
+    { label: "Lead Time", value: "3-7 days" },
+    { label: "Customization", value: "Available" },
+  ],
+  applications: [
+    "Power substations",
+    "GIS (Gas Insulated Switchgear)",
+    "Circuit breakers",
+    "Transformers",
+    "SF6 gas handling equipment",
+    "Industrial gas systems"
+  ],
+  relatedProducts: [
+    { name: "SF6 Leak Detector", slug: "sf6-leak-detector", image: relatedProductImages["sf6-leak-detector"] },
+    { name: "SF6 Room Monitor", slug: "sf6-room-monitor", image: relatedProductImages["sf6-room-monitor"] },
+    { name: "SF6 Gas Filling Kit", slug: "sf6-gas-filling-kit", image: relatedProductImages["sf6-gas-filling-kit"] },
+  ]
+};
+
+export default function ProductContent() {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const activeImage = product.images[activeImageIndex];
+  const inquiryMessage = `I'm interested in ${product.name} (${product.model}). Please send me product details, pricing, and delivery information.`;
+  const faqItems = createProductFaqs(product);
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Structured Data for SEO */}
+      <Script id="product-schema" type="application/ld+json">
+        {JSON.stringify(buildProductSchema({
+          slug: "sf6-gas-fittings",
+          ...product,
+        }))}
+      </Script>
+
+      {/* Breadcrumb Navigation */}
+      <div className="bg-gray-50 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/"><T id="3a78695388b38b5c" /></BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/products"><T id="4edc8bfafc6bd936" /></BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{<TV>{product.name}</TV>}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
+
+      {/* Hero Section - Product Overview */}
+      <section className="py-10 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+            {/* Product Images */}
+            <div className="space-y-3 sm:space-y-4">
+              <div className="relative aspect-[4/3] sm:aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                <Image
+                  src={activeImage.src}
+                  alt={activeImage.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                {product.images.map((img, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setActiveImageIndex(index)}
+                    aria-label={`View ${img.alt}`}
+                    aria-pressed={activeImageIndex === index}
+                    className={`relative aspect-square rounded-lg overflow-hidden border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-500/30 focus:ring-offset-2 ${
+                      activeImageIndex === index
+                        ? "border-slate-700 shadow-[0_16px_32px_-22px_rgba(15,23,42,0.55)]"
+                        : "border-stone-200 hover:border-slate-400 hover:opacity-90"
+                    }`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(min-width: 1024px) 16vw, 33vw"
+                      className="object-cover"
+                    />
+                    <span className="sr-only">
+                      {activeImageIndex === index ? "Current selected image" : "Select this image"}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Product Info */}
+            <div className="space-y-5 sm:space-y-6">
+              <div>
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                  {<TV>{product.name}</TV>}
+                </h1>
+                <Badge className="mb-4" variant="secondary">
+                  <T id="1274addbe2f89d6d" /> {<TV>{product.model}</TV>}
+                </Badge>
+                <p className="text-base text-gray-600 leading-7 sm:text-lg sm:leading-relaxed">
+                  {<TV>{product.description}</TV>}
+                </p>
+              </div>
+
+              {/* Key Features */}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-gray-900"><T id="1d4105a0707deabf" /></h3>
+                <ul className="space-y-2">
+                  {product.features.slice(0, 4).map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2 text-gray-600">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span>{<TV>{feature}</TV>}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Product Meta */}
+              <div className="grid grid-cols-2 gap-3 py-4 border-y sm:gap-4">
+                <div>
+                  <span className="text-sm text-gray-500"><T id="12f67f8539c46701" /></span>
+                  <p className="font-semibold text-green-600">{<TV>{product.availability}</TV>}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500"><T id="71ab98d059afef88" /></span>
+                  <p className="font-semibold">{<TV>{product.deliveryTime}</TV>}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500"><T id="4b721747570ac440" /></span>
+                  <p className="font-semibold">{<TV>{product.warranty}</TV>}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500"><T id="a36385ccfd2c728c" /></span>
+                  <p className="font-semibold">{<TV>{product.minOrder}</TV>}</p>
+                </div>
+              </div>
+
+              {/* Certifications */}
+              <div className="flex flex-wrap gap-2">
+                {product.certification.map((cert) => (
+                  <Badge key={cert} variant="outline" className="flex items-center gap-1">
+                    <Award className="w-3 h-3" />
+                    {<TV>{cert}</TV>}
+                  </Badge>
+                ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col gap-3 pt-4 sm:flex-row sm:gap-4">
+                <Button 
+                  size="lg" 
+                  className="h-11 w-full justify-center bg-blue-600 px-4 text-sm hover:bg-blue-700 sm:h-12 sm:flex-1 sm:px-6 sm:text-base"
+                  asChild
+                >
+                  <a href="#inquiry">
+                    <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    <T id="942821724cf9e240" />
+                  </a>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="h-11 w-full justify-center px-4 text-sm sm:h-12 sm:flex-1 sm:px-6 sm:text-base"
+                  asChild
+                >
+                  <a href="#contact">
+                    <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    <T id="98b67063cf8e584d" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ProductBuyerGuide
+        name={product.name}
+        model={product.model}
+        applications={product.applications}
+      />
+
+      {/* Product Details Tabs */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left Column - Details */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* Description */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <FileText className="w-6 h-6" />
+                    <T id="36a4bdd1c275efe4" />
+                  </h2>
+                  <div className="prose max-w-none text-gray-600 space-y-4">
+                    <p>
+                      <T id="b344d80e24a36799" /> {<TV>{product.name}</TV>} <T id="cb6935f58e58772b" />
+                    </p>
+                    <p>
+                      <T id="24a586ca5f931c1c" />
+                    </p>
+                    <h3 className="text-lg font-semibold text-gray-900 mt-6"><T id="9eed7875012fdb4f" /></h3>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {product.features.map((feature, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                          <span>{<TV>{feature}</TV>}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Technical Specifications */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <Zap className="w-6 h-6" />
+                    <T id="5e26d86f59570c86" />
+                  </h2>
+                  <div className="overflow-x-auto rounded-lg border border-gray-100">
+                    <table className="min-w-[32rem] w-full text-sm sm:min-w-0 sm:text-base">
+                      <tbody className="divide-y divide-gray-200">
+                        {product.specifications.map((spec, index) => (
+                          <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                            <td className="w-2/5 px-3 py-3 font-medium text-gray-900 sm:w-1/3 sm:px-4">
+                              {<TV>{spec.label}</TV>}
+                            </td>
+                            <td className="px-3 py-3 text-gray-600 sm:px-4">
+                              {<TV>{spec.value}</TV>}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Applications */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <Shield className="w-6 h-6" />
+                    <T id="98e33b0f3104fcf1" />
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {product.applications.map((app, index) => (
+                      <div key={index} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-gray-700">{<TV>{app}</TV>}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Right Column - Inquiry Form */}
+            <div className="space-y-6">
+              <Card id="inquiry" className="lg:sticky lg:top-24">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    <T id="22a0a9c9dca3b04b" /> {<TV>{product.name}</TV>}
+                  </h3>
+                  <form 
+                    method="POST" 
+                    action="/api/inquiry"
+                    className="space-y-4"
+                    suppressHydrationWarning
+                  >
+                    <input type="hidden" name="from_company" value={siteConfig.brand.legalName} />
+                    <input type="hidden" name="referer" value={`${siteConfig.site_domain}/products/sf6-gas-fittings`} />
+                    <input type="hidden" name="success_path" value="/inquiry/success" />
+                <input type="hidden" name="failure_path" value="/contact" />
+                    <input type="hidden" name="product_name" value={product.name} />
+                    <input type="hidden" name="product_slug" value="sf6-gas-fittings" />
+                    <input type="hidden" name="product_model" value={product.model} />
+                    
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          <T id="9cd26bee4d76694c" /> <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          required
+                          className="w-full rounded-md border border-gray-300 px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="Your name"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          <T id="969ccbd3cf6300ec" /> <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          className="w-full rounded-md border border-gray-300 px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="Your email"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <T id="2f77668a9dfbf8d5" /> <span className="text-red-500">*</span>
+                      </label>
+                      <textarea
+                        name="content"
+                        required
+                        rows={4}
+                        defaultValue={inquiryMessage}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Your message"
+                      />
+                    </div>
+                    
+                    <Button type="submit" className="h-11 w-full bg-blue-600 text-sm hover:bg-blue-700 sm:h-12 sm:text-base">
+                      <MessageSquare className="w-4 h-4 mr-2" />
+                      <T id="942821724cf9e240" />
+                    </Button>
+                  </form>
+
+                  {/* Contact Info */}
+                  <div id="contact" className="mt-6 pt-6 border-t space-y-3">
+                    <h4 className="font-semibold text-gray-900"><T id="7c01aec3b1d2f2fd" /></h4>
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <Phone className="w-5 h-5 text-blue-500" />
+                      <span>{<TV>{siteConfig.contact.phone}</TV>}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <Mail className="w-5 h-5 text-blue-500" />
+                      <span>{<TV>{siteConfig.contact.email}</TV>}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <Clock className="w-5 h-5 text-blue-500" />
+                      <span>{<TV>{siteConfig.contact.hoursShort}</TV>}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ProductFaqSection productName={product.name} faqItems={faqItems} />
+
+      {/* Related Products */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-6 text-2xl font-bold text-gray-900 sm:mb-8"><T id="52faf734d757a3ae" /></h2>
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
+            {product.relatedProducts.map((related, index) => (
+              <Card key={index} className="group cursor-pointer overflow-hidden transition-shadow hover:shadow-lg">
+                <Link
+                  href={`/products/${related.slug}`}
+                  className="block h-full"
+                  aria-label={`View details for ${related.name}`}
+                >
+                  <CardContent className="p-0">
+                    <div className="relative aspect-video bg-gray-100 overflow-hidden">
+                      <Image
+                        src={related.image}
+                        alt={related.name}
+                        fill
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <h3 className="text-base font-semibold text-gray-900 transition-colors group-hover:text-blue-600 sm:text-lg">
+                        {<TV>{related.name}</TV>}
+                      </h3>
+                      <div className="mt-2 flex items-center text-sm text-blue-600">
+                        <span><T id="3b73900b8d29f963" /> {<TV>{related.name}</TV>}</span>
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Link>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Badges */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">25+</div>
+              <div className="text-gray-600"><T id="dc841e4b1dd1351c" /></div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">1000+</div>
+              <div className="text-gray-600"><T id="41c78ccbf4390550" /></div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-gray-600"><T id="05881ce8e183d371" /></div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-gray-600"><T id="b23a1425e7cef3d0" /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
