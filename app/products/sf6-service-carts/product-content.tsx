@@ -1,55 +1,500 @@
-"use client";
+﻿'use client';
 
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import Script from "next/script";
-import { ArrowRight, BarChart3, Building2, CheckCircle2, CircleDollarSign, Download, Globe2, Mail, Phone, Search, TimerReset, Users } from "lucide-react";
 import { siteConfig } from "@/site.config";
 import { buildProductSchema } from "../product-schema";
 import { createProductFaqs, ProductFaqSection } from "../product-faq";
+import { ProductBuyerGuide } from "../product-buyer-guide";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { relatedProductImages } from "../related-product-images";
+import Script from "next/script";
+import Link from "next/link";
+import { 
+  CheckCircle, 
+  Phone, 
+  Mail, 
+  MessageSquare, 
+  FileText,
+  ArrowRight,
+  Shield,
+  Zap,
+  Award,
+  Clock
+} from "lucide-react";
 
+// Product data
 const product = {
-  name: "SF6 Service Carts", model: "SF6-SC",
-  description: "Complete mobile solution for SF6 recovery, purification, evacuation and controlled refilling in high-voltage equipment.",
-  shortDescription: "Integrated SF6 recovery, purification, vacuum and filling system.", price: "Contact for Quote", availability: "In Stock", minOrder: "1 Unit", deliveryTime: "10–20 Days", warranty: "1 Year", certification: ["CE", "ISO 9001", "IEC 60480"],
-  images: [{ src: "/pics/products/sf6-service-carts-1.webp", alt: "SF6 Service Cart main view" }, { src: "/pics/products/sf6-service-carts-2.webp", alt: "SF6 Service Cart control panel" }, { src: "/pics/products/sf6-service-carts-3.webp", alt: "SF6 Service Cart in operation" }],
-  features: ["Complete SF6 gas management solution", "40 m³/h high-capacity vacuum pump", "Integrated recovery and purification", "Precise filling and pressure control", "PLC touchscreen operation", "Mobile heavy-duty construction", "Built-in filtration system", "Comprehensive safety protection"],
-  specifications: [{ label: "Recovery rate", value: "30 L/min" }, { label: "Vacuum pump capacity", value: "40 m³/h" }, { label: "Ultimate vacuum", value: "≤10 Pa" }, { label: "Filling flow rate", value: "0–60 L/min" }, { label: "Purification efficiency", value: "99.9%" }, { label: "Power supply", value: "AC 380 V / 50 Hz" }, { label: "Motor power", value: "5 kW" }, { label: "Weight", value: "450 kg" }, { label: "Dimensions", value: "1800 × 900 × 1300 mm" }, { label: "Cylinder capacity", value: "100 L" }, { label: "Hose length", value: "10 m" }, { label: "Control system", value: "PLC with touchscreen display" }],
-  applications: ["Power substations", "Gas-insulated switchgear", "High-voltage circuit breakers", "Transformer maintenance", "Switchgear manufacturing", "SF6 recovery and recycling"],
-  relatedProducts: [{ name: "SF6 Leak Detector", slug: "sf6-leak-detector", image: relatedProductImages["sf6-leak-detector"] }, { name: "SF6 Room Monitor", slug: "sf6-room-monitor", image: relatedProductImages["sf6-room-monitor"] }, { name: "SF6 Gas Filling Cart", slug: "sf6-gas-filling-cart", image: relatedProductImages["sf6-gas-filling-cart"] }]
+  name: "SF6 Service Carts",
+  model: "SF6-SC",
+  description: "Comprehensive SF6 service cart with integrated vacuum pump, gas recovery, purification, and filling capabilities. Designed for complete SF6 gas management in power systems.",
+  shortDescription: "Comprehensive SF6 service cart with vacuum pump, recovery, purification, and filling capabilities.",
+  price: "Contact for Quote",
+  availability: "In Stock",
+  minOrder: "1 Unit",
+  deliveryTime: "10-20 Days",
+  warranty: "1 Year",
+  certification: ["CE", "ISO 9001", "IEC 60480"],
+  images: [
+    { src: "/pics/products/sf6-service-carts-1.webp", alt: "SF6 Service Carts Main View" },
+    { src: "/pics/products/sf6-service-carts-2.webp", alt: "SF6 Service Carts Control Panel" },
+    { src: "/pics/products/sf6-service-carts-3.webp", alt: "SF6 Service Carts in Operation" },
+  ],
+  features: [
+    "Complete SF6 gas management solution",
+    "High capacity vacuum pump (40 m3/h)",
+    "SF6 gas recovery and purification",
+    "Precise filling and pressure control",
+    "Digital touchscreen control",
+    "Mobile design with sturdy wheels",
+    "Built-in filtration system",
+    "Comprehensive safety features"
+  ],
+  specifications: [
+    { label: "Recovery Rate", value: "30 L/min" },
+    { label: "Vacuum Pump Capacity", value: "40 m3/h" },
+    { label: "Ultimate Vacuum", value: "<=10 Pa" },
+    { label: "Filling Flow Rate", value: "0-60 L/min" },
+    { label: "Purification Efficiency", value: "99.9%" },
+    { label: "Power Supply", value: "AC 380V/50Hz" },
+    { label: "Motor Power", value: "5 kW" },
+    { label: "Weight", value: "450 kg" },
+    { label: "Dimensions", value: "1800 x 900 x 1300 mm" },
+    { label: "Cylinder Capacity", value: "100L" },
+    { label: "Hose Length", value: "10 m" },
+    { label: "Control System", value: "PLC with touchscreen display" },
+  ],
+  applications: [
+    "Power substations",
+    "GIS (Gas Insulated Switchgear)",
+    "Circuit breakers",
+    "Transformers",
+    "High voltage switchgear",
+    "Industrial maintenance"
+  ],
+  relatedProducts: [
+    { name: "SF6 Leak Detector", slug: "sf6-leak-detector", image: relatedProductImages["sf6-leak-detector"] },
+    { name: "SF6 Room Monitor", slug: "sf6-room-monitor", image: relatedProductImages["sf6-room-monitor"] },
+    { name: "SF6 Gas Filling Cart", slug: "sf6-gas-filling-cart", image: relatedProductImages["sf6-gas-filling-cart"] },
+  ]
 };
 
 export default function ProductContent() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const activeImage = product.images[activeImageIndex];
+  const inquiryMessage = `I'm interested in ${product.name} (${product.model}). Please send me product details, pricing, and delivery information.`;
   const faqItems = createProductFaqs(product);
-  return <div className="min-h-screen bg-white text-slate-900">
-    <Script id="product-schema" type="application/ld+json">{JSON.stringify(buildProductSchema({ slug: "sf6-service-carts", ...product }))}</Script>
 
-    <nav aria-label="Breadcrumb" className="border-b border-slate-200 bg-slate-50/80"><div className="mx-auto flex max-w-7xl items-center gap-2 px-5 py-2.5 text-xs text-slate-500 sm:px-6"><Link href="/" className="hover:text-[#002c6c]">Home</Link><span>/</span><Link href="/products" className="hover:text-[#002c6c]">Products</Link><span>/</span><span>SF6 Gas Solutions</span><span>/</span><span className="font-semibold text-slate-800">{product.name}</span></div></nav>
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Structured Data for SEO */}
+      <Script id="product-schema" type="application/ld+json">
+        {JSON.stringify(buildProductSchema({
+          slug: "sf6-service-carts",
+          ...product,
+        }))}
+      </Script>
 
-    <main className="mx-auto max-w-7xl px-5 py-8 sm:px-6"><div className="grid items-start gap-8 lg:grid-cols-12">
-      <section aria-label="Product gallery" className="lg:col-span-6"><div className="group relative rounded-xl border border-slate-200 bg-white p-5 shadow-sm"><span className="absolute left-4 top-4 z-10 flex items-center gap-1 rounded bg-slate-100/90 px-2.5 py-1 text-xs font-medium text-slate-600"><Search size={13}/> Interactive Zoom</span><div className="relative my-4 h-96 overflow-hidden"><Image src={activeImage.src} alt={activeImage.alt} fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-contain transition duration-300 group-hover:scale-105"/></div><div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"><span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-emerald-500"/> {product.availability}</span><span className="rounded border bg-slate-100 px-2 py-0.5 font-semibold text-slate-700">Industrial grade</span></div></div><div className="mt-3 grid grid-cols-3 gap-3">{product.images.map((image, index) => <button key={image.src} type="button" onClick={() => setActiveImageIndex(index)} className={`relative aspect-square overflow-hidden rounded-lg border bg-white ${activeImageIndex === index ? "border-[#002c6c] ring-1 ring-[#002c6c]" : "border-slate-200 hover:border-slate-400"}`}><Image src={image.src} alt={image.alt} fill sizes="15vw" className="object-contain p-2"/></button>)}</div></section>
+      {/* Breadcrumb Navigation */}
+      <div className="bg-gray-50 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{product.name}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
 
-      <section aria-label="Product information" className="flex flex-col lg:col-span-6"><div><span className="mb-3 inline-flex rounded border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-[#002c6c]">{product.model}</span><h1 className="text-3xl font-extrabold leading-tight tracking-tight text-[#002c6c]">{product.name}</h1><p className="mt-3 text-sm leading-6 text-slate-600">{product.description}</p><hr className="my-6 border-slate-200"/><div className="grid grid-cols-2 gap-y-6">{[["30 L/min", "Recovery rate"], ["40 m³/h", "Vacuum capacity"], ["99.9%", "Purification"], ["≤10 Pa", "Ultimate vacuum"]].map(([value,label], index) => <div key={label} className={`${index % 2 ? "border-l pl-5" : "pr-4"}`}><p className="text-2xl font-bold tracking-tight text-[#002c6c]">{value}</p><p className="mt-1 text-xs font-medium text-slate-500">{label}</p></div>)}</div><hr className="my-6 border-slate-200"/><div className="space-y-2">{product.features.slice(0,4).map(item => <p key={item} className="flex gap-2 text-sm text-slate-700"><CheckCircle2 size={17} className="mt-0.5 shrink-0 text-[#0284c7]"/>{item}</p>)}</div></div><div className="mt-7 flex gap-3"><a href="#footer-inquiry" className="flex flex-1 items-center justify-center rounded-lg bg-[#002c6c] px-4 py-3 text-sm font-bold text-white hover:bg-[#0f4c81]"><Mail size={16} className="mr-2"/>Contact Us</a><a href="#specifications" className="flex flex-1 items-center justify-center rounded-lg border-2 border-slate-300 px-4 py-3 text-sm font-bold hover:border-[#002c6c] hover:text-[#002c6c]"><Download size={16} className="mr-2 text-red-600"/>Data Sheet</a></div></section>
-    </div></main>
+      {/* Hero Section - Product Overview */}
+      <section className="py-10 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+            {/* Product Images */}
+            <div className="space-y-3 sm:space-y-4">
+              <div className="relative aspect-[4/3] sm:aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                <Image
+                  src={activeImage.src}
+                  alt={activeImage.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                {product.images.map((img, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setActiveImageIndex(index)}
+                    aria-label={`View ${img.alt}`}
+                    aria-pressed={activeImageIndex === index}
+                    className={`relative aspect-square rounded-lg overflow-hidden border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-500/30 focus:ring-offset-2 ${
+                      activeImageIndex === index
+                        ? "border-slate-700 shadow-[0_16px_32px_-22px_rgba(15,23,42,0.55)]"
+                        : "border-stone-200 hover:border-slate-400 hover:opacity-90"
+                    }`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(min-width: 1024px) 16vw, 33vw"
+                      className="object-cover"
+                    />
+                    <span className="sr-only">
+                      {activeImageIndex === index ? "Current selected image" : "Select this image"}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
 
-    <nav className="sticky top-0 z-40 border-y border-slate-200 bg-white/95 shadow-sm backdrop-blur"><div className="mx-auto flex max-w-7xl items-center gap-6 overflow-x-auto whitespace-nowrap px-5 sm:px-6">{[["Applications & Features", "#applications"], ["Description", "#description"], ["Specifications", "#specifications"], ["Service & Support", "#service-support"]].map(([label,href],i)=><a key={href} href={href} className={`shrink-0 border-b-2 px-1 py-3.5 text-sm font-semibold ${i===0?"border-[#002c6c] text-[#002c6c]":"border-transparent text-slate-600 hover:text-[#002c6c]"}`}>{label}</a>)}</div></nav>
+            {/* Product Info */}
+            <div className="space-y-5 sm:space-y-6">
+              <div>
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                  {product.name}
+                </h1>
+                <Badge className="mb-4" variant="secondary">
+                  Model Name: {product.model}
+                </Badge>
+                <p className="text-base text-gray-600 leading-7 sm:text-lg sm:leading-relaxed">
+                  {product.description}
+                </p>
+              </div>
 
-    <section id="applications" className="scroll-mt-28 border-b border-slate-200 py-14"><div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-6 lg:grid-cols-2"><div><h2 className="mb-5 text-2xl font-bold">Applications</h2><ul className="space-y-3 text-sm leading-6 text-slate-700">{product.applications.map(item=><li key={item} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#002c6c]"/>{item}</li>)}</ul></div><div><h2 className="mb-5 text-2xl font-bold">Features</h2><ul className="space-y-3 text-sm leading-6 text-slate-700">{product.features.map(item=><li key={item} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0284c7]"/>{item}</li>)}</ul></div></div></section>
+              {/* Key Features */}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-gray-900">Key Features</h3>
+                <ul className="space-y-2">
+                  {product.features.slice(0, 4).map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2 text-gray-600">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-    <section id="description" className="scroll-mt-28 border-b border-slate-200 bg-slate-50 py-14"><div className="mx-auto max-w-7xl px-5 sm:px-6"><p className="text-xs font-bold uppercase tracking-widest text-[#0284c7]">Product overview</p><h2 className="mt-2 text-2xl font-bold text-[#002c6c]">Complete SF6 lifecycle management in one mobile system</h2><p className="mt-4 max-w-4xl text-sm leading-7 text-slate-700">The {product.name} integrates recovery, purification, evacuation and refilling into a single mobile platform. Its high-capacity vacuum system, precision pressure control and PLC touchscreen help maintenance teams service GIS, circuit breakers and other SF6-insulated equipment safely and efficiently.</p><div className="mt-8 grid gap-5 md:grid-cols-3">{[["01", "Recover", "Draw SF6 from equipment efficiently while reducing residual gas."], ["02", "Purify", "Remove moisture, particles and decomposition products through staged filtration."], ["03", "Refill", "Evacuate and refill equipment with controlled flow and pressure."]].map(([n,title,copy])=><div key={n} className="rounded-xl border border-slate-200 bg-white p-5"><span className="text-xs font-bold text-[#0284c7]">{n}</span><h3 className="mt-2 font-bold text-[#002c6c]">{title}</h3><p className="mt-2 text-xs leading-5 text-slate-600">{copy}</p></div>)}</div></div></section>
+              {/* Product Meta */}
+              <div className="grid grid-cols-2 gap-3 py-4 border-y sm:gap-4">
+                <div>
+                  <span className="text-sm text-gray-500">Availability</span>
+                  <p className="font-semibold text-green-600">{product.availability}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500">Delivery Time</span>
+                  <p className="font-semibold">{product.deliveryTime}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500">Warranty</span>
+                  <p className="font-semibold">{product.warranty}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500">Min. Order</span>
+                  <p className="font-semibold">{product.minOrder}</p>
+                </div>
+              </div>
 
-    <section id="specifications" className="scroll-mt-28 border-b border-slate-200 py-14"><div className="mx-auto max-w-7xl px-5 sm:px-6"><h2 className="mb-7 text-2xl font-bold text-[#002c6c]">Technical Specifications</h2><div className="overflow-hidden rounded-xl border border-slate-200"><table className="w-full text-sm"><tbody>{product.specifications.map((spec,index)=><tr key={spec.label} className={index%2===0?"bg-slate-50":"bg-white"}><th className="w-2/5 border-r border-slate-200 px-4 py-3 text-left font-semibold sm:w-1/3 sm:px-6">{spec.label}</th><td className="px-4 py-3 text-slate-600 sm:px-6">{spec.value}</td></tr>)}</tbody></table></div></div></section>
+              {/* Certifications */}
+              <div className="flex flex-wrap gap-2">
+                {product.certification.map((cert) => (
+                  <Badge key={cert} variant="outline" className="flex items-center gap-1">
+                    <Award className="w-3 h-3" />
+                    {cert}
+                  </Badge>
+                ))}
+              </div>
 
-    <section id="service-support" className="scroll-mt-28 border-b border-slate-200 bg-slate-100 py-14"><div className="mx-auto max-w-7xl px-5 sm:px-6"><div className="grid overflow-hidden rounded-2xl bg-[#0a2a4a] text-white shadow-xl lg:grid-cols-[1fr_2fr]">
-      <div className="border-b border-white/15 p-8 lg:border-b-0 lg:border-r lg:p-9"><div className="space-y-0">{[[Building2,"1999","Begins"],[Globe2,"50+","Exported Countries"],[Users,"500+","Skilled Personnel"]].map(([Icon,value,label],index)=>{const I=Icon as typeof Building2;return <div key={value as string} className={`flex items-center gap-5 py-6 ${index ? "border-t border-white/20" : ""}`}><I size={31} className="shrink-0 text-white"/><strong className="text-3xl font-extrabold">{value as string}</strong><span className="text-xs font-semibold text-blue-100">{label as string}</span></div>})}</div></div>
-      <div className="p-8 lg:p-10"><h2 className="max-w-xl text-3xl font-extrabold leading-tight">Solving SF6 Handling Challenges.<br/><span className="text-[#77b7ff]">Delivering Real Results.</span></h2><div className="mt-10 grid grid-cols-2 gap-7 sm:grid-cols-4">{[[BarChart3,"Increase","Recovery efficiency"],[TimerReset,"Reduce","Service time"],[BarChart3,"Improve","Process safety"],[CircleDollarSign,"Lower","Lifecycle cost"]].map(([Icon,title,copy])=>{const I=Icon as typeof BarChart3;return <div key={title as string}><span className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/25"><I size={24}/></span><h3 className="mt-4 text-sm font-bold">{title as string}</h3><p className="mt-1 text-xs leading-5 text-blue-100">{copy as string}</p></div>})}</div><div className="mt-9 flex flex-wrap gap-5 border-t border-white/15 pt-6 text-xs text-blue-100"><a href={`tel:${siteConfig.contact.phone}`} className="flex items-center gap-2"><Phone size={15}/>{siteConfig.contact.phone}</a><a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-2"><Mail size={15}/>{siteConfig.contact.email}</a></div></div>
-    </div></div></section>
+              {/* CTA Buttons */}
+              <div className="flex flex-col gap-3 pt-4 sm:flex-row sm:gap-4">
+                <Button 
+                  size="lg" 
+                  className="h-11 w-full justify-center bg-blue-600 px-4 text-sm hover:bg-blue-700 sm:h-12 sm:flex-1 sm:px-6 sm:text-base"
+                  asChild
+                >
+                  <a href="#inquiry">
+                    <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    Send Inquiry
+                  </a>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="h-11 w-full justify-center px-4 text-sm sm:h-12 sm:flex-1 sm:px-6 sm:text-base"
+                  asChild
+                >
+                  <a href="#contact">
+                    <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    Contact Us
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <ProductFaqSection productName={product.name} faqItems={faqItems}/>
-    <section className="bg-slate-50 py-14"><div className="mx-auto max-w-7xl px-5 sm:px-6"><h2 className="mb-7 text-2xl font-bold text-[#002c6c]">Related Products</h2><div className="grid gap-5 sm:grid-cols-3">{product.relatedProducts.map(item=><Link key={item.slug} href={`/products/${item.slug}`} className="group overflow-hidden rounded-xl border border-slate-200 bg-white"><div className="relative aspect-[4/3]"><Image src={item.image} alt={item.name} fill sizes="33vw" className="object-contain p-4 transition group-hover:scale-105"/></div><div className="flex items-center justify-between border-t p-5 font-bold text-[#002c6c]">{item.name}<ArrowRight size={17}/></div></Link>)}</div></div></section>
-  </div>;
+      <ProductBuyerGuide
+        name={product.name}
+        model={product.model}
+        applications={product.applications}
+      />
+
+      {/* Product Details Tabs */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left Column - Details */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* Description */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <FileText className="w-6 h-6" />
+                    Product Description
+                  </h2>
+                  <div className="prose max-w-none text-gray-600 space-y-4">
+                    <p>
+                      The {product.name} is a comprehensive SF6 gas management solution designed for
+                      complete service and maintenance of SF6-insulated equipment. This advanced cart
+                      integrates multiple functions into a single mobile unit for efficient SF6 gas handling.
+                    </p>
+                    <p>
+                      Equipped with high-capacity vacuum pump, gas recovery system, purification filters,
+                      and precise filling capabilities, this cart provides a complete solution for SF6 gas
+                      management. The intuitive touchscreen control system ensures easy operation and
+                      monitoring of all processes.
+                    </p>
+                    <h3 className="text-lg font-semibold text-gray-900 mt-6">Key Benefits</h3>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {product.features.map((feature, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Technical Specifications */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <Zap className="w-6 h-6" />
+                    Technical Specifications
+                  </h2>
+                  <div className="overflow-x-auto rounded-lg border border-gray-100">
+                    <table className="min-w-[32rem] w-full text-sm sm:min-w-0 sm:text-base">
+                      <tbody className="divide-y divide-gray-200">
+                        {product.specifications.map((spec, index) => (
+                          <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                            <td className="w-2/5 px-3 py-3 font-medium text-gray-900 sm:w-1/3 sm:px-4">
+                              {spec.label}
+                            </td>
+                            <td className="px-3 py-3 text-gray-600 sm:px-4">
+                              {spec.value}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Applications */}
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <Shield className="w-6 h-6" />
+                    Applications
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {product.applications.map((app, index) => (
+                      <div key={index} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-gray-700">{app}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Right Column - Inquiry Form */}
+            <div className="space-y-6">
+              <Card id="inquiry" className="lg:sticky lg:top-24">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    Send Inquiry About {product.name}
+                  </h3>
+                  <form 
+                    method="POST" 
+                    action="/api/inquiry"
+                    className="space-y-4"
+                    suppressHydrationWarning
+                  >
+                    <input type="hidden" name="from_company" value={siteConfig.brand.legalName} />
+                    <input type="hidden" name="referer" value={`${siteConfig.site_domain}/products/sf6-service-carts`} />
+                    <input type="hidden" name="success_path" value="/inquiry/success" />
+                <input type="hidden" name="failure_path" value="/contact" />
+                    <input type="hidden" name="product_name" value={product.name} />
+                    <input type="hidden" name="product_slug" value="sf6-service-carts" />
+                    <input type="hidden" name="product_model" value={product.model} />
+                    
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Your Name <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          required
+                          className="w-full rounded-md border border-gray-300 px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="Your name"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Email <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          className="w-full rounded-md border border-gray-300 px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="Your email"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Message <span className="text-red-500">*</span>
+                      </label>
+                      <textarea
+                        name="content"
+                        required
+                        rows={4}
+                        defaultValue={inquiryMessage}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Your message"
+                      />
+                    </div>
+                    
+                    <Button type="submit" className="h-11 w-full bg-blue-600 text-sm hover:bg-blue-700 sm:h-12 sm:text-base">
+                      <MessageSquare className="w-4 h-4 mr-2" />
+                      Send Inquiry
+                    </Button>
+                  </form>
+
+                  {/* Contact Info */}
+                  <div id="contact" className="mt-6 pt-6 border-t space-y-3">
+                    <h4 className="font-semibold text-gray-900">Contact Information</h4>
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <Phone className="w-5 h-5 text-blue-500" />
+                      <span>{siteConfig.contact.phone}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <Mail className="w-5 h-5 text-blue-500" />
+                      <span>{siteConfig.contact.email}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <Clock className="w-5 h-5 text-blue-500" />
+                      <span>{siteConfig.contact.hoursShort}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ProductFaqSection productName={product.name} faqItems={faqItems} />
+
+      {/* Related Products */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-6 text-2xl font-bold text-gray-900 sm:mb-8">Related Products</h2>
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
+            {product.relatedProducts.map((related, index) => (
+              <Card key={index} className="group cursor-pointer overflow-hidden transition-shadow hover:shadow-lg">
+                <Link
+                  href={`/products/${related.slug}`}
+                  className="block h-full"
+                  aria-label={`View details for ${related.name}`}
+                >
+                  <CardContent className="p-0">
+                    <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden sm:aspect-video">
+                      <Image
+                        src={related.image}
+                        alt={related.name}
+                        fill
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <h3 className="text-base font-semibold text-gray-900 transition-colors group-hover:text-blue-600 sm:text-lg">
+                        {related.name}
+                      </h3>
+                      <div className="mt-2 flex items-center text-sm text-blue-600">
+                        <span>Explore {related.name}</span>
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Link>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Badges */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">25+</div>
+              <div className="text-gray-600">Years Experience</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">1000+</div>
+              <div className="text-gray-600">Happy Clients</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-gray-600">Countries Served</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-gray-600">Technical Support</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
+
+

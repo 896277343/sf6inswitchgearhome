@@ -4,14 +4,10 @@ import { Button } from "@/components/ui/button";
 import Script from "next/script";
 import type { Metadata } from "next";
 import { siteConfig } from "@/site.config";
-import productData from "@/data/product-singles.json";
-import type { ProductSingle } from "@/app/products/product-single-types";
 
 // Icons
 import { MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-
-const productCategories = Array.from(new Set((productData as ProductSingle[]).map((product) => product.category)));
 
 export const metadata: Metadata = {
   title: `Contact ${siteConfig.brand.legalName} | SF6 Gas Equipment Manufacturer`,
@@ -187,82 +183,48 @@ export default async function ContactPage({
               </div>
             </div>
             <div className="lg:w-1/2">
-              <div id="inquiry" className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_18px_60px_rgba(0,44,108,.12)]">
-                <div className="bg-[#003a79] px-6 py-7 text-white sm:px-8">
-                  <p className="text-xs font-bold uppercase tracking-[.2em] text-cyan-300">Direct inquiry</p>
-                  <h3 className="mt-2 text-2xl font-black sm:text-3xl">Tell us what you need</h3>
-                  <p className="mt-2 text-sm leading-6 text-blue-100">Select a product category and send your requirements directly to our technical sales team.</p>
-                </div>
-                <form method="POST" action="/api/inquiry" className="space-y-5 p-6 sm:p-8">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
+                <form method="POST" action="/api/inquiry" className="space-y-4">
                   <input type="hidden" name="from_company" value={siteConfig.brand.legalName} />
                   <input type="hidden" name="referer" value={`${siteConfig.site_domain}/contact`} />
                   <input type="hidden" name="success_path" value="/inquiry/success" />
                   <input type="hidden" name="failure_path" value="/contact" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="contact-name" className="mb-2 block text-sm font-bold text-[#0b1b3d]">Name <span className="text-red-500">*</span></label>
+                      <label className="block mb-2 font-medium">Name</label>
                       <input 
-                        id="contact-name"
                         type="text" 
                         name="name" 
-                        autoComplete="name"
-                        className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-[#00a6df] focus:ring-2 focus:ring-sky-100"
+                        className="w-full px-4 py-2 border rounded-lg"
                         placeholder="Your name"
                         required
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-email" className="mb-2 block text-sm font-bold text-[#0b1b3d]">Email <span className="text-red-500">*</span></label>
+                      <label className="block mb-2 font-medium">Email</label>
                       <input 
-                        id="contact-email"
                         type="email" 
                         name="email" 
-                        autoComplete="email"
-                        className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-[#00a6df] focus:ring-2 focus:ring-sky-100"
+                        className="w-full px-4 py-2 border rounded-lg"
                         placeholder="Your email"
                         required
                       />
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <div>
-                      <label htmlFor="contact-company" className="mb-2 block text-sm font-bold text-[#0b1b3d]">Company</label>
-                      <input id="contact-company" type="text" name="company" autoComplete="organization" className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-[#00a6df] focus:ring-2 focus:ring-sky-100" placeholder="Company name"/>
-                    </div>
-                    <div>
-                      <label htmlFor="contact-phone" className="mb-2 block text-sm font-bold text-[#0b1b3d]">Phone / WhatsApp</label>
-                      <input id="contact-phone" type="tel" name="phone" autoComplete="tel" className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-[#00a6df] focus:ring-2 focus:ring-sky-100" placeholder="Country code + number"/>
-                    </div>
-                  </div>
                   <div>
-                    <label htmlFor="product-category" className="mb-2 block text-sm font-bold text-[#0b1b3d]">Product category <span className="text-red-500">*</span></label>
-                    <div className="relative">
-                      <select id="product-category" name="product_category" required defaultValue="" className="w-full appearance-none rounded-xl border border-slate-300 bg-white px-4 py-3 pr-11 text-sm text-slate-700 outline-none transition focus:border-[#00a6df] focus:ring-2 focus:ring-sky-100">
-                        <option value="" disabled>Select a product category</option>
-                        {productCategories.map((category) => <option key={category} value={category}>{category}</option>)}
-                        <option value="Project / Customized Solution">Project / Customized Solution</option>
-                        <option value="Service & Technical Support">Service & Technical Support</option>
-                        <option value="General Inquiry">General Inquiry</option>
-                      </select>
-                      <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#003a79]">⌄</span>
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="contact-message" className="mb-2 block text-sm font-bold text-[#0b1b3d]">Message <span className="text-red-500">*</span></label>
+                    <label className="block mb-2 font-medium">Message</label>
                     <textarea 
-                      id="contact-message"
                       name="content"
-                      rows={6}
-                      className="w-full resize-y rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm leading-6 outline-none transition focus:border-[#00a6df] focus:ring-2 focus:ring-sky-100"
-                      placeholder="Tell us the model, application, quantity, delivery country, or technical requirements."
+                      className="w-full px-4 py-2 border rounded-lg h-32"
+                      placeholder="Your message"
                       defaultValue={initialMessage}
                       required
                     ></textarea>
                   </div>
-                  <Button type="submit" className="h-12 w-full rounded-full bg-[#003a79] text-sm font-bold text-white hover:bg-[#002554]">
-                    Send Inquiry →
+                  <Button type="submit" className="w-full bg-blue-800 hover:bg-blue-700 text-white">
+                    Send Message
                   </Button>
-                  <p className="text-center text-xs leading-5 text-slate-500">Your inquiry will be sent securely to our sales inquiry system.</p>
                 </form>
               </div>
             </div>

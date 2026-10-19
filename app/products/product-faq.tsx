@@ -57,7 +57,7 @@ export function ProductFaqSection({
   faqItems: ProductFaqItem[];
 }) {
   return (
-    <section className="bg-gray-50 py-9">
+    <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Script id={`${productName}-faq-schema`} type="application/ld+json">
           {JSON.stringify({
@@ -74,15 +74,15 @@ export function ProductFaqSection({
           })}
         </Script>
 
-        <div className="max-w-6xl">
-          <h2 className="mb-5 text-2xl font-bold text-gray-900">
+        <div className="max-w-4xl">
+          <h2 className="mb-6 text-2xl font-bold text-gray-900 sm:text-3xl">
             {productName} FAQ
           </h2>
-          <div className="grid gap-3 md:grid-cols-2">
-            {faqItems.slice(0, 6).map((item) => (
-              <div key={item.question} className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-                <h3 className="mb-1.5 text-sm font-semibold leading-5 text-gray-900">{item.question}</h3>
-                <p className="text-sm leading-5 text-gray-600">{item.answer}</p>
+          <div className="space-y-4">
+            {faqItems.map((item) => (
+              <div key={item.question} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+                <h3 className="mb-2 text-lg font-semibold text-gray-900">{item.question}</h3>
+                <p className="text-gray-600 leading-7">{item.answer}</p>
               </div>
             ))}
           </div>
