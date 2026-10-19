@@ -22,7 +22,7 @@ export function createProductMetadata(
   const pageUrl = `${siteConfig.site_domain}/products/${input.slug}`;
 
   return {
-    title: `${input.name} Manufacturer & Supplier | ${input.titleSuffix} | ${siteConfig.site_name}`,
+    title: `${input.name} Manufacturer & Supplier | ${input.titleSuffix}`,
     description: input.description,
     keywords: [...input.keywords, input.model, siteConfig.brand.legalName],
     alternates: {

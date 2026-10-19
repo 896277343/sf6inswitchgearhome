@@ -1,0 +1,1961 @@
+[
+  {
+    "slug": "la912-high-accuracy-sf6-gas-analyzer",
+    "folder": "LA912 High-accuracy SF6 Gas Analyzer",
+    "model": "LA912",
+    "name": "High-accuracy SF6 Gas Analyzer",
+    "category": "SF6 Analysis",
+    "tag": "Independent Gas Paths · Direct Sampling",
+    "description": "Portable analyzer for SF6 purity, moisture and decomposition-gas measurement in GIS and switchgear.",
+    "images": [
+      "/pics/products/single/la912-high-accuracy-sf6-gas-analyzer/la912-high-accuracy-sf6-gas-analyzer-1.webp",
+      "/pics/products/single/la912-high-accuracy-sf6-gas-analyzer/la912-high-accuracy-sf6-gas-analyzer-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "0–100% vol",
+        "SF6 Purity"
+      ],
+      [
+        "±2% F.S",
+        "Purity Accuracy"
+      ],
+      [
+        "−80 to +20 °C",
+        "Dew Point"
+      ],
+      [
+        "4 Gases",
+        "SO2 · H2S · CO · HF"
+      ]
+    ],
+    "specifications": [
+      [
+        "Thermal conductivity",
+        "Purity — Measuring Principle"
+      ],
+      [
+        "(0-100)% Vol",
+        "Purity — Measuring Range"
+      ],
+      [
+        "±2% F.S",
+        "Purity — Measuring Accuracy"
+      ],
+      [
+        "≤0.1%",
+        "Purity — Resolution"
+      ],
+      [
+        "≤30s",
+        "Purity — Respond Time"
+      ],
+      [
+        "Resistance-capacitance",
+        "Moisture — Measuring Principle"
+      ],
+      [
+        "(- 80 ~+20) ℃",
+        "Moisture — Measuring Range"
+      ],
+      [
+        "±2 ℃",
+        "Moisture — Accuracy"
+      ],
+      [
+        "≤0.1℃",
+        "Moisture — Resolution"
+      ],
+      [
+        "≤3 min",
+        "Moisture — Respond Time"
+      ],
+      [
+        "Resistance-capacitance",
+        "Decomposition Products — Measuring principle"
+      ],
+      [
+        "SO2: 0~100ppm, H2S : 0~100ppm, CO : 0~500ppm, HF: 0~10ppm SO2(estimated): 0-2000ppm (overloaded to 5000ppm)",
+        "Decomposition Products — Measuring range"
+      ],
+      [
+        "SO2, H2S: ±0.5ppm (0-10ppm); ±5%(10-100ppm) CO: ±2ppm (0-50ppm); ±4% (50-500ppm)",
+        "Decomposition Products — Acuracy"
+      ],
+      [
+        "≤0.1 ℃",
+        "Decomposition Products — Resolution"
+      ],
+      [
+        "<60s",
+        "Decomposition Products — Respond time"
+      ],
+      [
+        "220A±10%, 50Hz",
+        "Technical data — Power"
+      ],
+      [
+        "4W",
+        "Technical data — Power consumption"
+      ],
+      [
+        "7.2V, 8000mAh lithium battery",
+        "Technical data — Battery"
+      ],
+      [
+        "(0.1-0.6) MPa",
+        "Technical data — Gas pressure"
+      ],
+      [
+        "(-20~+50) °C",
+        "Technical data — Environment temperature"
+      ],
+      [
+        "15 ~ 90% RH (No condensation)",
+        "Technical data — Environment humidity"
+      ],
+      [
+        "310mm*280mm*150mm (L*W*H)",
+        "Technical data — Dimension"
+      ],
+      [
+        "8 kg",
+        "Technical data — Weight"
+      ]
+    ],
+    "applications": [
+      "On-site analysis of SF6 purity, moisture and decomposition products in GIS, circuit breakers and other SF6-filled equipment."
+    ],
+    "features": [
+      "Measures SF6 purity, moisture and decomposition products with one instrument",
+      "Independent gas paths and a multi-sensor arrangement help reduce cross-sensitivity",
+      "Automatic zero and span calibration of the moisture sensor",
+      "Real-time flow and temperature compensation help maintain stable measurement"
+    ],
+    "overview": [
+      "The LA912 Portable SF6 Gas Analyzer is designed for precise multi-parameter analysis of SF6 during field inspection and maintenance. This version uses direct sampling without a pump-back system and measures SF6 purity, moisture and decomposition products in one instrument.",
+      "Measurement-focused design",
+      "Independent gas paths and a multi-sensor arrangement help reduce cross-sensitivity during multi-parameter analysis. Automatic zero and span calibration of the moisture sensor, together with real-time flow and temperature compensation, helps maintain consistent measurement under changing field conditions.",
+      "The analyzer also supports conversion between mass and volume ratios for SF6 purity and automatic conversion of moisture values to standard reference conditions.",
+      "Field operation",
+      "Measurement values are displayed in real time on the colour touchscreen and can be stored for later review, printing and data management. Direct sampling keeps the measurement workflow straightforward, while integrated file management supports recording and reviewing field test results."
+    ],
+    "faq": [
+      [
+        "What does “Direct Sampling” mean in actual field use?",
+        "Direct sampling means that the gas passes through the analyzer for measurement without an integrated pump-back process. Unlike the pump-back version, the sampled SF6 is not automatically returned to the gas compartment after the test, so sample-gas handling should follow the site procedure."
+      ],
+      [
+        "What supports stable measurement in the LA912?",
+        "Independent gas paths and a multi-sensor arrangement help reduce cross-sensitivity during multi-parameter analysis. The analyzer also uses real-time flow and temperature compensation, while the moisture sensor performs automatic zero and span calibration."
+      ],
+      [
+        "How should I interpret the purity and dew-point accuracy specifications?",
+        "SF6 purity is measured over a 0–100% vol range with an accuracy of ±2% F.S and a resolution of ≤0.1%. Dew point is measured from −80 to +20 °C with an accuracy of ±2 °C. These specifications should be considered together with the required gas-quality limits for the intended application."
+      ],
+      [
+        "Is the LA912 suitable for repeated field measurements on different GIS compartments?",
+        "Yes. The analyzer is designed for portable field testing, with real-time display, internal data storage and file-management functions. For repeated measurements, operators should also consider how the sampled SF6 will be handled because this version does not include automatic pump-back."
+      ]
+    ]
+  },
+  {
+    "slug": "la913-sf6-gas-analyzer-with-pump-back-system",
+    "folder": "LA913 SF6 Gas Analyzer with Pump-back System",
+    "model": "LA913",
+    "name": "SF6 Gas Analyzer with Pump-back System",
+    "category": "SF6 Analysis",
+    "tag": "Zero-emission Sampling · Pump-back System",
+    "description": "Multi-parameter gas analysis with sample gas return",
+    "images": [
+      "/pics/products/single/la913-sf6-gas-analyzer-with-pump-back-system/la913-sf6-gas-analyzer-with-pump-back-system-1.webp",
+      "/pics/products/single/la913-sf6-gas-analyzer-with-pump-back-system/la913-sf6-gas-analyzer-with-pump-back-system-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "6 Parameters",
+        "SF6 purity, dew point, SO2, H2S, CO and H2"
+      ],
+      [
+        "Sample Gas Return",
+        "Reduced SF6 loss"
+      ],
+      [
+        "Automatic Measurement",
+        "Stable readings with automatic result lock"
+      ],
+      [
+        "USB Data Export",
+        "Easy transfer of measurement records"
+      ]
+    ],
+    "specifications": [
+      [
+        "Thermal conductivity",
+        "Purity — Measuring principle"
+      ],
+      [
+        "(0~-100)% Vol",
+        "Purity — Measuring range"
+      ],
+      [
+        "±0.2% (volume percentage)",
+        "Purity — Measuring accuracy"
+      ],
+      [
+        "<60s",
+        "Purity — Respond time(T)"
+      ],
+      [
+        "Resistance-capacitance",
+        "Moisture — Measuring principle"
+      ],
+      [
+        "(-60-+20) °C",
+        "Moisture — Measuring range"
+      ],
+      [
+        "±2 ℃",
+        "Moisture — Accuracy"
+      ],
+      [
+        "≤3 min",
+        "Moisture — Respond time"
+      ],
+      [
+        "Resistance-capacitance",
+        "Decomposition Products — Measuring principle"
+      ],
+      [
+        "SO2: (0-100)ppm, H2S : (0-100)ppm, CO: (0~500)ppm",
+        "Decomposition Products — Measuring range"
+      ],
+      [
+        "<60s",
+        "Decomposition Products — Respond time"
+      ],
+      [
+        "10.4\"",
+        "Technical data — Touch screen"
+      ],
+      [
+        "5200 mAh chargeable li-ion battery",
+        "Technical data — Batery"
+      ],
+      [
+        "Input: (100-240) VAC, 50/60 Hz, 0.5 A; Output: 29.4 V 2.00 A,58.8 W MAX",
+        "Technical data — Power"
+      ],
+      [
+        "≤6h",
+        "Technical data — Charging time"
+      ],
+      [
+        ">12h",
+        "Technical data — Time of endurance"
+      ],
+      [
+        "(-10 ~+40)℃",
+        "Technical data — Environment temperature"
+      ],
+      [
+        "15-90% RH (No condensation)",
+        "Technical data — Environment humidity"
+      ],
+      [
+        "560mm*455mm*265mm (L*W*H)",
+        "Technical data — Dimension"
+      ],
+      [
+        "25kg",
+        "Technical data — Weight"
+      ]
+    ],
+    "applications": [
+      "On-site SF6 gas quality assessment in GIS, circuit breakers and other gas-insulated equipment during maintenance and service",
+      "Verification of SF6 condition before and after gas handling, including recovered gas before reuse or refilling"
+    ],
+    "features": [
+      "Zero-emission sampling with automatic return of the sampled SF6 to the gas compartment",
+      "Measures SF6 purity, dew point, SO2, H2S, CO and H2 with one instrument",
+      "One-touch measurement continues until the readings are stable, then locks the results automatically",
+      "Integrated diagnostic function evaluates gas condition against selected criteria"
+    ],
+    "overview": [
+      "The LA913 SF6 Gas Analyzer with Pump-back System combines six-parameter gas analysis with automatic sample gas return. It is designed for SF6 gas-quality assessment during maintenance, gas handling, including checks before gas reuse or refilling. After measurement, the sampled gas can be returned to the gas compartment after measurement instead of being intentionally released.",
+      "Design",
+      "A 10.4-inch touchscreen provides clear access to measurement values and operating functions, while physical keys offer an additional means of control. Automatic gas-flow adjustment maintains suitable sampling conditions throughout the measurement.",
+      "With one-touch operation, the analyzer continues measuring until the readings meet the required stability criteria and then locks the results automatically. An integrated diagnostic function compares the measured values with selected criteria to support on-site gas-condition assessment.",
+      "Field use",
+      "The pump-back system enables zero-emission sampling during routine SF6 testing. Once measurement is complete, the sampled SF6 can be pumped directly back into the gas compartment. When direct return is not required, the gas can also be recovered to an external gas bag or suitable storage container for further handling.",
+      "Rechargeable battery operation, internal data storage and USB export support mobile field measurement. The wheeled protective case makes the analyzer easier to transport between measurement locations and protects the instrument in demanding field environments."
+    ],
+    "faq": [
+      [
+        "Why choose the LA913 with a pump-back system instead of a standard SF6 analyzer?",
+        "The pump-back system returns the sampled SF6 after measurement instead of intentionally releasing it to the atmosphere. This is especially useful when repeated gas-quality measurements are required or when minimizing SF6 loss is an important part of the maintenance procedure."
+      ],
+      [
+        "Does \"zero-emission sampling\" mean that no SF6 is released during testing?",
+        "Zero-emission sampling refers to the normal sample-handling process: the measured SF6 is returned to the gas compartment rather than intentionally vented after analysis. It should not be interpreted as a guarantee that no fugitive gas loss can occur anywhere in the complete test setup."
+      ],
+      [
+        "Where does the sampled SF6 go after the measurement is complete?",
+        "The sampled gas can be pumped directly back into the gas compartment. If direct return is not required, it can also be recovered to an external gas bag or suitable storage container for further handling."
+      ],
+      [
+        "Can the LA913 be used to check recovered SF6 before reuse or refilling?",
+        "Yes. The analyzer can measure SF6 purity, dew point and decomposition gases in recovered SF6 before it is reused, treated or refilled. The measured values can then be compared with the applicable gas-quality requirements before the next handling step is selected."
+      ],
+      [
+        "How does the automatic measurement know when the test is complete?",
+        "After one-touch start, the analyzer continues measuring until the readings meet the selected stability criteria. The results are then locked automatically, reducing the need for the operator to decide manually when the values are stable enough to record."
+      ]
+    ]
+  },
+  {
+    "slug": "la915-smart-sf6-gas-analyzer",
+    "folder": "LA915 Smart SF6 Gas Analyzer",
+    "model": "LA915",
+    "name": "Smart SF6 Gas Analyzer",
+    "category": "SF6 Analysis",
+    "tag": "Advanced Connectivity · Digital Access",
+    "description": "Multi-parameter SF6 analysis with flexible testing and connected data access.",
+    "images": [
+      "/pics/products/single/la915-smart-sf6-gas-analyzer/la915-smart-sf6-gas-analyzer-1.webp",
+      "/pics/products/single/la915-smart-sf6-gas-analyzer/la915-smart-sf6-gas-analyzer-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "Multi-gas",
+        "Selectable Channels"
+      ],
+      [
+        "0.3–1 MPa",
+        "Sample Pressure"
+      ],
+      [
+        "Wi-Fi · USB · LAN",
+        "Connectivity"
+      ],
+      [
+        "8000 mAh",
+        "Battery"
+      ]
+    ],
+    "specifications": [
+      [
+        "Thermal Conductivity",
+        "SF6 Gas Purity — Measurement Principle"
+      ],
+      [
+        "0–100% vol.",
+        "SF6 Gas Purity — Measurement Range"
+      ],
+      [
+        "±0.5% vol.",
+        "SF6 Gas Purity — Maximum permissible errors"
+      ],
+      [
+        "Capacitive Sensor",
+        "Moisture — Measurement Principle"
+      ],
+      [
+        "−60°C to +20°C",
+        "Moisture — Measurement Range"
+      ],
+      [
+        "±2°C",
+        "Moisture — Maximum permissible errors"
+      ],
+      [
+        "Electrochemical Sensor",
+        "Sulfur Dioxide (SO2) — Measurement Principle"
+      ],
+      [
+        "0–100 μL/L",
+        "Sulfur Dioxide (SO2) — Measurement Range"
+      ],
+      [
+        "±0.5 μL/L (0–10 μL/L); ±5% (10–100 μL/L)",
+        "Sulfur Dioxide (SO2) — Maximum permissible errors"
+      ],
+      [
+        "Electrochemical Sensor",
+        "Hydrogen Sulfide (H2S) — Measurement Principle"
+      ],
+      [
+        "0–100 μL/L",
+        "Hydrogen Sulfide (H2S) — Measurement Range"
+      ],
+      [
+        "±0.5 μL/L (0–10 μL/L); ±5% (10–100 μL/L)",
+        "Hydrogen Sulfide (H2S) — Maximum permissible errors"
+      ],
+      [
+        "Electrochemical Sensor",
+        "Carbon Monoxide (CO) — Measurement Principle"
+      ],
+      [
+        "0–500 μL/L",
+        "Carbon Monoxide (CO) — Measurement Range"
+      ],
+      [
+        "±2 μL/L (0–50 μL/L); ±4% (50–500 μL/L)",
+        "Carbon Monoxide (CO) — Maximum permissible errors"
+      ]
+    ],
+    "applications": [
+      "On-site analysis of SF6 gas quality and selected mixed-gas components in GIS, circuit breakers and other SF6-filled equipment during inspection and maintenance."
+    ],
+    "features": [
+      "Selectable measurement channels for SF6 purity, moisture, O2, decomposition products and selected mixed-gas components",
+      "Automatic, timed or manual measurement completion for different field test procedures",
+      "Touchscreen and rotary-control operation with real-time measurement and status display",
+      "Automatic sampling-pressure recognition within the 0.3–1 MPa operating range",
+      "Wi-Fi, USB and LAN connectivity for data export, device setup and network access"
+    ],
+    "overview": [
+      "The LA915 Smart SF6 Gas Analyzer is designed for multi-parameter gas-quality measurement during the inspection and maintenance of SF6-filled electrical equipment. Measurement channels can be selected according to the field task, including SF6 purity, moisture, O2, decomposition products and selected mixed-gas components.",
+      "Flexible measurement setup",
+      "Operators can configure the measurement type, gas source and test procedure according to the sensors installed in the instrument. Measurements can be completed automatically according to reading stability, by a preset time, or manually when required.",
+      "The analyzer automatically recognizes sampling pressure within the specified 0.3–1 MPa range. The main screen displays selected gas parameters, real-time sensor values, gas flow and measurement status throughout the test.",
+      "Field operation and data access",
+      "The analyzer combines touchscreen operation with a rotary control for menu selection and confirmation. Status indicators provide a quick visual indication of normal, limit and alarm conditions during measurement.",
+      "Wi-Fi, USB and LAN interfaces support measurement-data export, device setup and network access, while the internal rechargeable battery supports mobile field use. Before measurement, the gas path can be purged to reduce the influence of residual air on the test result."
+    ],
+    "faq": [
+      [
+        "When should I choose the LA915 instead of the other sf6 series analyzers?",
+        "Choose the LA915 when flexible measurement configuration and digital data access are important for the field task. Measurement channels can be selected according to the installed sensors, while Wi-Fi, USB and LAN connectivity support data transfer, device setup and network access."
+      ],
+      [
+        "Can I configure which gas parameters are measured?",
+        "Yes. The measurement channels can be configured according to the sensors installed in the analyzer and the required field task. Depending on the configuration, the instrument can measure SF6 purity, moisture, O2, decomposition products and selected mixed-gas components."
+      ],
+      [
+        "What is the difference between automatic, timed and manual measurement modes?",
+        "Automatic mode ends the measurement when the readings meet the stability criteria. Timed mode runs the test for a preset period, while manual mode allows the operator to decide when the measurement is complete. This gives technicians more flexibility for different test procedures and gas conditions."
+      ],
+      [
+        "What does the 0.3–1 MPa sample-pressure range mean for field testing?",
+        "The analyzer is designed to accept sample gas within the specified 0.3–1 MPa operating range. It recognizes the sampling pressure during measurement, helping the operator confirm that the connected gas source is within the intended test range."
+      ],
+      [
+        "What can I do with Wi-Fi, USB and LAN connectivity?",
+        "The connectivity options allow measurement data to be exported, transferred or accessed for further record keeping and analysis. USB can be used for local data transfer, while LAN and Wi-Fi support network-based access where the site configuration allows it."
+      ],
+      [
+        "Can the LA915 still be used if there is no network connection on site?",
+        "Yes. Gas measurement does not depend on a network connection. The analyzer can be operated locally using the touchscreen and rotary control, while measurement data can be stored in the instrument and exported later through USB."
+      ]
+    ]
+  },
+  {
+    "slug": "lk-jfp-sf6-filling-and-pressure-control-set",
+    "folder": "LK JFP SF6 Filling and Pressure Control Set",
+    "model": "LK JFP",
+    "name": "SF6 Filling and Pressure Control Set",
+    "category": "Kitting & Valves",
+    "tag": "Pressure Control · Clean Filling",
+    "description": "Controlled SF6 transfer from gas cylinders to gas compartments for field service.",
+    "images": [
+      "/pics/products/single/lk-jfp-sf6-filling-and-pressure-control-set/lk-jfp-sf6-filling-and-pressure-control-set-1.webp",
+      "/pics/products/single/lk-jfp-sf6-filling-and-pressure-control-set/lk-jfp-sf6-filling-and-pressure-control-set-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "0–250 bar Inlet",
+        "Pressure regulation from SF6 cylinders"
+      ],
+      [
+        "0–10 bar Outlet",
+        "Adjustable filling pressure"
+      ],
+      [
+        "DN20 / DN8 Couplings",
+        "For connection to gas compartments"
+      ],
+      [
+        "5 m DN13 Hose",
+        "Stainless-steel filling line"
+      ]
+    ],
+    "specifications": [
+      [
+        "Range of high pressure: (0~250)bar, range of low pressure: (0~10)bar",
+        "Pressure regulating valve"
+      ],
+      [
+        "DN20 and DN8",
+        "Refilling couplings"
+      ],
+      [
+        "W21.8 x 1/14'; CGA590; G5/8\"",
+        "Bottle connector"
+      ],
+      [
+        "5m long DN13 stainless steel hose",
+        "Hose"
+      ]
+    ],
+    "applications": [
+      "Filling and refilling SF6 gas compartments from gas cylinders during installation and maintenance."
+    ],
+    "features": [
+      "Pressure reducer for cylinder pressures up to 250 bar, with adjustable filling pressure from 0–10 bar",
+      "Optional filter reduces particles and impurities entering the gas compartment during filling",
+      "DN20 and DN8 couplings for connection to SF6-filled equipment",
+      "5 m DN13 stainless-steel hose with W21.8 × 1/14\", CGA590 and G5/8 cylinder connector options"
+    ],
+    "overview": [
+      "Controlled filling",
+      "The LK JFP SF6 Filling Set is used to transfer SF6 from gas cylinders to gas-insulated equipment. The pressure reducer lowers the cylinder pressure to the required filling pressure, adjustable from 0–10 bar.",
+      "An optional filter can be installed in the filling line to reduce particles and impurities entering the equipment during gas transfer.",
+      "Flexible field connection",
+      "The filling set includes a 5 m DN13 stainless-steel hose with DN20 and DN8 equipment couplings. Cylinder connector options include W21.8 × 1/14\", CGA590 and G5/8 for different cylinder interfaces."
+    ],
+    "faq": [
+      [
+        "Will the LK JFP fit my SF6 cylinder and gas compartment?",
+        "The LK JFP supports W21.8 × 1/14\", CGA590 and G5/8 cylinder connections, with DN20 and DN8 couplings on the equipment side. The cylinder valve and gas-compartment connection should be confirmed before selection to ensure the correct configuration."
+      ],
+      [
+        "Can I adjust the filling pressure for different SF6 equipment?",
+        "Yes. The pressure reducer accepts cylinder pressures up to 250 bar and allows the filling pressure to be adjusted from 0–10 bar according to the equipment requirement."
+      ],
+      [
+        "When should I use the optional filter?",
+        "The optional filter is useful when additional protection against particles and impurities is required during gas transfer. It is installed in the filling line before the SF6 enters the gas compartment."
+      ],
+      [
+        "Can the LK JFP recover SF6 from the equipment?",
+        "No. The LK JFP is intended for controlled filling and refilling from gas cylinders to gas compartments. SF6 recovery and evacuation require a dedicated gas handling unit."
+      ]
+    ]
+  },
+  {
+    "slug": "ll31-refrigerant-leak-detector",
+    "folder": "LL31 Refrigerant Leak Detector",
+    "model": "LL31",
+    "name": "Refrigerant Leak Detector",
+    "category": "SF6 Leakage & Monitoring",
+    "tag": "7-Level Sensitivity · Progressive Alarm",
+    "description": "Portable detector for tracing SF6 leaks around switchgear, joints and sealing points.",
+    "images": [
+      "/pics/products/single/ll31-refrigerant-leak-detector/ll31-refrigerant-leak-detector-1.webp",
+      "/pics/products/single/ll31-refrigerant-leak-detector/ll31-refrigerant-leak-detector-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "<3 g/year",
+        "SF6 Sensitivity"
+      ],
+      [
+        "7 Levels",
+        "Sensitivity"
+      ],
+      [
+        "18 Levels",
+        "Leak Indication"
+      ],
+      [
+        "35 cm",
+        "Flexible Probe"
+      ]
+    ],
+    "specifications": [
+      [
+        "Negative Corona Discharge",
+        "Detection Technology"
+      ],
+      [
+        "14 g/year",
+        "Sensitivity"
+      ],
+      [
+        "0°C to +52°C",
+        "Operating Temperature"
+      ],
+      [
+        "2 × C-Cell Alkaline Batteries",
+        "Power Supply"
+      ],
+      [
+        "2,000 hours",
+        "Sensor Life"
+      ],
+      [
+        "1 second",
+        "Reset Time"
+      ],
+      [
+        "2 seconds",
+        "Warm-up Time"
+      ],
+      [
+        "35.5 cm",
+        "Probe Length"
+      ],
+      [
+        "Built-in Mechanical Pump",
+        "Sampling Method"
+      ],
+      [
+        "3 V DC, Two C-Cell Alkaline Batteries",
+        "Power Supply"
+      ],
+      [
+        "18 Levels, Tri-Color LED",
+        "Leak Indication Levels"
+      ],
+      [
+        "229*57*57 mm",
+        "Dimensions"
+      ],
+      [
+        "560 g",
+        "Weight"
+      ]
+    ],
+    "applications": [
+      "Locating SF6 leakage points on circuit breakers, GIS and other SF6-filled electrical equipment during inspection and maintenance",
+      "Follow-up leak tracing after gas loss or a fixed monitoring system indicates a suspected SF6 leak"
+    ],
+    "features": [
+      "Seven selectable sensitivity levels provide up to 64× adjustment for leak tracing",
+      "18-stage tri-color LED indication and audible response show changes in relative leak intensity",
+      "Reset function allows the detector to establish a new reference level when background gas concentration changes",
+      "Mechanical pump sampling draws gas continuously to the sensing tip during inspection",
+      "35 cm flexible probe provides easier access around joints, valves and confined leakage points"
+    ],
+    "overview": [
+      "The LL31 Portable SF6 Qualitative Leak Detector is designed for tracing SF6 leaks in circuit breakers, switchgear and other SF6-filled electrical equipment. It provides a relative indication of leak intensity, helping technicians move from a suspected leakage area toward the point with the strongest response.",
+      "Adjustable leak tracing",
+      "The LL31 provides seven sensitivity levels, with each increase raising the relative sensitivity and a total adjustment range of up to 64 times. As the probe approaches a higher SF6 concentration, the audible response and tri-color LED indication increase progressively, helping the operator narrow down the leak location.",
+      "The reset function can establish a new reference level during inspection. This is useful when background gas is already present or when the detector reaches a high response before the exact leakage point has been found.",
+      "Field operation",
+      "A mechanical sampling pump continuously draws gas toward the sensing tip, while the flexible probe allows technicians to inspect connections, sealing points and other difficult-to-reach areas. The cordless handheld design and direct visual indication make the LL31 suitable for routine SF6 leak tracing in substations and switchgear maintenance work."
+    ],
+    "faq": [
+      [
+        "Can the LL31 help me locate the actual SF6 leak point?",
+        "Yes. The LL31 is designed for qualitative leak tracing. As the probe moves toward a higher SF6 concentration, the audible and visual indication increases, helping the operator narrow down the suspected leakage point."
+      ],
+      [
+        "Does the LL31 provide ppm or g/year leak-rate readings?",
+        "No. The LL31 is primarily a qualitative leak detector. It indicates relative leakage intensity to help locate a leak, but it does not provide the same quantitative ppm or leak-rate readout as a quantitative SF6 detector."
+      ],
+      [
+        "How should I use the seven sensitivity levels when searching for a leak?",
+        "The sensitivity can be increased when the leak response is weak and reduced when the signal becomes too strong. This allows the operator to move from wider screening toward closer leak-point tracing without changing instruments."
+      ],
+      [
+        "Can the LL31 still be used if some SF6 is already present in the surrounding air?",
+        "The reset function allows the detector to establish a new reference level and ignore the existing background concentration. The instrument can then respond to concentrations above that new reference while the operator continues tracing the leak."
+      ],
+      [
+        "Is the LL31 suitable for routine GIS and circuit-breaker inspections?",
+        "Yes. It is intended for field leak inspection of SF6 electrical equipment and is especially useful for checking joints, seals and other suspected leakage locations during routine maintenance."
+      ]
+    ]
+  },
+  {
+    "slug": "ll32-sf6-infrared-leak-detector",
+    "folder": "LL32 SF6 Infrared Leak Detector",
+    "model": "LL32",
+    "name": "SF6 Infrared Leak Detector",
+    "category": "SF6 Leakage & Monitoring",
+    "tag": "0.1 ppm · Quantitative · Fast Response",
+    "description": "Portable NDIR leak detector for locating and quantifying small SF₆ leaks in gas-insulated equipment.",
+    "images": [
+      "/pics/products/single/ll32-sf6-infrared-leak-detector/ll32-sf6-infrared-leak-detector-1.webp",
+      "/pics/products/single/ll32-sf6-infrared-leak-detector/ll32-sf6-infrared-leak-detector-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "0.1 ppm",
+        "resolution"
+      ],
+      [
+        "NDIR",
+        "Measuring Technology"
+      ],
+      [
+        "1-5s",
+        "Response Time"
+      ],
+      [
+        "0-1500 ppm",
+        "Measurement Range"
+      ]
+    ],
+    "specifications": [
+      [
+        "NDIR (non-dispersive infrared)",
+        "Measuring principal"
+      ],
+      [
+        "(0-1000) ppm/1500ppm",
+        "Measuring ranges"
+      ],
+      [
+        "1ppm",
+        "Resolution"
+      ],
+      [
+        "±2% F.S",
+        "Accuracy"
+      ],
+      [
+        "buit-in pump",
+        "Sampling method"
+      ],
+      [
+        "(1-5) seconds",
+        "Response time"
+      ],
+      [
+        "100 seconds",
+        "Protection Warm-up time"
+      ],
+      [
+        "22 cm",
+        "Probing rob length"
+      ],
+      [
+        "10 years",
+        "Sensor life"
+      ],
+      [
+        "sound and light",
+        "Alarm method"
+      ],
+      [
+        "(-20+60)°C",
+        "Operating temperature"
+      ],
+      [
+        "4.2V direct current/2200mAh lithium battery",
+        "Battery"
+      ],
+      [
+        "300mm*100mm*80mm (L*W*H)",
+        "Dimension"
+      ],
+      [
+        "700g",
+        "Weight"
+      ]
+    ],
+    "applications": [
+      "Locating and quantifying SF6 leaks in GIS, ring main units and other SF6-filled equipment",
+      "Leak-rate measurement for tightness verification and final inspection of SF6-filled equipment",
+      "Post-maintenance leak checks after gas handling, repair or component replacement"
+    ],
+    "features": [
+      "0.1 ppm resolution with dual measuring ranges of 0–50 ppm and 0–1,500 ppm",
+      "Displays readings in both ppm and g/y for quantitative leak assessment",
+      "1–5 s response time with built-in pump sampling",
+      "Extended probe for easy access to valves, flanges and confined inspection points",
+      "Automatic zero correction helps maintain stable real-time readings"
+    ],
+    "overview": [
+      "The LL32 Portable SF6 Gas Leak Detector is designed for locating and quantifying SF6 leaks in GIS, ring main units and other gas-insulated equipment. It provides real-time concentration readings in ppm and leak-rate values in g/y, helping technicians identify leakage points and assess the extent of gas loss.",
+      "Infrared technology",
+      "The LL32 uses non-dispersive infrared (NDIR) technology for SF6 detection. With a resolution of 0.1 ppm and dual measuring ranges of 0–50 ppm and 0–1,500 ppm, the instrument can detect small changes in SF6 concentration around potential leakage points.",
+      "A built-in sampling pump continuously draws the surrounding gas through the measurement system, providing a response time of 1–5 seconds. Automatic zero correction compensates for baseline drift during use and helps maintain stable real-time readings.",
+      "Simple operation",
+      "The handheld design allows technicians to move the sampling probe around valves, flanges, joints and other areas where SF6 leakage may occur. The probe also makes it easier to inspect confined or difficult-to-reach points during routine maintenance.",
+      "Measurement values are displayed in real time, while audible and visual alarms provide immediate indication when the selected alarm level is reached. This allows technicians to move systematically along potential leakage points and respond quickly to changes in SF6 concentration."
+    ],
+    "faq": [
+      [
+        "Can the LL32 locate the actual SF6 leak point?",
+        "Yes. The LL32 is designed for point-by-point inspection around valves, flanges, joints and sealing connections. The built-in sampling pump draws gas continuously through the detector, while the 1–5 s response time helps technicians follow changes in SF6 concentration as the probe is moved around a suspected leakage area."
+      ],
+      [
+        "What does the 0.1 ppm specification mean in actual leak inspection?",
+        "The 0.1 ppm value is the instrument’s concentration resolution. It allows small changes in SF6 concentration to be observed when the probe is moved around potential leakage points. It should not be interpreted as a 0.1 ppm leak-rate limit."
+      ],
+      [
+        "When should I use ppm and when should I use g/y?",
+        "Use ppm to observe the local SF6 concentration around a suspected leakage point and to compare changes as the probe is moved. The g/y reading provides a quantitative leak-rate value that can be used when the amount of gas loss needs to be assessed or recorded."
+      ],
+      [
+        "Can the LL32 be used after an SF6 leak has been repaired?",
+        "Yes. After repair, seal replacement or other gas-handling work, the LL32 can be used to recheck the repaired area and surrounding connections. Real-time concentration readings and quantitative leak values help technicians verify whether leakage is still present."
+      ]
+    ]
+  },
+  {
+    "slug": "ll33-infrared-refrigerant-leak-detector",
+    "folder": "LL33 Infrared Refrigerant Leak Detector",
+    "model": "LL33",
+    "name": "Infrared Refrigerant Leak Detector",
+    "category": "SF6 Leakage & Monitoring",
+    "tag": "Infrared Sensing · Multi-Refrigerant",
+    "description": "Handheld infrared leak detector for locating refrigerant leaks in HVAC/R systems.",
+    "images": [
+      "/pics/products/single/ll33-infrared-refrigerant-leak-detector/ll33-infrared-refrigerant-leak-detector-1.webp",
+      "/pics/products/single/ll33-infrared-refrigerant-leak-detector/ll33-infrared-refrigerant-leak-detector-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "0.14 oz/yr",
+        "Max Sensitivity"
+      ],
+      [
+        "30 s",
+        "Warm-up Time"
+      ],
+      [
+        "8 h",
+        "Battery Life"
+      ],
+      [
+        "10 Years",
+        "Sensor Life"
+      ]
+    ],
+    "specifications": [
+      [
+        "NDIR (Non-Dispersive Infrared)",
+        "Detection Technology"
+      ],
+      [
+        "1–14 g/year",
+        "Detection Sensitivity"
+      ],
+      [
+        "2 g/year; 3 g/year",
+        "Sensitivity / Accuracy"
+      ],
+      [
+        "2.8-inch TFT Display",
+        "Display"
+      ],
+      [
+        "30 seconds",
+        "Warm-up Time"
+      ],
+      [
+        "3,000 mAh",
+        "Battery Capacity"
+      ],
+      [
+        "5 V DC, 1 A",
+        "Charging Input"
+      ],
+      [
+        "Manual, 3 levels",
+        "Sensitivity Adjustment"
+      ],
+      [
+        "Max. 4 g/year (0.14 oz/year), refrigerant-based",
+        "Detection Sensitivity"
+      ],
+      [
+        "Approximately 30 seconds",
+        "Protection / Warm-up Time"
+      ],
+      [
+        "10 years",
+        "Sensor Life"
+      ],
+      [
+        "−10°C to +52°C",
+        "Operating Temperature"
+      ],
+      [
+        "50–85% RH (product listing)",
+        "Operating Humidity"
+      ],
+      [
+        "201*86*38 mm (L*W*H)",
+        "Dimensions"
+      ],
+      [
+        "415 g",
+        "Weight"
+      ]
+    ],
+    "applications": [
+      "Locating refrigerant leaks during maintenance and repair of air-conditioning, refrigeration and cold-storage systems",
+      "Leak inspection of automotive A/C and HVAC/R systems using CFC, HCFC, HFC, HC, HFO or blended refrigerants"
+    ],
+    "features": [
+      "Infrared sensing provides stable refrigerant detection with strong resistance to interference and sensor poisoning",
+      "Three selectable sensitivity levels help technicians adapt the detector to different leak-inspection conditions",
+      "Detects CFCs, HCFCs, HFCs, HCs, HFOs and blended refrigerants, including R32 and R1234yf",
+      "2.8-inch TFT display with peak indication helps operators identify changes while tracing a leak",
+      "30-second warm-up and up to 8 hours of battery operation support routine field service"
+    ],
+    "overview": [
+      "Infrared refrigerant detection",
+      "The LL33 Infrared Refrigerant Leak Detector is designed for locating refrigerant leaks during HVAC/R maintenance and repair. It detects a wide range of halogenated refrigerants, including CFCs, HCFCs, HFCs, HCs, HFOs and refrigerant blends, making it suitable for air-conditioning, refrigeration and automotive A/C service.",
+      "The infrared sensor detects changes in refrigerant concentration through infrared absorption at a selected wavelength. Compared with heated-diode sensing, the infrared method offers stronger resistance to interference and sensor poisoning, while supporting a longer sensor service life.",
+      "Leak location in field service",
+      "Three sensitivity levels allow the operator to adjust the detector to the inspection task. The flexible probe can be moved around joints, fittings and other suspected leakage areas, while the TFT display and peak indication provide a clear visual reference as the refrigerant signal changes.",
+      "The LL33 requires approximately 30 seconds to warm up and provides up to 8 hours of operation per charge, making it suitable for repeated leak checks during routine HVAC/R service. The infrared sensor is rated for a service life of up to 10 years."
+    ],
+    "faq": [
+      [
+        "Will the LL33 detect the refrigerant used in my system?",
+        "The LL33 detects a wide range of halogenated refrigerants, including CFCs, HCFCs, HFCs, HCs, HFOs and blends. Supported examples include R32 and R1234yf. Confirm the refrigerant used in your system if compatibility needs to be checked before purchase."
+      ],
+      [
+        "Why choose an infrared detector instead of a heated-diode leak detector?",
+        "Infrared sensing is less susceptible to interference and sensor poisoning and is designed for longer sensor life. This makes it suitable for technicians who carry out refrigerant leak checks regularly."
+      ],
+      [
+        "Can I adjust the sensitivity while searching for a leak?",
+        "Yes. The LL33 provides high, medium and low sensitivity settings, allowing the detector response to be adjusted for different leak-inspection conditions."
+      ],
+      [
+        "Can the LL33 be used for both HVAC/R and automotive A/C service?",
+        "Yes. It is intended for refrigerant leak inspection in air-conditioning and refrigeration systems and is also specified for automotive A/C leak detection."
+      ],
+      [
+        "How often does the infrared sensor need to be replaced?",
+        "The infrared sensor is specified with a service life of up to 10 years, reducing the need for frequent sensor replacement during normal use."
+      ]
+    ]
+  },
+  {
+    "slug": "ll34-fixed-sf6-room-monitor",
+    "folder": "LL34 SF6 Fixed SF6 Room Monitor",
+    "model": "LL34",
+    "name": "Fixed SF6 Room Monitor",
+    "category": "SF6 Leakage & Monitoring",
+    "tag": "Dual-wavelength NDIR · Remote Monitoring",
+    "description": "Fixed monitor for continuous SF6, O2, temperature and humidity monitoring in GIS and switchgear rooms.",
+    "images": [
+      "/pics/products/single/ll34-fixed-sf6-room-monitor/ll34-fixed-sf6-room-monitor-1.webp",
+      "/pics/products/single/ll34-fixed-sf6-room-monitor/ll34-fixed-sf6-room-monitor-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "Dual-wave NDIR",
+        "SF6 Sensing"
+      ],
+      [
+        "4 Parameters",
+        "SF6 · O2 · T · RH"
+      ],
+      [
+        "RS-485",
+        "Wired Communication"
+      ],
+      [
+        "Zigbee",
+        "Wireless Communication"
+      ]
+    ],
+    "specifications": [
+      [
+        "(0~1500) µmol/mol",
+        "Sulfur hexafluoride (SF6) gas — SF6 Measuring range"
+      ],
+      [
+        "±5% (displayed values)",
+        "Sulfur hexafluoride (SF6) gas — Maximum permissible errors"
+      ],
+      [
+        "≤3%",
+        "Sulfur hexafluoride (SF6) gas — Repeatability"
+      ],
+      [
+        "<60 s",
+        "Sulfur hexafluoride (SF6) gas — Response time"
+      ],
+      [
+        "(0~-25) %",
+        "Oxygen(O2) — Measuring range"
+      ],
+      [
+        "±0.5% (volume ratio)",
+        "Oxygen(O2) — Maximum permissible errors"
+      ],
+      [
+        "≤1%",
+        "Oxygen(O2) — Repeatablity"
+      ],
+      [
+        "<60 s",
+        "Oxygen(O2) — Response time"
+      ],
+      [
+        "(-40~100) ℃",
+        "Temperature Measurement Parameters — Measuring range"
+      ],
+      [
+        "±2 ℃",
+        "Temperature Measurement Parameters — Maximum permissible errors"
+      ],
+      [
+        "(0-99)% RH",
+        "Humidity measurement parameters — Measuring range"
+      ],
+      [
+        "±5% RH",
+        "Humidity measurement parameters — Maximum permissible errors"
+      ],
+      [
+        "To realize alarm function, it needs to be connected to the SPDT electronic relay, and the effective alarm of the transmitter is 1 point. Alarm relay contact capacity: resistive load: 5 A@250 VAC, 5 A@30 VDC inductive load: 50 VA",
+        "Other parameters — Alarm output"
+      ],
+      [
+        "24 VDC±15 %",
+        "Other parameters — Input voltage"
+      ],
+      [
+        "3 W/channel",
+        "Other parameters — Power"
+      ],
+      [
+        "≥100 MΩ",
+        "Other parameters — Insulation resistance"
+      ],
+      [
+        "1500V",
+        "Other parameters — Dielectic withstand voltage"
+      ],
+      [
+        "174 mm*110mm*66 mm (L*W*H)",
+        "Other parameters — Dimensions"
+      ],
+      [
+        "0.6 kg",
+        "Other parameters — Weight"
+      ]
+    ],
+    "applications": [
+      "Continuous SF6 and oxygen monitoring in GIS rooms, switchgear rooms and other indoor areas where SF6-filled equipment is installed",
+      "Fixed environmental monitoring and alarm for locations where SF6 leakage or oxygen depletion needs to be detected continuously"
+    ],
+    "features": [
+      "Dual-wavelength NDIR sensing for continuous SF6 concentration monitoring",
+      "Simultaneous monitoring of SF6, oxygen, temperature and humidity",
+      "Adjustable alarm thresholds with external sound and light alarm output",
+      "RS-485 and Zigbee communication for remote data and alarm-status transmission",
+      "Local OLED display with on-site or remote calibration support"
+    ],
+    "overview": [
+      "Continuous room monitoring",
+      "The LL34 Fixed SF6 Room Monitor is designed for continuous environmental monitoring in GIS rooms, switchgear rooms and other areas where SF6-filled equipment is installed. It monitors SF6 concentration, oxygen, temperature and humidity at the same time, giving operators a clear view of room conditions without relying only on periodic manual inspection.",
+      "Dual-wavelength NDIR sensing is used for SF6 measurement, while the local OLED display shows current readings directly at the monitoring point.",
+      "Alarm and remote monitoring",
+      "Alarm thresholds can be set according to the monitoring requirement. When an abnormal SF6 concentration or oxygen condition is detected, the LL34 can activate external sound and light alarms to provide an immediate warning.",
+      "RS-485 and Zigbee communication allow measurement data, settings and relay status to be transmitted to a host or monitoring system. The monitor also supports local or remote calibration, making it suitable for fixed multi-point monitoring installations."
+    ],
+    "faq": [
+      [
+        "Can the LL34 locate the exact SF6 leak point?",
+        "No. The LL34 is designed for continuous room monitoring and alarm rather than pinpoint leak location. If an abnormal SF6 concentration is detected, a portable leak detector can then be used to locate the leakage point on the equipment."
+      ],
+      [
+        "Why does the LL34 monitor oxygen as well as SF6?",
+        "The LL34 monitors both SF6 concentration and oxygen condition in the room. This allows the system to provide a broader indication of the indoor environment when SF6 leakage or oxygen depletion is a concern."
+      ],
+      [
+        "Can the alarm levels be adjusted for different sites?",
+        "Yes. Alarm thresholds can be set according to the monitoring requirement, allowing the LL34 to be adapted to different GIS rooms, switchgear rooms and operating procedures."
+      ],
+      [
+        "Can the LL34 connect to a central monitoring system?",
+        "Yes. The monitor supports RS-485 and Zigbee communication for transmitting measurement data, settings and relay status to a host or monitoring system."
+      ],
+      [
+        "Can the LL34 be used as part of a multi-point room monitoring system?",
+        "Yes. The LL34 is suitable for fixed monitoring at multiple locations within an SF6 equipment area. Communication interfaces allow individual monitoring points to be connected to a central system for remote supervision."
+      ]
+    ]
+  },
+  {
+    "slug": "lr051-compact-sf6-service-unit",
+    "folder": "LR051 Compact SF6 Service Unit",
+    "model": "LR051",
+    "name": "Compact SF6 Service Unit",
+    "category": "SF6 Recovery",
+    "tag": "Oil-free Recovery · PLC Control",
+    "description": "Compact SF6 handling for routine recovery, evacuation and refilling.",
+    "images": [
+      "/pics/products/single/lr051-compact-sf6-service-unit/lr051-compact-sf6-service-unit-1.webp",
+      "/pics/products/single/lr051-compact-sf6-service-unit/lr051-compact-sf6-service-unit-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "15 m³/h",
+        "Oil-free Compressor"
+      ],
+      [
+        "17 m³/h",
+        "Vacuum Pump"
+      ],
+      [
+        "70 L",
+        "Storage Tank"
+      ],
+      [
+        "12\"",
+        "Touchscreen"
+      ]
+    ],
+    "specifications": [
+      [
+        "3 phases, 5 cores, AC380V±10%, 50Hz",
+        "Power supply"
+      ],
+      [
+        "(-10 ~ +50)°C",
+        "Working temperature"
+      ],
+      [
+        "< 85% (no condensation)",
+        "Working humidity"
+      ],
+      [
+        "15 m³/h",
+        "Oil-free compressor"
+      ],
+      [
+        "7.2m³/h, final vacuum < 1mbar",
+        "Oil-free vacuum compressor"
+      ],
+      [
+        "17 m³/h, final vacuum < 1mbar",
+        "Vacuum pump"
+      ],
+      [
+        "70L",
+        "Tank"
+      ],
+      [
+        "12\" touch screen",
+        "Operation mode"
+      ],
+      [
+        "<1μm",
+        "Dust filter precision"
+      ],
+      [
+        "≤1%",
+        "Annual leakage rate"
+      ],
+      [
+        "1400mm*950mm*1870mm (L*W*H)",
+        "Dimensions"
+      ],
+      [
+        "1100kg",
+        "Weight"
+      ]
+    ],
+    "applications": [
+      "Recovery, evacuation, filtration and refilling of SF6 in GIS, circuit breakers and other gas-insulated equipment during maintenance and service."
+    ],
+    "features": [
+      "PLC-controlled recovery, evacuation and refilling in one compact unit",
+      "Oil-free compression for SF6 recovery, including recovery under negative-pressure conditions",
+      "Molecular-sieve filtration and drying for recovered SF6",
+      "Vacuum and pressure monitoring"
+    ],
+    "overview": [
+      "Compact field operation",
+      "The LR051 Compact SF6 Service Unit is designed for routine maintenance of gas-insulated equipment where a full-scale gas handling system is not required. Its wheeled construction allows the unit to be moved easily between service locations and positioned close to the equipment being maintained.",
+      "Streamlined service workflow",
+      "Recovery, evacuation, filtration and refilling can be carried out from the same service unit, reducing the need to connect and operate several separate devices during routine maintenance. Vacuum and pressure conditions can be monitored throughout the main handling stages, allowing technicians to manage the main gas-handling steps from one workstation."
+    ],
+    "faq": [
+      [
+        "Is the LR051 suitable for a complete SF6 maintenance cycle?",
+        "Yes. The LR051 combines SF6 recovery, evacuation, filtration and refilling in one compact service unit. It is intended for routine maintenance work where these main gas-handling steps need to be carried out from the same workstation."
+      ],
+      [
+        "Can the LR051 continue recovering SF6 after the gas compartment reaches negative pressure?",
+        "Yes. The oil-free recovery system supports continued recovery under negative-pressure conditions, helping remove more residual SF6 after the main recovery stage."
+      ],
+      [
+        "Does the LR051 purify recovered SF6 for direct reuse?",
+        "The LR051 uses molecular-sieve filtration and drying to reduce moisture and impurities during gas handling. However, filtration alone does not confirm that the gas is suitable for direct reuse. Recovered SF6 should be analyzed against the applicable gas-quality requirements before it is returned to service."
+      ],
+      [
+        "Is the built-in 70 L tank enough for my maintenance job?",
+        "The 70 L tank is intended for routine gas-handling work and temporary storage within the LR051 system. Whether it is sufficient depends on the amount of SF6 in the equipment being serviced. For larger gas quantities or longer maintenance jobs, an external storage vessel or a higher-capacity gas handling unit may be more suitable."
+      ],
+      [
+        "What should I confirm before selecting the LR151?",
+        "Before selection, confirm the SF6 quantity to be handled, equipment operating pressure, required recovery endpoint and evacuation level, expected recovery/evacuation time, storage method and required storage volume, and the connections used on the equipment and storage vessel. These details help determine whether the RF-151’s 15 m³/h oil-free compressor, 64 m³/h vacuum pump and 300–1,000 L storage configuration are suitable for the job."
+      ]
+    ]
+  },
+  {
+    "slug": "lr151-mv-hv-sf6-gas-handling-unit",
+    "folder": "LR151 MVHV SF6 Gas Handling Unit",
+    "model": "LR151",
+    "name": "MV/HV SF6 Gas Handling Unit",
+    "category": "SF6 Recovery",
+    "tag": "Gas/Liquid Transfer · Gas Storage",
+    "description": "SF6 handling and storage for medium- and high-voltage equipment maintenance.",
+    "images": [
+      "/pics/products/single/lr151-mv-hv-sf6-gas-handling-unit/lr151-mv-hv-sf6-gas-handling-unit-1.webp",
+      "/pics/products/single/lr151-mv-hv-sf6-gas-handling-unit/lr151-mv-hv-sf6-gas-handling-unit-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "MV/HV",
+        "Equipment Range"
+      ],
+      [
+        "15 m³/h",
+        "Oil-free Compressor"
+      ],
+      [
+        "64 m³/h",
+        "Vacuum Pump"
+      ],
+      [
+        "300–1,000 L",
+        "Storage"
+      ]
+    ],
+    "specifications": [
+      [
+        "3 phases, 5 cores, AC380V±10%, 50Hz",
+        "Power supply"
+      ],
+      [
+        "25 kW",
+        "Rated power"
+      ],
+      [
+        "(-10 ~ +40) °C",
+        "Working temperature"
+      ],
+      [
+        "< 85% (no condensation)",
+        "Working humidity"
+      ],
+      [
+        "15m³/h",
+        "Oil-free compressor"
+      ],
+      [
+        "15m³/h, final vacuum ≤ 1mbar",
+        "Oil-free vacuum compressor"
+      ],
+      [
+        "64 m³/h, final vacuum ≤ 1mbar",
+        "Vacuum pump"
+      ],
+      [
+        "5m³/h",
+        "Booster speed"
+      ],
+      [
+        "300L/600L/1000L",
+        "Tank"
+      ],
+      [
+        "12\" touch screen",
+        "Designed pressure    50 bar — Operation mode"
+      ],
+      [
+        "3P",
+        "Designed pressure    50 bar — Refrigeration unit"
+      ],
+      [
+        "< 1µm",
+        "Designed pressure    50 bar — Dust filter precision"
+      ],
+      [
+        "≤1%",
+        "Designed pressure    50 bar — Annual leakage rate"
+      ],
+      [
+        "2030mm*1230mm*1930mm (L*W*H)",
+        "Designed pressure    50 bar — Dimension"
+      ],
+      [
+        "1800kg",
+        "Designed pressure    50 bar — Weight"
+      ]
+    ],
+    "applications": [
+      "SF6 recovery, storage and refilling during maintenance of medium-voltage switchgear, high-voltage GIS, circuit breakers and other gas-insulated equipment."
+    ],
+    "features": [
+      "SF6 recovery and transfer to external storage tanks or cylinders",
+      "Gas and liquid SF6 transfer for flexible storage and refilling",
+      "Oil-free compression supports continued recovery under negative-pressure conditions",
+      "Separate evacuation of equipment, pipelines and external storage vessels with vacuum monitoring",
+      "Molecular-sieve drying and filtration during recovered-gas handling"
+    ],
+    "overview": [
+      "MV/HV service capability",
+      "The LR151 SF6 Gas Handling Unit is designed for routine service of medium- and high-voltage gas-insulated equipment. Its 64 m³/h vacuum capacity and 300–1,000 L storage options make it suitable for maintenance jobs involving greater gas volumes and external gas storage.",
+      "Gas transfer and storage",
+      "Recovered SF6 can be transferred to an external tank or cylinder for temporary storage and subsequent reuse. Gas and liquid SF6 transfer provides flexibility for storage and refilling during longer maintenance work.",
+      "Gas compartments, connecting pipelines and storage vessels can be evacuated before transfer or filling. After maintenance, the stored SF6 can be returned to the equipment for recommissioning."
+    ],
+    "faq": [
+      [
+        "Is the LR151 suitable for my GIS or circuit breaker?",
+        "The LR151 is designed for medium- and high-voltage gas-insulated equipment, including 10–40.5 kV switchgear, 110 kV GIS and high-voltage circuit breakers. Final selection also depends on the SF6 quantity and required service capacity."
+      ],
+      [
+        "Which storage size should I choose: 300 L, 600 L or 1,000 L?",
+        "The storage configuration should match the amount of SF6 handled during one maintenance job. Larger gas quantities or longer service operations generally require more storage capacity."
+      ],
+      [
+        "Can the LR151 handle both gaseous and liquid SF6 transfer?",
+        "Yes. The LR151 supports both gas and liquid SF6 transfer, giving technicians more flexibility for storage and refilling during maintenance work."
+      ],
+      [
+        "Can the LR151 continue recovery after the gas compartment falls below atmospheric pressure?",
+        "Yes. Its oil-free recovery system supports continued recovery under negative-pressure conditions, helping reduce the amount of SF6 remaining in the equipment."
+      ],
+      [
+        "Can the LR151 evacuate the equipment, pipelines and storage vessels before filling?",
+        "Yes. The system can evacuate gas compartments, connecting pipelines and external storage vessels as part of the service process."
+      ]
+    ]
+  },
+  {
+    "slug": "lr391-high-capacity-sf6-gas-handling-unit",
+    "folder": "LR391 High-capacity SF6 Gas Handling Unit",
+    "model": "LR391",
+    "name": "High-capacity SF6 Gas Handling Unit",
+    "category": "SF6 Recovery",
+    "tag": "Negative-pressure Recovery · High-Flow Evacuation",
+    "description": "Large-volume SF6 handling for recovery, evacuation, storage and refilling.",
+    "images": [
+      "/pics/products/single/lr391-high-capacity-sf6-gas-handling-unit/lr391-high-capacity-sf6-gas-handling-unit-1.webp",
+      "/pics/products/single/lr391-high-capacity-sf6-gas-handling-unit/lr391-high-capacity-sf6-gas-handling-unit-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "30 m³/h",
+        "Oil-free Compressor"
+      ],
+      [
+        "31.3 m³/h",
+        "Vacuum Compressor"
+      ],
+      [
+        "64 m³/h",
+        "Vacuum Pump"
+      ],
+      [
+        "50 bar",
+        "Output Pressure"
+      ]
+    ],
+    "specifications": [
+      [
+        "30m³/h",
+        "Oil-free compressor"
+      ],
+      [
+        "50bar",
+        "Output pressure"
+      ],
+      [
+        "5m³/h",
+        "Booster speed"
+      ],
+      [
+        "64 m³/h, final vacuum: 0.1mbar",
+        "Vacuum pump"
+      ],
+      [
+        "31.3m³/h, final vacuum: 1mabr",
+        "Vacuum compressor"
+      ],
+      [
+        "Absorb moisture, decomposition and dust",
+        "Filter"
+      ],
+      [
+        "≤1μm",
+        "Filter precision"
+      ],
+      [
+        "300L",
+        "Tank"
+      ],
+      [
+        "≤1%",
+        "Equipment annual leakage rate"
+      ],
+      [
+        "Semi-enclosed",
+        "Structure"
+      ],
+      [
+        "3 phases, 5 cores, AC380V±10%, 50Hz",
+        "Power supply"
+      ],
+      [
+        "2850mm*1500mm*1760mm (L*W*H)",
+        "Dimension"
+      ]
+    ],
+    "applications": [
+      "Large-volume recovery, filtration, storage and refilling of SF6 during maintenance of large GIS and other gas-insulated equipment."
+    ],
+    "features": [
+      "Handles approximately 200–500 kg of SF6 in a single operation for large-volume maintenance work",
+      "30 m³/h oil-free compressor for primary SF6 recovery and transfer",
+      "31.3 m³/h vacuum compressor for negative-pressure recovery down to 1 mbar",
+      "Molecular-sieve filtration and drying during recovered-gas handling",
+      "64 m³/h evacuation with vacuum monitoring, plus direct or pressure-assisted SF6 refilling"
+    ],
+    "overview": [
+      "The LR391 High-Capacity SF6 Gas Handling Unit is designed for maintenance of large GIS and other gas-insulated equipment where large quantities of SF6 must be handled. It can handle approximately 200–500 kg of SF6 in a single operation and combines recovery, filtration, storage and refilling in one service unit.",
+      "Large-volume gas handling",
+      "During recovery, the 30 m³/h oil-free compressor transfers SF6 to an external storage tank or cylinder. A 31.3 m³/h vacuum compressor supports continued recovery under negative-pressure conditions, helping reduce the amount of residual SF6 remaining in the gas compartment.",
+      "Recovered gas passes through molecular-sieve filtration and drying before storage or further handling.",
+      "Equipment return to service",
+      "Before refilling, gas compartments, connecting pipelines and storage vessels can be evacuated using the 64 m³/h vacuum system. After maintenance, SF6 can be returned to the equipment by direct or pressure-assisted filling, while vacuum and pressure indications allow technicians to monitor the main handling stages."
+    ],
+    "faq": [
+      [
+        "Is the LR391 suitable for my GIS maintenance job?",
+        "The LR391 is intended for large GIS and other gas-insulated equipment where substantial quantities of SF6 must be handled during one maintenance operation. It is designed for jobs involving approximately 200–500 kg of SF6 per operation, where a smaller service unit may require repeated gas transfer or additional storage arrangements."
+      ],
+      [
+        "Why does the LR391 use both a vacuum compressor and a vacuum pump?",
+        "They perform different jobs. The 31.3 m³/h vacuum compressor supports continued SF6 recovery after the gas compartment enters negative pressure, down to approximately 1 mbar. The 64 m³/h vacuum pump is then used for equipment evacuation, with a final vacuum of 0.1 mbar, before refilling or return to service."
+      ],
+      [
+        "What is the difference between recovery to 1 mbar and evacuation to 0.1 mbar?",
+        "The 1 mbar level refers to the final stage of SF6 recovery, where the vacuum compressor removes more residual SF6 from the gas compartment. The 0.1 mbar level refers to subsequent evacuation of the equipment before filling. These are two different steps in the service process."
+      ],
+      [
+        "Does the 50 bar output pressure mean the GIS is filled to 50 bar?",
+        "No. 50 bar is the system’s maximum output-pressure capability, not the required operating pressure of the GIS. The actual filling pressure must be set according to the equipment specification and the service procedure."
+      ],
+      [
+        "When should I choose the LR391 instead of the LR151?",
+        "Choose the LR391 when the job involves larger SF6 quantities and requires higher recovery and negative-pressure recovery capacity. The RF-151 is more suited to medium-capacity maintenance and flexible external storage, while the LR391 is intended for larger GIS service operations and higher gas-handling demand."
+      ]
+    ]
+  },
+  {
+    "slug": "lt101j-centralized-sf6-recovery-and-treatment-system",
+    "folder": "LT101J Centralized SF6 Recovery and Treatment System",
+    "model": "LT101J",
+    "name": "Centralized SF6 Recovery and Treatment System",
+    "category": "SF6 Treatment",
+    "tag": "Rectification · Quality Control",
+    "description": "Centralized treatment of recovered SF6 for purification, quality verification and reuse preparation.",
+    "images": [
+      "/pics/products/single/lt101j-centralized-sf6-recovery-and-treatment-system/lt101j-centralized-sf6-recovery-and-treatment-system-1.webp",
+      "/pics/products/single/lt101j-centralized-sf6-recovery-and-treatment-system/lt101j-centralized-sf6-recovery-and-treatment-system-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "80 kg/h Purification Rate",
+        "Recovered SF6 treatment capacity"
+      ],
+      [
+        "60 t/year Annual Capacity",
+        "Centralized gas processing"
+      ],
+      [
+        "Rectification + Cryogenic Treatment",
+        "Deep purification of recovered SF6"
+      ],
+      [
+        "3 Functional Sections",
+        "Pre-treatment · Power · Purification"
+      ]
+    ],
+    "specifications": [
+      [
+        "3 phases, 5 cores, AC380V±10%, 50Hz",
+        "Power supply"
+      ],
+      [
+        "(10~+40) °C",
+        "Ambient temperature"
+      ],
+      [
+        "< 85 %  (no condensation)",
+        "Relative humidity"
+      ],
+      [
+        "380 V ± 10 %, 50Hz",
+        "Working power"
+      ],
+      [
+        "65 kW",
+        "Power consumption"
+      ],
+      [
+        "38 m³/h",
+        "Compressor"
+      ],
+      [
+        "31.3 m³/h",
+        "Vacuum compressor"
+      ],
+      [
+        "64 m³/h",
+        "Vacuum pump"
+      ],
+      [
+        "220 L",
+        "Buffer tank"
+      ],
+      [
+        "≤10 Pa",
+        "Ultimate vacuum"
+      ],
+      [
+        "< 0.6 MPa",
+        "Gas inlet pressure"
+      ],
+      [
+        "≤3.5 MPa",
+        "Cylinder refilling pressure"
+      ],
+      [
+        "80 kg/h (Max)",
+        "Filling speed"
+      ],
+      [
+        "≤1 %",
+        "Annual leakage rate"
+      ],
+      [
+        "Meet the new gas standard in IEC60480",
+        "Quality of treated gas"
+      ],
+      [
+        "2.29m1.56m2.4m+2.32m1.94m2.5m+2.31m1.91m2.4m (If the distillation column rising, the height could reach to 5.2m)",
+        "Dimension"
+      ]
+    ],
+    "applications": [
+      "Centralized purification and treatment of recovered SF6 before storage, refilling or reuse.",
+      "Processing of recovered SF6 from substations, switchgear maintenance and other repeated gas-handling operations."
+    ],
+    "features": [
+      "80 kg/h purification rate with an annual processing capacity of approximately 60 t",
+      "Rectification and cryogenic separation for deep purification of recovered SF6",
+      "Gas analysis before and after treatment to verify SF6 quality",
+      "Separate pre-treatment, power and purification sections in a modular system",
+      "PLC control with touchscreen operation and remote real-time monitoring"
+    ],
+    "overview": [
+      "Centralized SF6 treatment",
+      "The LT101J Centralized SF6 Recovery and Treatment System is designed for facilities that process recovered SF6 from multiple maintenance operations. It combines pre-treatment, purification, gas analysis and storage preparation in one centralized system.",
+      "With a purification rate of 80 kg/h and an annual processing capacity of approximately 60 t, the LT101J is suitable for repeated and large-volume SF6 treatment.",
+      "Purification and gas-quality verification",
+      "Recovered SF6 can be sampled and analyzed before treatment to determine its condition. The gas then passes through the required pre-treatment and purification stages, including rectification and cryogenic separation, to reduce contaminants and improve gas quality.",
+      "After treatment, the SF6 can be analyzed again before storage, refilling or reuse. This allows operators to confirm the gas condition before it is returned to service.",
+      "Modular operation and control",
+      "The system is divided into separate pre-treatment, power and purification sections. Guide-rail-mounted modules provide easier access during commissioning, maintenance and servicing.",
+      "The PLC control system provides touchscreen operation and remote real-time monitoring. Operators can view the main process parameters from one control interface during treatment."
+    ],
+    "faq": [
+      [
+        "When does centralized SF6 treatment make sense?",
+        "The LT101J is suitable when recovered SF6 from multiple maintenance operations needs to be collected and processed regularly. It is intended for treatment centers and facilities where repeated or large-volume gas processing is more practical than treating each batch separately at the equipment site."
+      ],
+      [
+        "Can the LT101J process SF6 recovered from different substations or maintenance jobs?",
+        "Yes. The system is designed for repeated treatment of recovered SF6 from different maintenance and gas-handling operations. Each batch can be sampled and checked before treatment so that its condition is known before further processing."
+      ],
+      [
+        "Can the gas be checked before and after purification?",
+        "Yes. Gas analysis can be carried out before treatment to assess the recovered SF6 and again after purification to verify the treated gas before storage, refilling or reuse."
+      ],
+      [
+        "Does every batch of recovered SF6 need the same treatment process?",
+        "Not necessarily. The gas can be analyzed first, and the required pre-treatment and purification stages can then be selected according to its condition and the treatment requirement."
+      ],
+      [
+        "How is the treatment process monitored and controlled?",
+        "The LT101J uses PLC control with touchscreen operation and remote real-time monitoring. Operators can view the main process parameters from a centralized control interface during treatment."
+      ]
+    ]
+  },
+  {
+    "slug": "lt300j-sf6-recovery-and-rectification-system",
+    "folder": "LT300J SF6 Recovery and Rectification System",
+    "model": "LT300J",
+    "name": "SF6 Recovery and Rectification System",
+    "category": "SF6 Treatment",
+    "tag": "Rectification · Reuse",
+    "description": "SF6 recovery and dual-column rectification for gas purification and reuse.",
+    "images": [
+      "/pics/products/single/lt300j-sf6-recovery-and-rectification-system/lt300j-sf6-recovery-and-rectification-system-1.webp",
+      "/pics/products/single/lt300j-sf6-recovery-and-rectification-system/lt300j-sf6-recovery-and-rectification-system-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "150 kg/h Recovery",
+        "High-capacity SF6 gas recovery"
+      ],
+      [
+        "≥99.9% Purity",
+        "Moisture ≤40 ppmv after purification"
+      ],
+      [
+        "≤10 Pa Ultimate Vacuum",
+        "64 m³/h vacuum pump"
+      ],
+      [
+        "300 L Storage Tank",
+        "80 kg/h gas-state refilling"
+      ]
+    ],
+    "specifications": [
+      [
+        "3 phases, 5 cores, AC380V±10%, 50Hz",
+        "Power supply"
+      ],
+      [
+        "300L",
+        "Storage tank"
+      ],
+      [
+        "64 m³/h (max)",
+        "Vacuum pump"
+      ],
+      [
+        "38 m³/h",
+        "Compressor"
+      ],
+      [
+        "31.3 m³/h",
+        "Vacuum compressor"
+      ],
+      [
+        "≤10 Pa",
+        "Ultimate vacuum"
+      ],
+      [
+        "< 3.5 MPa",
+        "Gas cylinder refilling pressure"
+      ],
+      [
+        "150 kg/h",
+        "Recovery speed"
+      ],
+      [
+        "80kg/h (gaseous state)",
+        "Refilling speed"
+      ],
+      [
+        "(-10 ~ +40)°C",
+        "Environment temperature"
+      ],
+      [
+        "< 90%RH",
+        "Environment humidity"
+      ],
+      [
+        "< 1%",
+        "Leakage rate/year"
+      ],
+      [
+        "<1μm",
+        "Accuracy of dust filtration"
+      ],
+      [
+        "2400mm*1400mm*2150mm (L*W*H)",
+        "Dimensions"
+      ],
+      [
+        "1800kg",
+        "Weight"
+      ]
+    ],
+    "applications": [
+      "Recovery, rectification purification, evacuation and refilling of SF6 for equipment maintenance, gas reuse and centralized gas treatment."
+    ],
+    "features": [
+      "Dual-column rectification for deeper purification of recovered SF6",
+      "Molecular-sieve pretreatment reduces moisture, decomposition products and particles before rectification",
+      "Oil-free compression with separate pipelines for SF6 recovery and refilling",
+      "Independent evacuation of the gas-handling system and connected equipment with real-time vacuum monitoring",
+      "PLC-controlled automatic operation with direct and pressure-assisted refilling"
+    ],
+    "overview": [
+      "The LT300J Recovery and Rectification System is designed for applications where recovered SF6 requires more than basic filtration before reuse. After recovery and preliminary filtration, the gas can be further treated through a dual-column rectification process to improve gas quality before storage or refilling.",
+      "Molecular-sieve treatment reduces moisture, decomposition products and particles before the gas enters the deeper purification stage. The dual-column arrangement supports continuous or repeated treatment according to the condition of the recovered SF6.",
+      "Integrated gas handling",
+      "Recovery, evacuation, purification and refilling are coordinated through a PLC-controlled operating system. Separate gas paths are provided for recovery and refilling, while vacuum conditions and transfer pressure can be monitored during operation.",
+      "After treatment, SF6 can be transferred to storage or returned to the equipment by direct or compressor-assisted filling."
+    ],
+    "faq": [
+      [
+        "What type of SF6 treatment is the LT300J designed for?",
+        "The LT300J is designed for recovered SF6 that requires further purification before storage, refilling or reuse. In addition to recovery and basic filtration, it uses dual-column rectification for deeper gas treatment."
+      ],
+      [
+        "How is the LT300J different from a standard SF6 gas handling unit?",
+        "A standard gas handling unit mainly focuses on recovery, evacuation, filtration and refilling. The LT300J adds dual-column rectification, allowing recovered SF6 to receive deeper purification within the same system."
+      ],
+      [
+        "What gas quality can the LT300J achieve after purification?",
+        "The specified purification performance includes SF6 purity of ≥99.9%, moisture ≤40 ppmv, CF4 ≤0.01% and air ≤0.03%. Final reuse should still be based on the applicable gas-quality requirements."
+      ],
+      [
+        "Is the LT300J suitable for repeated or centralized SF6 treatment work?",
+        "Yes. With a recovery rate of 150 kg/h, a 300 L storage tank and integrated purification functions, the LT300J is suitable for maintenance and gas-treatment work where recovered SF6 needs to be processed regularly rather than simply recovered and stored."
+      ],
+      [
+        "Can the purified SF6 be returned directly to the equipment?",
+        "The LT300J can refill treated SF6 back into the equipment, but gas quality should be verified before return to service. Purification performance and the applicable gas-quality requirements should both be considered before reuse."
+      ]
+    ]
+  },
+  {
+    "slug": "lt1000-uhv-gis-sf6-gas-handling-system",
+    "folder": "LT1000 UHV GIS SF6 Gas Handling System",
+    "model": "LT1000",
+    "name": "UHV GIS SF6 Gas Handling System",
+    "category": "SF6 Treatment",
+    "tag": "Multi-cylinder Filling · Wireless Control",
+    "description": "Full-process SF6 handling for 1000 kV GIS installation and maintenance.",
+    "images": [
+      "/pics/products/single/lt1000-uhv-gis-sf6-gas-handling-system/lt1000-uhv-gis-sf6-gas-handling-system-1.webp",
+      "/pics/products/single/lt1000-uhv-gis-sf6-gas-handling-system/lt1000-uhv-gis-sf6-gas-handling-system-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "1000 kV GIS",
+        "Dedicated UHV field service"
+      ],
+      [
+        "2 × 4 Cylinder Groups",
+        "Alternating cylinder operation"
+      ],
+      [
+        "5–8 min / 50 kg",
+        "Liquid SF6 transfer from a 40 L cylinder"
+      ],
+      [
+        "1.5 t Lifting Capacity",
+        "Integrated on-site lifting equipment"
+      ]
+    ],
+    "specifications": [
+      [
+        "120 m³/h",
+        "Recovery rate"
+      ],
+      [
+        "5 m³/h",
+        "Booster"
+      ],
+      [
+        "17 m³/h",
+        "Vacuuming rate"
+      ],
+      [
+        "≤10 Pa",
+        "Limited degree"
+      ],
+      [
+        "300 L, design pressure: 5MPa",
+        "Storage tank"
+      ],
+      [
+        "250 kg/h",
+        "Refilling rate"
+      ],
+      [
+        "≤0.5%",
+        "Annual leakage"
+      ],
+      [
+        "< 1μm",
+        "Dust filter accuracy"
+      ],
+      [
+        "8000kg",
+        "Self loading and unloading load"
+      ],
+      [
+        "3km",
+        "Self driving distance"
+      ],
+      [
+        "≤1500kg",
+        "Lifting load"
+      ],
+      [
+        "4850mm*1800mm*2700mm (L*W*H)",
+        "Dimension"
+      ]
+    ],
+    "applications": [
+      "On-site SF6 recovery, evacuation, liquid filling and gas transfer for installation and maintenance of 1000 kV UHV GIS."
+    ],
+    "features": [
+      "Two four-cylinder groups with automatic cylinder tilting for continuous liquid SF6 filling",
+      "Separate recovery and filling lines with filtration for moisture, oil and particles",
+      "Electronic weighing and residual-gas recovery for controlled SF6 transfer",
+      "Wireless linked control with real-time transmission of recovery, evacuation and filling data"
+    ],
+    "overview": [
+      "UHV field gas handling",
+      "The LT1000 UHV GIS SF6 Gas Handling System is designed for installation and maintenance of 1000 kV GIS. It combines recovery, evacuation, liquid filling and cylinder handling for large-volume field operations.",
+      "Two four-cylinder groups can be operated alternately, with automatic cylinder tilting for liquid SF6 transfer. Approximately 50 kg of SF6 can be transferred from a 40 L cylinder in about 5–8 minutes. Separate recovery and filling lines help reduce cross-contamination, while filtration removes moisture, oil and particles from the gas circuit.",
+      "Integrated control and field deployment",
+      "Electronic weighing monitors the amount of SF6 transferred during recovery and filling. A residual-gas recovery compressor helps reduce the gas remaining in cylinders after transfer.",
+      "Wireless control links the main unit and auxiliary equipment and transmits recovery, evacuation and filling data in real time. Self-propelled drive, self-loading and unloading functions, and an integrated 1.5 t lifting system support equipment movement and tool handling on site."
+    ],
+    "faq": [
+      [
+        "What type of project is the LT1000 designed for?",
+        "The LT1000 is designed for on-site SF6 handling during installation and maintenance of 1000 kV UHV GIS. It is intended for projects where large gas volumes, continuous filling and coordinated field operations are required."
+      ],
+      [
+        "Why use the LT1000 instead of a conventional SF6 gas handling unit?",
+        "The LT1000 combines large-volume recovery, evacuation, liquid filling, cylinder handling and linked control in one field system. It is designed for UHV projects where several gas-handling operations need to be carried out efficiently at the same site."
+      ],
+      [
+        "Can the LT1000 support continuous SF6 filling during large GIS projects?",
+        "Yes. Two four-cylinder groups can be operated alternately, allowing one group to remain in service while the other is prepared for replacement. The system also supports liquid SF6 transfer for faster handling of larger gas quantities."
+      ],
+      [
+        "Can the main unit and auxiliary equipment be monitored together?",
+        "Yes. Wireless linked control connects the main unit with the auxiliary equipment and allows recovery, evacuation and filling data to be transmitted in real time. This helps operators monitor the main gas-handling activities from one control system."
+      ],
+      [
+        "How does the LT1000 support deployment at a large project site?",
+        "The system includes self-propelled movement, self-loading and unloading functions, together with an integrated 1.5 t lifting system for tools and auxiliary equipment. These functions reduce the amount of separate handling equipment required during site deployment."
+      ]
+    ]
+  },
+  {
+    "slug": "lt1001-mobile-integrated-mobile-sf6-service-workstation",
+    "folder": "LT1001 Mobile Integrated Mobile SF6 Service Workstation",
+    "model": "LT1001",
+    "name": "Mobile Integrated Mobile SF6 Service Workstation",
+    "category": "SF6 Treatment",
+    "tag": "Full-process Handling · Remote Control",
+    "description": "Mobile full-process SF6 handling for large GIS and GIL project sites.",
+    "images": [
+      "/pics/products/single/lt1001-mobile-integrated-mobile-sf6-service-workstation/lt1001-mobile-integrated-mobile-sf6-service-workstation-1.webp",
+      "/pics/products/single/lt1001-mobile-integrated-mobile-sf6-service-workstation/lt1001-mobile-integrated-mobile-sf6-service-workstation-2.webp"
+    ],
+    "keySpecifications": [
+      [
+        "6 Storage Tanks",
+        "Centralized SF6 storage and controlled gas transfer"
+      ],
+      [
+        "Dual-column Rectification",
+        "On-site SF6 purification"
+      ],
+      [
+        "Integrated Gas Analysis",
+        "Pre-/post-treatment gas-quality verification"
+      ],
+      [
+        "Remote Digital Control",
+        "Real-time process monitoring and operation"
+      ]
+    ],
+    "specifications": [
+      [
+        "60 m³/h",
+        "Recovery speed"
+      ],
+      [
+        "160 m³/h",
+        "Negative pressure recovery speed"
+      ],
+      [
+        "≤ 100 Pa",
+        "Limited pressure"
+      ],
+      [
+        "≤ 0.8 Pa",
+        "Final vacuum"
+      ],
+      [
+        "500 m³/h",
+        "Vacuum pumping speed"
+      ],
+      [
+        "150 kg/h",
+        "Gas-filling speed"
+      ],
+      [
+        "(0.1-1.0) MPa",
+        "Gas-filling pressure"
+      ],
+      [
+        "GB/T 12022",
+        "Standard"
+      ],
+      [
+        "≤ 1%",
+        "Annual leakage rate"
+      ],
+      [
+        "1600L",
+        "Tank volume"
+      ],
+      [
+        "3 phases, 5 cores, AC380V±10%, 50Hz",
+        "Power supply"
+      ],
+      [
+        "70kW",
+        "Power"
+      ]
+    ],
+    "applications": [
+      "Full-process SF6 handling for installation, commissioning and maintenance of large GIS and GIL projects",
+      "Centralized on-site gas service where large SF6 quantities and multiple handling operations must be coordinated"
+    ],
+    "features": [
+      "Full-process SF6 service capability integrated into one mobile workstation",
+      "High-capacity recovery, high-speed evacuation and continuous high-flow filling for large project operations",
+      "Six integrated storage tanks for centralized SF6 storage and controlled gas transfer",
+      "Dual-column rectification and integrated gas analysis for on-site purification and gas-quality verification",
+      "Digital control room with remote operation and real-time process monitoring"
+    ],
+    "overview": [
+      "Mobile project deployment",
+      "The LT1001 Mobile Integrated SF6 Service Workstation brings a complete SF6 service capability directly to large GIS and GIL project sites. By integrating the main handling processes into one vehicle-mounted facility, it reduces the need to mobilize and coordinate multiple independent service units during installation, commissioning and maintenance.",
+      "Dedicated operating sections allow recovery, evacuation, storage and filling activities to be organized within the same mobile platform.",
+      "Full-process gas management",
+      "Recovered SF6 can be collected in the integrated storage section and routed to the treatment area when further purification is required. Dual-column rectification is combined with gas-quality analysis, allowing treated SF6 to be evaluated before subsequent storage, refilling or reuse.",
+      "A digital control system coordinates the main operating sections and provides local and remote access to process parameters. This centralized operating concept allows the LT1001 to function as a mobile SF6 service center rather than a collection of independent handling devices."
+    ],
+    "faq": [
+      [
+        "What type of project is the LT1001 designed for?",
+        "The LT1001 is designed for large GIS and GIL installation, commissioning and maintenance projects where recovery, evacuation, storage, gas treatment and refilling must be coordinated on site."
+      ],
+      [
+        "Why use a mobile SF6 workstation instead of several separate service units?",
+        "The LT1001 brings the main SF6 handling functions into one vehicle-mounted platform. This reduces the need to transport, connect and coordinate several independent service units during large project work."
+      ],
+      [
+        "Can recovery, purification, analysis and refilling be carried out on site?",
+        "Yes. The workstation integrates SF6 recovery, evacuation, storage, purification, gas analysis and refilling functions for on-site service. Recovered gas can be routed to the treatment section when further purification is required."
+      ],
+      [
+        "Can the recovered SF6 be checked before it is refilled or reused?",
+        "Yes. Integrated gas analysis allows the SF6 condition to be checked after treatment and before subsequent storage, refilling or reuse. Final reuse should follow the applicable gas-quality requirements."
+      ],
+      [
+        "How are the different SF6 handling processes monitored during a large project?",
+        "The LT1001 uses a digital control system with local and remote access to operating parameters. This allows the main recovery, evacuation, storage, treatment and filling processes to be monitored from a centralized control interface."
+      ]
+    ]
+  }
+]

@@ -1,64 +1,17 @@
-import { Section, Container } from "@/components/craft";
-import { mainMenu, contentMenu } from "@/menu.config";
-import { siteConfig } from "@/site.config";
-import Logo from "@/public/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "@/public/logo.svg";
+import { siteConfig } from "@/site.config";
+
+const columns = [
+  { title: "Our offer", links: [["Products", "/products"], ["Solutions", "/projects"], ["Services", "/contact"], ["Support", "/contact"], ["Knowledge", "/posts"]] },
+  { title: "About us", links: [["Company", "/about"], ["Projects", "/projects"], ["SF6 calculator", "/sf6-calculator"], ["Contact", "/contact"]] },
+  { title: "Products", links: [["Gas analysis", "/products/sf6-gas-analyzer"], ["Gas handling", "/products/sf6-service-carts"], ["Leak detection", "/products/sf6-leak-detector"], ["Regeneration", "/products/sf6-regeneration-system"]] },
+];
 
 export function Footer() {
-  return (
-    <footer>
-      <Section>
-        <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
-          <div className="flex flex-col gap-6 not-prose">
-            <Link href="/">
-              <h3 className="sr-only">{siteConfig.site_name}</h3>
-              <Image
-                src={Logo}
-                alt="Logo"
-                width={42}
-                height={26.44}
-              />
-            </Link>
-            <div className="space-y-3">
-              <p>{siteConfig.site_description}</p>
-              <p className="text-sm leading-6 text-muted-foreground">
-                {siteConfig.footer.summary}
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-2 text-sm">
-            <h2 className="font-medium text-base">Website</h2>
-            {Object.entries(mainMenu).map(([key, href]) => (
-              <Link
-                className="hover:underline underline-offset-4"
-                key={href}
-                href={href}
-              >
-                {key.charAt(0).toUpperCase() + key.slice(1)}
-              </Link>
-            ))}
-          </div>
-          <div className="flex flex-col gap-2 text-sm">
-            <h2 className="font-medium text-base">Blog</h2>
-            {Object.entries(contentMenu).map(([key, href]) => (
-              <Link
-                className="hover:underline underline-offset-4"
-                key={href}
-                href={href}
-              >
-                {key.charAt(0).toUpperCase() + key.slice(1)}
-              </Link>
-            ))}
-          </div>
-        </Container>
-        <Container className="border-t not-prose flex flex-col gap-6 md:flex-row md:items-center md:justify-end md:gap-2">
-          <p className="text-muted-foreground">
-            &copy; {siteConfig.footer.copyrightName}. All rights reserved.{" "}
-            {siteConfig.footer.copyrightYears}.
-          </p>
-        </Container>
-      </Section>
-    </footer>
-  );
+  return <footer className="border-t border-slate-200 bg-white pb-8 pt-14"><div className="mx-auto max-w-[1600px] px-6">
+    <div className="grid grid-cols-2 gap-8 pb-12 md:grid-cols-5">{columns.map((column) => <div key={column.title}><h4 className="mb-4 font-bold text-slate-900">{column.title}</h4><ul className="space-y-2.5 text-sm font-semibold text-[#003a79]">{column.links.map(([label, href]) => <li key={label}><Link href={href} className="hover:underline">{label}</Link></li>)}</ul></div>)}<div className="min-w-0"><h4 className="mb-4 font-bold text-slate-900">Contact</h4><div className="space-y-1 text-sm leading-relaxed text-slate-600"><p className="font-semibold text-slate-800">{siteConfig.brand.legalName}</p><p>{siteConfig.contact.address}</p><p className="pt-1">Tel.: {siteConfig.contact.phone}</p><p>E-mail: <a href={`mailto:${siteConfig.contact.email}`} className="break-all font-semibold text-[#003a79] hover:underline">{siteConfig.contact.email}</a></p></div></div><div id="footer-inquiry" className="col-span-2 rounded-2xl border border-blue-200 bg-slate-50 p-5 md:col-span-1"><div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-2.5 py-1 text-[10px] font-semibold text-[#002c6c]"><span className="h-1.5 w-1.5 rounded-full bg-sky-400"/> Direct Inquiry</div><h4 className="font-bold text-[#002c6c]">Need Information?</h4><form method="POST" action="/api/inquiry" className="mt-3 space-y-2"><input type="hidden" name="success_path" value="/inquiry/success"/><input type="hidden" name="failure_path" value="/contact"/><input required name="name" placeholder="Your name *" className="w-full rounded-full border border-blue-200 bg-white px-3 py-2 text-xs outline-none focus:border-[#002c6c]"/><input required type="email" name="email" placeholder="Email *" className="w-full rounded-full border border-blue-200 bg-white px-3 py-2 text-xs outline-none focus:border-[#002c6c]"/><textarea required name="content" rows={2} placeholder="Your inquiry *" className="w-full resize-none rounded-xl border border-blue-200 bg-white px-3 py-2 text-xs outline-none focus:border-[#002c6c]"/><button type="submit" className="w-full rounded-full bg-[#002c6c] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#0f4c81]">Request Quote →</button></form></div></div>
+    <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 text-xs text-slate-500 sm:flex-row"><div className="flex items-center gap-4"><Image src={Logo} alt={`${siteConfig.site_name} logo`} width={168} height={37} className="h-8 w-auto"/><p>© 2026 {siteConfig.footer.copyrightName}</p></div><div className="flex gap-5"><Link href="/about" className="hover:text-[#003a79]">Privacy notice</Link><Link href="/contact" className="hover:text-[#003a79]">Legal notice</Link></div></div>
+  </div></footer>;
 }

@@ -41,6 +41,19 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# local source assets and generated working files
+/pics/source/
+/outputs/
+/tmp/
+/tools/
+/dev-5789.err.log
+/dev-5789.out.log
+/current-product-page.png
+/start-dev.bat
+/start-dev.ps1
+/public/pics/products/catalog-v2/
+/public/pics/products/single/la915-smart-sf-gas-analyzer/
+
 .claude
 .factory
 RAILWAY-SETUP.md

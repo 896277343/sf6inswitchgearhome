@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { getAllPages, getAllPostsForSitemap } from "@/lib/wordpress";
 import { siteConfig } from "@/site.config";
+import productData from "@/data/product-singles.json";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [posts, pages] = await Promise.all([
@@ -8,6 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getAllPages(),
   ]);
 
+  const generatedProductPaths = productData.map((product) => `/products/${product.slug}`);
   const staticPaths = [
     "/",
     "/about",
@@ -29,9 +31,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/projects/ultra-high-voltage-sf6-handling-equipment",
     "/projects/sf6-gas-handling-and-regeneration-base",
     "/posts",
-  ] as const;
+    ...generatedProductPaths,
+  ];
 
-  const staticLastModifiedMap: Partial<Record<(typeof staticPaths)[number], string>> = {
+  const staticLastModifiedMap: Partial<Record<string, string>> = {
     "/": "2026-05-10",
     "/about": "2026-05-10",
     "/contact": "2026-05-10",
