@@ -2,6 +2,7 @@ import "server-only";
 
 import type { Page, Post } from "@/lib/wordpress.d";
 import { defaultLocale, type Locale } from "@/lib/i18n/config";
+import { prepareHtmlTranslation, splitTranslationText } from "@/lib/html-translation";
 
 const apiBase = (process.env.TRANSPOSH_API_URL || process.env.WORDPRESS_URL || "").replace(/\/$/, "");
 const apiSecret = process.env.TRANSPOSH_HEADLESS_SECRET || "";
@@ -25,6 +26,10 @@ export async function translateStrings(
     return { results: strings, translated: false };
   }
 
+  // The WordPress endpoint rejects empty items. Keep their positions intact.
+  const nonEmpty = strings.map((value, index) => ({ value, index })).filter(({ value }) => value.trim());
+  if (nonEmpty.length === 0) return { results: strings, translated: true };
+
   try {
     const response = await fetch(`${apiBase}/wp-json/transposh/v1/translate`, {
       method: "POST",
@@ -35,7 +40,7 @@ export async function translateStrings(
       body: JSON.stringify({
         source_language: defaultLocale,
         language: locale,
-        strings,
+        strings: nonEmpty.map(({ value }) => value),
       }),
       cache: "force-cache",
       next: {
@@ -50,11 +55,13 @@ export async function translateStrings(
       return { results: strings, translated: false };
     }
     const payload = (await response.json()) as TranslationResponse;
-    if (!Array.isArray(payload.results) || payload.results.length !== strings.length) {
+    if (!Array.isArray(payload.results) || payload.results.length !== nonEmpty.length) {
       console.warn("Transposh returned an invalid translation batch");
       return { results: strings, translated: false };
     }
-    return { results: payload.results, translated: true };
+    const results = [...strings];
+    nonEmpty.forEach(({ index }, resultIndex) => { results[index] = payload.results[resultIndex]; });
+    return { results, translated: true };
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
     console.warn(`Transposh translation request failed: ${message}`);
@@ -62,15 +69,48 @@ export async function translateStrings(
   }
 }
 
+async function translateArticleHtml(html: string, locale: Locale): Promise<string> {
+  const { tokens, indices } = prepareHtmlTranslation(html);
+  const pieces = indices.flatMap((index) =>
+    splitTranslationText(tokens[index]).map((value) => ({ index, value }))
+  );
+  const translated = new Map<number, string[]>();
+  let batch: typeof pieces = [];
+  let batchBytes = 0;
+
+  const flush = async () => {
+    if (batch.length === 0) return;
+    const { results } = await translateStrings(batch.map(({ value }) => value), locale);
+    batch.forEach(({ index }, position) => {
+      const values = translated.get(index) || [];
+      values.push(results[position] || batch[position].value);
+      translated.set(index, values);
+    });
+    batch = [];
+    batchBytes = 0;
+  };
+
+  for (const piece of pieces) {
+    const bytes = new TextEncoder().encode(piece.value).length;
+    if (batch.length >= 20 || batchBytes + bytes > 12000) await flush();
+    batch.push(piece);
+    batchBytes += bytes;
+  }
+  await flush();
+  for (const [index, values] of translated) tokens[index] = values.join("");
+  return tokens.join("");
+}
+
 export async function translatePost(post: Post, locale: Locale): Promise<Post> {
   if (locale === defaultLocale) return post;
-  const source = [post.title.rendered, post.excerpt.rendered, post.content.rendered];
+  const source = [post.title.rendered, post.excerpt.rendered];
   const { results } = await translateStrings(source, locale);
+  const content = await translateArticleHtml(post.content.rendered, locale);
   return {
     ...post,
     title: { ...post.title, rendered: results[0] },
     excerpt: { ...post.excerpt, rendered: results[1] },
-    content: { ...post.content, rendered: results[2] },
+    content: { ...post.content, rendered: content },
   };
 }
 

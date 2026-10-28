@@ -15,8 +15,14 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/site.config";
 import { isLocale, localizePath } from "@/lib/i18n/config";
 import { translatePost } from "@/lib/transposh";
+import { cache } from "react";
 
 export const dynamic = "force-dynamic";
+
+const getTranslatedPost = cache(async (slug: string, locale: "en" | "de" | "fr" | "es") => {
+  const sourcePost = await getPostBySlug(slug);
+  return sourcePost ? translatePost(sourcePost, locale) : undefined;
+});
 
 export async function generateMetadata({
   params,
@@ -25,12 +31,10 @@ export async function generateMetadata({
 }) {
   const { locale, slug } = await params;
   if (!isLocale(locale)) return {};
-  const sourcePost = await getPostBySlug(slug);
-
-  if (!sourcePost) {
+  const post = await getTranslatedPost(slug, locale);
+  if (!post) {
     return {};
   }
-  const post = await translatePost(sourcePost, locale);
 
   return generateContentMetadata({
     title: post.title.rendered,
@@ -48,12 +52,10 @@ export default async function Page({
 }) {
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
-  const sourcePost = await getPostBySlug(slug);
-
-  if (!sourcePost) {
+  const post = await getTranslatedPost(slug, locale);
+  if (!post) {
     notFound();
   }
-  const post = await translatePost(sourcePost, locale);
 
   const author = post._embedded?.author?.[0];
   const featuredMedia = post._embedded?.["wp:featuredmedia"]?.[0];
