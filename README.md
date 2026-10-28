@@ -41,22 +41,22 @@ git clone https://github.com/9d8dev/next-wp.git
 cd next-wp
 
 # Install dependencies
-pnpm install
+npm ci
 
 # Set up environment variables
 cp .env.example .env.local
 # Edit .env.local with your WordPress URL and credentials
 
 # Start development server
-pnpm dev
+npm run dev
 ```
 
 Your site is now running at `http://localhost:3000`.
 
 ## Prerequisites
 
-- **Node.js** 18.17 or later
-- **pnpm** 8.0 or later (recommended) or npm/yarn
+- **Node.js** 22 or later
+- **npm** (bundled with Node.js 22 or later)
 - **WordPress** site with REST API enabled (default in WordPress 4.7+)
 
 ## Environment Variables
@@ -213,14 +213,14 @@ Railway creates a copy of the repository in your GitHub. You can then:
 
 ```bash
 # Install dependencies
-pnpm install
+npm ci
 
 # Copy environment template
 cp .env.example .env.local
 
 # Configure your WordPress connection in .env.local
 # Then start the dev server
-pnpm dev
+npm run dev
 ```
 
 **Required:** Your WordPress site must have the REST API enabled (default since WP 4.7).
@@ -363,8 +363,8 @@ This project uses shadcn/ui with Tailwind CSS. Customize colors in your CSS or u
 The project uses [Vitest](https://vitest.dev/) for unit testing.
 
 ```bash
-pnpm test          # Run all tests
-pnpm test:watch    # Run in watch mode
+npm test           # Run all tests
+npm run test:watch # Run in watch mode
 ```
 
 Tests cover the core modules:
@@ -379,11 +379,11 @@ Tests cover the core modules:
 ## Scripts
 
 ```bash
-pnpm dev       # Start development server
-pnpm build     # Build for production
-pnpm start     # Start production server
-pnpm lint      # Run ESLint
-pnpm test      # Run tests
+npm run dev    # Start development server
+npm run build  # Build for production
+npm start      # Start production server
+npm run lint   # Run ESLint
+npm test       # Run tests
 ```
 
 ## Contributing

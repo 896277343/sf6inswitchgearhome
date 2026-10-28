@@ -6,6 +6,7 @@
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
     "build": "next build",
+    "prebuild": "node scripts/generate-static-paths.mjs",
     "start": "next start",
     "lint": "eslint .",
     "images:webp": "node scripts/convert-jpg-to-webp.mjs && node scripts/rewrite-image-refs.mjs",

@@ -4,13 +4,15 @@ node_modules
 
 # Build outputs
 .next
+.next-local
 out
+release
+*-release.tar.gz
 
 # Development
 .env
-.env.local
-.env.development
-.env.test
+.env*
+!.env.example
 
 # Git
 .git

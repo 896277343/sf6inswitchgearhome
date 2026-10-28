@@ -49,6 +49,7 @@ export async function POST(request: NextRequest) {
       },
       body: payload.toString(),
       cache: "no-store",
+      signal: AbortSignal.timeout(8000),
     });
 
     if (!response.ok) {

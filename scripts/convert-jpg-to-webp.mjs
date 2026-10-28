@@ -3,16 +3,7 @@ import path from "node:path";
 import sharp from "sharp";
 
 const projectRoot = path.resolve(process.cwd());
-const includeDirs = [
-  path.join(projectRoot, "public"),
-  path.join(projectRoot, "app"),
-  path.join(projectRoot, "pics"),
-];
-
-const excludedFiles = new Set([
-  path.join(projectRoot, "app", "opengraph-image.jpeg"),
-  path.join(projectRoot, "app", "twitter-image.jpeg"),
-]);
+const includeDirs = [path.join(projectRoot, "public")];
 
 const imageExtensions = new Set([".jpg", ".jpeg"]);
 
@@ -47,7 +38,7 @@ async function main() {
 
   const imageFiles = discoveredFiles.filter((filePath) => {
     const ext = path.extname(filePath).toLowerCase();
-    return imageExtensions.has(ext) && !excludedFiles.has(filePath);
+    return imageExtensions.has(ext);
   });
 
   let convertedCount = 0;

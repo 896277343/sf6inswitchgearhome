@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { getAllPages, getAllPostsForSitemap } from "@/lib/wordpress";
 import { languageAlternates, localizedUrl, publishedLocales } from "@/lib/i18n/metadata";
+import staticPaths from "@/lib/generated-static-paths.json";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [posts, pages] = await Promise.all([
@@ -8,56 +9,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getAllPages(),
   ]);
 
-  const staticPaths = [
-    "/",
-    "/about",
-    "/contact",
-    "/sf6-calculator",
-    "/products",
-    "/products/mobile-sf6-vacuum-pump-unit",
-    "/products/sf6-gas-analyzer",
-    "/products/sf6-gas-filling-cart",
-    "/products/sf6-gas-filling-kit",
-    "/products/sf6-gas-fittings",
-    "/products/sf6-leak-detector",
-    "/products/sf6-regeneration-system",
-    "/products/sf6-room-monitor",
-    "/products/sf6-service-carts",
-    "/projects",
-    "/projects/sf6-gas-handling-for-underground-substation",
-    "/projects/sf6-use-for-gas-insulated-switchgear-manufacturers",
-    "/projects/ultra-high-voltage-sf6-handling-equipment",
-    "/projects/sf6-gas-handling-and-regeneration-base",
-    "/posts",
-  ] as const;
-
-  const staticLastModifiedMap: Partial<Record<(typeof staticPaths)[number], string>> = {
-    "/": "2026-05-10",
-    "/about": "2026-05-10",
-    "/contact": "2026-05-10",
-    "/sf6-calculator": "2026-06-09",
-    "/products": "2026-05-10",
-    "/products/mobile-sf6-vacuum-pump-unit": "2026-05-10",
-    "/products/sf6-gas-analyzer": "2026-05-10",
-    "/products/sf6-gas-filling-cart": "2026-05-10",
-    "/products/sf6-gas-filling-kit": "2026-05-10",
-    "/products/sf6-gas-fittings": "2026-05-10",
-    "/products/sf6-leak-detector": "2026-05-10",
-    "/products/sf6-regeneration-system": "2026-05-10",
-    "/products/sf6-room-monitor": "2026-05-10",
-    "/products/sf6-service-carts": "2026-05-10",
-    "/projects": "2026-05-10",
-    "/projects/sf6-gas-handling-for-underground-substation": "2026-05-10",
-    "/projects/sf6-use-for-gas-insulated-switchgear-manufacturers": "2026-05-10",
-    "/projects/ultra-high-voltage-sf6-handling-equipment": "2026-05-10",
-    "/projects/sf6-gas-handling-and-regeneration-base": "2026-05-10",
-    "/posts": "2026-05-10",
-  };
-
   const activeLocales = publishedLocales();
   const staticUrls: MetadataRoute.Sitemap = staticPaths.flatMap((path) => activeLocales.map((locale) => ({
     url: localizedUrl(path, locale),
-    lastModified: new Date(staticLastModifiedMap[path] ?? "2026-05-10"),
     changeFrequency:
       path === "/"
         ? "monthly"
