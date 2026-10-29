@@ -37,6 +37,27 @@ PUBLISHED_LOCALES="en,de,fr,es"
 Only `PUBLISHED_LOCALES` are pre-rendered, emitted in the sitemap/hreflang, and
 shown in the language switcher. This keeps low-resource deployments small.
 
+## Article translation cache
+
+Complete translated articles are cached by Next.js for up to 24 hours. A partial
+translation is displayed but never stored in the frontend's persistent cache;
+the missing text can be retried on the next request. WordPress remains the
+source of truth for saved translations. Published post updates invalidate the
+cached article for every language through `/api/revalidate` (both supported
+WordPress webhook payload formats are accepted).
+
+After manually correcting a stored Transposh translation, clear that article's
+frontend cache from the build VPS, without displaying the webhook secret:
+
+```bash
+cd ~/sf6inswitchgearhome
+node scripts/revalidate-translation.mjs --post-id 42
+```
+
+Use `--slug post-slug` when the post ID is unknown, or `--all` only when every
+translated article needs to be refreshed. The command reads the existing
+`WORDPRESS_WEBHOOK_SECRET` from `.env.production` or `.env.local`.
+
 ## Remote runtime environment
 
 Store the runtime configuration on the Tencent server at

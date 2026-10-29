@@ -1,5 +1,6 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
+import { locales, localizePath } from "@/lib/i18n/config";
 
 export const maxDuration = 30;
 
@@ -22,7 +23,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { contentType, contentId, contentSlug, contentPath } = requestBody;
+    // Support both next-wp webhook payloads used by existing WordPress plugins.
+    const legacyData = requestBody.data && typeof requestBody.data === "object" ? requestBody.data : {};
+    const legacyType = requestBody.type === "term"
+      ? legacyData.taxonomy === "post_tag" ? "tag" : "category"
+      : requestBody.type;
+    const contentType = requestBody.contentType || legacyType;
+    const contentId = requestBody.contentId || legacyData.id;
+    const contentSlug = requestBody.contentSlug || legacyData.slug;
+    const contentPath = requestBody.contentPath;
 
     if (!contentType) {
       return NextResponse.json(
@@ -39,20 +48,32 @@ export async function POST(request: NextRequest) {
       );
 
       // Revalidate specific content type tags
-      revalidateTag("wordpress", { expire: 0 });
+      if (contentType !== "translation") revalidateTag("wordpress", { expire: 0 });
 
       if (contentType === "post") {
         revalidateTag("posts", { expire: 0 });
+        if (!contentId && !contentSlug) revalidateTag("translated-posts", { expire: 0 });
         if (contentId) {
           revalidateTag(`post-${contentId}`, { expire: 0 });
+          revalidateTag(`translated-post-id-${contentId}`, { expire: 0 });
         }
         if (contentSlug) {
           revalidateTag(`post-slug-${contentSlug}`, { expire: 0 });
-          revalidatePath(`/posts/${contentSlug}`);
+          revalidateTag(`translated-post-slug-${contentSlug}`, { expire: 0 });
+          for (const locale of locales) revalidatePath(localizePath(`/posts/${contentSlug}`, locale));
         }
         // Clear all post pages when any post changes
         revalidateTag("posts-page-1", { expire: 0 });
-        revalidatePath("/posts");
+        for (const locale of locales) revalidatePath(localizePath("/posts", locale));
+      } else if (contentType === "translation") {
+        // Manual invalidation after an editor changes a stored translation.
+        if (contentId) revalidateTag(`translated-post-id-${contentId}`, { expire: 0 });
+        if (contentSlug) revalidateTag(`translated-post-slug-${contentSlug}`, { expire: 0 });
+        if (!contentId && !contentSlug) revalidateTag("translated-posts", { expire: 0 });
+        for (const locale of locales) revalidateTag(`transposh-${locale}`, { expire: 0 });
+        if (contentSlug) {
+          for (const locale of locales) revalidatePath(localizePath(`/posts/${contentSlug}`, locale));
+        }
       } else if (contentType === "category") {
         revalidateTag("categories", { expire: 0 });
         if (contentId) {

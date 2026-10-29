@@ -14,14 +14,14 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { siteConfig } from "@/site.config";
 import { isLocale, localizePath } from "@/lib/i18n/config";
-import { translatePost } from "@/lib/transposh";
+import { getCachedTranslatedPost } from "@/lib/transposh";
 import { cache } from "react";
 
 export const dynamic = "force-dynamic";
 
 const getTranslatedPost = cache(async (slug: string, locale: "en" | "de" | "fr" | "es") => {
   const sourcePost = await getPostBySlug(slug);
-  return sourcePost ? translatePost(sourcePost, locale) : undefined;
+  return sourcePost ? getCachedTranslatedPost(sourcePost, locale) : undefined;
 });
 
 export async function generateMetadata({

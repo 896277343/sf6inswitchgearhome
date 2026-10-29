@@ -3,6 +3,7 @@ import "server-only";
 import type { Page, Post } from "@/lib/wordpress.d";
 import { defaultLocale, type Locale } from "@/lib/i18n/config";
 import { escapeHtmlText, prepareHtmlTranslation, splitTranslationText } from "@/lib/html-translation";
+import { unstable_cache } from "next/cache";
 
 const apiBase = (process.env.TRANSPOSH_API_URL || process.env.WORDPRESS_URL || "").replace(/\/$/, "");
 const apiSecret = process.env.TRANSPOSH_HEADLESS_SECRET || "";
@@ -77,7 +78,7 @@ export async function translateStrings(
   }
 }
 
-async function translateArticleHtml(html: string, locale: Locale): Promise<string> {
+async function translateArticleHtml(html: string, locale: Locale): Promise<{ html: string; complete: boolean }> {
   const { tokens, indices } = prepareHtmlTranslation(html);
   const pieces = indices.flatMap((index) =>
     splitTranslationText(tokens[index]).map((value) => ({ index, value }))
@@ -102,6 +103,7 @@ async function translateArticleHtml(html: string, locale: Locale): Promise<strin
   flush();
 
   const translated = new Map<number, string[]>();
+  let complete = true;
   // Bound concurrency so one long article does not overwhelm WordPress or the AI proxy.
   let nextBatch = 0;
   const workers = Array.from({ length: Math.min(2, batches.length) }, async () => {
@@ -109,6 +111,7 @@ async function translateArticleHtml(html: string, locale: Locale): Promise<strin
       const index = nextBatch++;
       const current = batches[index];
       const { results, accepted } = await translateStrings(current.map(({ value }) => value), locale, { format: "text" });
+      if (accepted.some((value) => !value)) complete = false;
       batches[index] = current.map((piece, position) => ({
         index: piece.index,
         value: accepted[position] ? escapeHtmlText(results[position]) : piece.value,
@@ -122,20 +125,50 @@ async function translateArticleHtml(html: string, locale: Locale): Promise<strin
     translated.set(piece.index, values);
   }
   for (const [index, values] of translated) tokens[index] = values.join("");
-  return tokens.join("");
+  return { html: tokens.join(""), complete };
+}
+
+export async function translatePostWithStatus(post: Post, locale: Locale): Promise<{ post: Post; complete: boolean }> {
+  if (locale === defaultLocale) return { post, complete: true };
+  const source = [post.title.rendered, post.excerpt.rendered];
+  const { results, accepted } = await translateStrings(source, locale);
+  const content = await translateArticleHtml(post.content.rendered, locale);
+  return {
+    complete: content.complete && accepted.every((value, index) => !source[index].trim() || value),
+    post: {
+      ...post,
+      title: { ...post.title, rendered: results[0] },
+      excerpt: { ...post.excerpt, rendered: results[1] },
+      content: { ...post.content, rendered: content.html },
+    },
+  };
 }
 
 export async function translatePost(post: Post, locale: Locale): Promise<Post> {
+  return (await translatePostWithStatus(post, locale)).post;
+}
+
+class IncompletePostTranslation extends Error {
+  constructor(public post: Post) { super("Post translation is incomplete"); }
+}
+
+/** Only complete translations enter the persistent Next.js data cache. */
+export async function getCachedTranslatedPost(post: Post, locale: Locale): Promise<Post> {
   if (locale === defaultLocale) return post;
-  const source = [post.title.rendered, post.excerpt.rendered];
-  const { results } = await translateStrings(source, locale);
-  const content = await translateArticleHtml(post.content.rendered, locale);
-  return {
-    ...post,
-    title: { ...post.title, rendered: results[0] },
-    excerpt: { ...post.excerpt, rendered: results[1] },
-    content: { ...post.content, rendered: content },
-  };
+  const cached = unstable_cache(async () => {
+    const outcome = await translatePostWithStatus(post, locale);
+    if (!outcome.complete) throw new IncompletePostTranslation(outcome.post);
+    return outcome.post;
+  }, ["headless-post-v2", String(post.id), post.slug, post.modified, locale], {
+    tags: ["translated-posts", `translated-post-id-${post.id}`, `translated-post-slug-${post.slug}`],
+    revalidate: 86400,
+  });
+  try {
+    return await cached();
+  } catch (error) {
+    if (error instanceof IncompletePostTranslation) return error.post;
+    throw error;
+  }
 }
 
 export async function translatePage(page: Page, locale: Locale): Promise<Page> {

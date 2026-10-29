@@ -106,10 +106,30 @@ describe("POST /api/revalidate", () => {
     expect(mockRevalidateTag).toHaveBeenCalledWith("wordpress", { expire: 0 });
     expect(mockRevalidateTag).toHaveBeenCalledWith("posts", { expire: 0 });
     expect(mockRevalidateTag).toHaveBeenCalledWith("post-42", { expire: 0 });
+    expect(mockRevalidateTag).toHaveBeenCalledWith("translated-post-id-42", { expire: 0 });
     expect(mockRevalidateTag).toHaveBeenCalledWith("posts-page-1", {
       expire: 0,
     });
     expect(mockRevalidatePath).toHaveBeenCalledWith("/", "layout");
+  });
+
+  it("accepts the legacy WordPress webhook payload and clears every locale's article path", async () => {
+    const { POST } = await import("@/app/api/revalidate/route");
+    const res = await POST(createRequest({ type: "post", data: { id: 42, slug: "test-post" } }, "test-secret"));
+    expect(res.status).toBe(200);
+    expect(mockRevalidateTag).toHaveBeenCalledWith("translated-post-id-42", { expire: 0 });
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/posts/test-post");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/de/posts/test-post");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/fr/posts/test-post");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/es/posts/test-post");
+  });
+
+  it("allows authenticated manual translation-cache invalidation", async () => {
+    const { POST } = await import("@/app/api/revalidate/route");
+    const res = await POST(createRequest({ contentType: "translation", contentId: 42 }, "test-secret"));
+    expect(res.status).toBe(200);
+    expect(mockRevalidateTag).toHaveBeenCalledWith("translated-post-id-42", { expire: 0 });
+    expect(mockRevalidateTag).toHaveBeenCalledWith("transposh-de", { expire: 0 });
   });
 
   it("revalidates category tags", async () => {
