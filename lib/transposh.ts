@@ -47,7 +47,8 @@ export async function translateStrings(
         revalidate: 86400,
         tags: [`transposh-${locale}`],
       },
-      signal: AbortSignal.timeout(30000),
+      // WordPress may retry and fall back after a provider's 30-second timeout.
+      signal: AbortSignal.timeout(65000),
     });
 
     if (!response.ok) {
@@ -74,29 +75,45 @@ async function translateArticleHtml(html: string, locale: Locale): Promise<strin
   const pieces = indices.flatMap((index) =>
     splitTranslationText(tokens[index]).map((value) => ({ index, value }))
   );
-  const translated = new Map<number, string[]>();
+  const batches: Array<typeof pieces> = [];
   let batch: typeof pieces = [];
   let batchBytes = 0;
 
-  const flush = async () => {
+  const flush = () => {
     if (batch.length === 0) return;
-    const { results } = await translateStrings(batch.map(({ value }) => value), locale);
-    batch.forEach(({ index }, position) => {
-      const values = translated.get(index) || [];
-      values.push(results[position] || batch[position].value);
-      translated.set(index, values);
-    });
+    batches.push(batch);
     batch = [];
     batchBytes = 0;
   };
 
   for (const piece of pieces) {
     const bytes = new TextEncoder().encode(piece.value).length;
-    if (batch.length >= 20 || batchBytes + bytes > 12000) await flush();
+    if (batch.length >= 4 || batchBytes + bytes > 4800) flush();
     batch.push(piece);
     batchBytes += bytes;
   }
-  await flush();
+  flush();
+
+  const translated = new Map<number, string[]>();
+  // Bound concurrency so one long article does not overwhelm WordPress or the AI proxy.
+  let nextBatch = 0;
+  const workers = Array.from({ length: Math.min(2, batches.length) }, async () => {
+    while (nextBatch < batches.length) {
+      const index = nextBatch++;
+      const current = batches[index];
+      const { results } = await translateStrings(current.map(({ value }) => value), locale);
+      batches[index] = current.map((piece, position) => ({
+        index: piece.index,
+        value: results[position] || piece.value,
+      }));
+    }
+  });
+  await Promise.all(workers);
+  for (const piece of batches.flat()) {
+    const values = translated.get(piece.index) || [];
+    values.push(piece.value);
+    translated.set(piece.index, values);
+  }
   for (const [index, values] of translated) tokens[index] = values.join("");
   return tokens.join("");
 }

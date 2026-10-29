@@ -1,4 +1,5 @@
-const MAX_TEXT_BYTES = 8000;
+// Keep each text node small enough for slower AI-compatible proxies.
+const MAX_TEXT_BYTES = 2400;
 const SKIP_TAGS = new Set(["script", "style", "pre", "code", "svg", "noscript"]);
 const encoder = new TextEncoder();
 

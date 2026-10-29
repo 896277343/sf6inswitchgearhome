@@ -14,6 +14,6 @@ describe("article translation preparation", () => {
     const parts = splitTranslationText(source);
     expect(parts.length).toBeGreaterThan(1);
     expect(parts.join("")).toBe(source);
-    expect(parts.every((part) => new TextEncoder().encode(part).length <= 8000)).toBe(true);
+    expect(parts.every((part) => new TextEncoder().encode(part).length <= 2400)).toBe(true);
   });
 });
