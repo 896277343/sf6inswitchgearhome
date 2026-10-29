@@ -2,7 +2,7 @@ import "server-only";
 
 import type { Page, Post } from "@/lib/wordpress.d";
 import { defaultLocale, type Locale } from "@/lib/i18n/config";
-import { prepareHtmlTranslation, splitTranslationText } from "@/lib/html-translation";
+import { escapeHtmlText, prepareHtmlTranslation, splitTranslationText } from "@/lib/html-translation";
 
 const apiBase = (process.env.TRANSPOSH_API_URL || process.env.WORDPRESS_URL || "").replace(/\/$/, "");
 const apiSecret = process.env.TRANSPOSH_HEADLESS_SECRET || "";
@@ -12,23 +12,25 @@ type TranslationResponse = {
   source_language: string;
   provider: string;
   results: string[];
+  translated_mask?: boolean[];
 };
 
 export async function translateStrings(
   strings: string[],
-  locale: Locale
-): Promise<{ results: string[]; translated: boolean }> {
+  locale: Locale,
+  options: { format?: "text" } = {}
+): Promise<{ results: string[]; translated: boolean; accepted: boolean[] }> {
   if (locale === defaultLocale || strings.length === 0) {
-    return { results: strings, translated: locale === defaultLocale };
+    return { results: strings, translated: locale === defaultLocale, accepted: strings.map(() => locale === defaultLocale) };
   }
   if (!apiBase || apiSecret.length < 24) {
     console.warn("Transposh Headless API is not configured; returning source content");
-    return { results: strings, translated: false };
+    return { results: strings, translated: false, accepted: strings.map(() => false) };
   }
 
   // The WordPress endpoint rejects empty items. Keep their positions intact.
   const nonEmpty = strings.map((value, index) => ({ value, index })).filter(({ value }) => value.trim());
-  if (nonEmpty.length === 0) return { results: strings, translated: true };
+  if (nonEmpty.length === 0) return { results: strings, translated: true, accepted: strings.map(() => false) };
 
   try {
     const response = await fetch(`${apiBase}/wp-json/transposh/v1/translate`, {
@@ -41,32 +43,37 @@ export async function translateStrings(
         source_language: defaultLocale,
         language: locale,
         strings: nonEmpty.map(({ value }) => value),
+        ...(options.format ? { format: options.format } : {}),
       }),
-      cache: "force-cache",
-      next: {
+      cache: options.format === "text" ? "no-store" : "force-cache",
+      ...(options.format === "text" ? {} : { next: {
         revalidate: 86400,
         tags: [`transposh-${locale}`],
-      },
+      } }),
       // WordPress may retry and fall back after a provider's 30-second timeout.
       signal: AbortSignal.timeout(65000),
     });
 
     if (!response.ok) {
       console.warn(`Transposh translation failed with HTTP ${response.status}`);
-      return { results: strings, translated: false };
+      return { results: strings, translated: false, accepted: strings.map(() => false) };
     }
     const payload = (await response.json()) as TranslationResponse;
     if (!Array.isArray(payload.results) || payload.results.length !== nonEmpty.length) {
       console.warn("Transposh returned an invalid translation batch");
-      return { results: strings, translated: false };
+      return { results: strings, translated: false, accepted: strings.map(() => false) };
     }
     const results = [...strings];
-    nonEmpty.forEach(({ index }, resultIndex) => { results[index] = payload.results[resultIndex]; });
-    return { results, translated: true };
+    const accepted = strings.map(() => false);
+    nonEmpty.forEach(({ index }, resultIndex) => {
+      results[index] = payload.results[resultIndex];
+      accepted[index] = payload.translated_mask?.[resultIndex] ?? true;
+    });
+    return { results, translated: accepted.some(Boolean), accepted };
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
     console.warn(`Transposh translation request failed: ${message}`);
-    return { results: strings, translated: false };
+    return { results: strings, translated: false, accepted: strings.map(() => false) };
   }
 }
 
@@ -101,10 +108,10 @@ async function translateArticleHtml(html: string, locale: Locale): Promise<strin
     while (nextBatch < batches.length) {
       const index = nextBatch++;
       const current = batches[index];
-      const { results } = await translateStrings(current.map(({ value }) => value), locale);
+      const { results, accepted } = await translateStrings(current.map(({ value }) => value), locale, { format: "text" });
       batches[index] = current.map((piece, position) => ({
         index: piece.index,
-        value: results[position] || piece.value,
+        value: accepted[position] ? escapeHtmlText(results[position]) : piece.value,
       }));
     }
   });

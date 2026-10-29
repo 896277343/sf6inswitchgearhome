@@ -3,6 +3,12 @@ const MAX_TEXT_BYTES = 2400;
 const SKIP_TAGS = new Set(["script", "style", "pre", "code", "svg", "noscript"]);
 const encoder = new TextEncoder();
 
+/** AI output is plain text; never allow it to create markup inside a post. */
+export function escapeHtmlText(text: string): string {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
 export function splitTranslationText(text: string): string[] {
   if (encoder.encode(text).length <= MAX_TEXT_BYTES) return [text];
   const parts: string[] = [];

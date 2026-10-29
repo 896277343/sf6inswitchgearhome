@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { prepareHtmlTranslation, splitTranslationText } from "@/lib/html-translation";
+import { escapeHtmlText, prepareHtmlTranslation, splitTranslationText } from "@/lib/html-translation";
 
 describe("article translation preparation", () => {
   it("keeps HTML markup and code untouched", () => {
@@ -15,5 +15,10 @@ describe("article translation preparation", () => {
     expect(parts.length).toBeGreaterThan(1);
     expect(parts.join("")).toBe(source);
     expect(parts.every((part) => new TextEncoder().encode(part).length <= 2400)).toBe(true);
+  });
+
+  it("escapes translated text so it cannot inject HTML", () => {
+    expect(escapeHtmlText('<img src=x onerror="alert(1)"> & text'))
+      .toBe('&lt;img src=x onerror=&quot;alert(1)&quot;&gt; &amp; text');
   });
 });
